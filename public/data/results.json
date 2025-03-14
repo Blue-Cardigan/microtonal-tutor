@@ -1,0 +1,2398 @@
+{
+  "title": "31edo Scale Generator with Categorization",
+  "families": {
+    "diatonic": {
+      "name": "STANDARD DIATONIC FAMILY",
+      "scales": [
+        {
+          "name": "Lydian",
+          "degrees": [
+            0,
+            5,
+            10,
+            15,
+            18,
+            23,
+            28,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            5,
+            3,
+            5,
+            5,
+            3
+          ],
+          "modifications": [],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant",
+              "Harmonic Series Approximant",
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Western",
+              "Indonesian Gamelan"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Ionian 4-",
+          "degrees": [
+            0,
+            5,
+            10,
+            14,
+            18,
+            23,
+            28,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            4,
+            4,
+            5,
+            5,
+            3
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant",
+              "Harmonic Series Approximant"
+            ],
+            "cultural": [
+              "Western"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Mixolydian 4-,7-",
+          "degrees": [
+            0,
+            5,
+            10,
+            14,
+            18,
+            23,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            4,
+            4,
+            5,
+            4,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Western"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Dorian 4-,7-,3-",
+          "degrees": [
+            0,
+            5,
+            9,
+            14,
+            18,
+            23,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            4,
+            5,
+            4,
+            5,
+            4,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Western"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Aeolian 4-,7-,3-,6-",
+          "degrees": [
+            0,
+            5,
+            9,
+            14,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            4,
+            5,
+            4,
+            4,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Western"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Phrygian 4-,7-,3-,6-,2-",
+          "degrees": [
+            0,
+            4,
+            9,
+            14,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            5,
+            4,
+            4,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            },
+            {
+              "step": 5,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Western"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Locrian 4-,7-,3-,6-,2-,5-",
+          "degrees": [
+            0,
+            4,
+            9,
+            14,
+            17,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            5,
+            3,
+            5,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            },
+            {
+              "step": 5,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            },
+            {
+              "step": 6,
+              "description": "flatten 5th",
+              "degreeIndex": 4,
+              "newValue": 17
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant"
+            ],
+            "cultural": [
+              "Western",
+              "Indonesian Gamelan"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Symmetric",
+              "Reflectively Symmetric",
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Superlocrian 4-,7-,3-,6-,2-,5-,1-",
+          "degrees": [
+            -1,
+            4,
+            9,
+            14,
+            17,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            5,
+            3,
+            5,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 14
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            },
+            {
+              "step": 5,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            },
+            {
+              "step": 6,
+              "description": "flatten 5th",
+              "degreeIndex": 4,
+              "newValue": 17
+            },
+            {
+              "step": 7,
+              "description": "flatten 1st",
+              "degreeIndex": 0,
+              "newValue": -1
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant"
+            ],
+            "cultural": [
+              "Western",
+              "Indonesian Gamelan"
+            ],
+            "perceptual": [
+              "Bright"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        }
+      ]
+    },
+    "diatonicVariants": {
+      "name": "DIATONIC VARIANTS",
+      "scales": [
+        {
+          "name": "Mixolydian 4-,7- 7min-2min",
+          "degrees": [
+            0,
+            4,
+            10,
+            14,
+            18,
+            23,
+            26,
+            31
+          ],
+          "intervals": [
+            4,
+            6,
+            4,
+            4,
+            5,
+            3,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 2,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Mixolydian 4-,7- 7min-6min",
+          "degrees": [
+            0,
+            5,
+            10,
+            14,
+            18,
+            22,
+            26,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            4,
+            4,
+            4,
+            4,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 2,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Dorian 4-,7-,3- 7min-3min-2min",
+          "degrees": [
+            0,
+            4,
+            8,
+            14,
+            18,
+            23,
+            26,
+            31
+          ],
+          "intervals": [
+            4,
+            4,
+            6,
+            4,
+            5,
+            3,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 2,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            },
+            {
+              "step": 3,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Dorian 4-,7-,3- 7min-3min",
+          "degrees": [
+            0,
+            5,
+            8,
+            14,
+            18,
+            23,
+            26,
+            31
+          ],
+          "intervals": [
+            5,
+            3,
+            6,
+            4,
+            5,
+            3,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 2,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Lydian 5maj",
+          "degrees": [
+            0,
+            5,
+            10,
+            15,
+            19,
+            23,
+            28,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            5,
+            4,
+            4,
+            5,
+            3
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "raise 5th",
+              "degreeIndex": 4,
+              "newValue": 19
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        }
+      ]
+    },
+    "neutral": {
+      "name": "NEUTRAL FAMILY",
+      "scales": [
+        {
+          "name": "Ionian 4-",
+          "degrees": [
+            0,
+            5,
+            10,
+            14,
+            18,
+            23,
+            28,
+            31
+          ],
+          "intervals": [
+            5,
+            5,
+            4,
+            4,
+            5,
+            5,
+            3
+          ],
+          "modifications": [],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant",
+              "Harmonic Series Approximant"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Semi-neutral",
+          "degrees": [
+            0,
+            5,
+            9,
+            14,
+            18,
+            23,
+            28,
+            31
+          ],
+          "intervals": [
+            5,
+            4,
+            5,
+            4,
+            5,
+            5,
+            3
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Just Intonation Approximant"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Pan-neutral",
+          "degrees": [
+            0,
+            5,
+            9,
+            14,
+            18,
+            23,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            4,
+            5,
+            4,
+            5,
+            4,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Pan-neutral",
+          "degrees": [
+            0,
+            4,
+            9,
+            14,
+            18,
+            23,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            5,
+            4,
+            5,
+            4,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "neutralize 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Pan-neutral",
+          "degrees": [
+            0,
+            4,
+            9,
+            14,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            5,
+            4,
+            4,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "neutralize 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            },
+            {
+              "step": 4,
+              "description": "neutralize 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Pan-neutral",
+          "degrees": [
+            0,
+            4,
+            9,
+            13,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            4,
+            5,
+            4,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "neutralize 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            },
+            {
+              "step": 4,
+              "description": "neutralize 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            },
+            {
+              "step": 5,
+              "description": "neutralize 4th",
+              "degreeIndex": 3,
+              "newValue": 13
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Symmetric",
+              "Reflectively Symmetric",
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Pan-neutral",
+          "degrees": [
+            0,
+            4,
+            9,
+            13,
+            17,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            4,
+            4,
+            5,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            },
+            {
+              "step": 3,
+              "description": "neutralize 2nd",
+              "degreeIndex": 1,
+              "newValue": 4
+            },
+            {
+              "step": 4,
+              "description": "neutralize 6th",
+              "degreeIndex": 5,
+              "newValue": 22
+            },
+            {
+              "step": 5,
+              "description": "neutralize 4th",
+              "degreeIndex": 3,
+              "newValue": 13
+            },
+            {
+              "step": 6,
+              "description": "neutralize 5th",
+              "degreeIndex": 4,
+              "newValue": 17
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        }
+      ]
+    },
+    "neutralVariants": {
+      "name": "NEUTRAL VARIANTS",
+      "scales": [
+        {
+          "name": "Lydian 3neu-7neu",
+          "degrees": [
+            0,
+            5,
+            9,
+            15,
+            18,
+            23,
+            27,
+            31
+          ],
+          "intervals": [
+            5,
+            4,
+            6,
+            3,
+            5,
+            4,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 9
+            },
+            {
+              "step": 2,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 27
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Phrygian 4-,7-,3-,6-,2- 2neu-3neu-7neu",
+          "degrees": [
+            0,
+            3,
+            8,
+            14,
+            18,
+            22,
+            26,
+            31
+          ],
+          "intervals": [
+            3,
+            5,
+            6,
+            4,
+            4,
+            4,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "neutralize 2nd",
+              "degreeIndex": 1,
+              "newValue": 3
+            },
+            {
+              "step": 2,
+              "description": "neutralize 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            },
+            {
+              "step": 3,
+              "description": "neutralize 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        }
+      ]
+    },
+    "maqam": {
+      "name": "MAQAM-BASED SCALES",
+      "scales": [
+        {
+          "name": "Maqam",
+          "degrees": [
+            0,
+            3,
+            9,
+            13,
+            18,
+            21,
+            27,
+            31
+          ],
+          "intervals": [
+            3,
+            6,
+            4,
+            5,
+            3,
+            6,
+            4
+          ],
+          "modifications": [],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Maqam 4min",
+          "degrees": [
+            0,
+            3,
+            9,
+            12,
+            18,
+            21,
+            27,
+            31
+          ],
+          "intervals": [
+            3,
+            6,
+            3,
+            6,
+            3,
+            6,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 12
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Highly Dissonant"
+            ],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "High Tension"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Chromatic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Maqam 4min-7min",
+          "degrees": [
+            0,
+            3,
+            9,
+            12,
+            18,
+            21,
+            26,
+            31
+          ],
+          "intervals": [
+            3,
+            6,
+            3,
+            6,
+            3,
+            5,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 12
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Maqam 4min-7min-3min",
+          "degrees": [
+            0,
+            3,
+            8,
+            12,
+            18,
+            21,
+            26,
+            31
+          ],
+          "intervals": [
+            3,
+            5,
+            4,
+            6,
+            3,
+            5,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 12
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Diatonic Genus"
+            ]
+          }
+        },
+        {
+          "name": "Maqam 4min-7min-3min-6min",
+          "degrees": [
+            0,
+            3,
+            8,
+            12,
+            18,
+            20,
+            26,
+            31
+          ],
+          "intervals": [
+            3,
+            5,
+            4,
+            6,
+            2,
+            6,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 12
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 20
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Highly Dissonant"
+            ],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "High Tension"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Dense Interval Content"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Maqam 4min-7min-3min-6min-2min",
+          "degrees": [
+            0,
+            2,
+            8,
+            12,
+            18,
+            20,
+            26,
+            31
+          ],
+          "intervals": [
+            2,
+            6,
+            4,
+            6,
+            2,
+            6,
+            5
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "flatten 4th",
+              "degreeIndex": 3,
+              "newValue": 12
+            },
+            {
+              "step": 2,
+              "description": "flatten 7th",
+              "degreeIndex": 6,
+              "newValue": 26
+            },
+            {
+              "step": 3,
+              "description": "flatten 3rd",
+              "degreeIndex": 2,
+              "newValue": 8
+            },
+            {
+              "step": 4,
+              "description": "flatten 6th",
+              "degreeIndex": 5,
+              "newValue": 20
+            },
+            {
+              "step": 5,
+              "description": "flatten 2nd",
+              "degreeIndex": 1,
+              "newValue": 2
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Highly Dissonant"
+            ],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition",
+              "Experimental/Contemporary"
+            ],
+            "perceptual": [
+              "Neutral",
+              "High Tension"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Enharmonic Genus"
+            ]
+          }
+        }
+      ]
+    },
+    "exotic": {
+      "name": "EXOTIC FAMILY",
+      "scales": [
+        {
+          "name": "Neutral",
+          "degrees": [
+            0,
+            4,
+            9,
+            13,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            4,
+            5,
+            4,
+            5,
+            4
+          ],
+          "modifications": [],
+          "categories": {
+            "acoustic": [
+              "Equal-Spaced"
+            ],
+            "cultural": [
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Symmetric",
+              "Reflectively Symmetric",
+              "Prime Cardinality",
+              "Sparse Interval Content",
+              "Equal Heptatonic Division"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min",
+          "degrees": [
+            0,
+            4,
+            7,
+            13,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            3,
+            6,
+            5,
+            4,
+            5,
+            4
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "Ambiguous"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Neutral Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min-7min",
+          "degrees": [
+            0,
+            4,
+            7,
+            13,
+            18,
+            22,
+            25,
+            31
+          ],
+          "intervals": [
+            4,
+            3,
+            6,
+            5,
+            4,
+            3,
+            6
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            },
+            {
+              "step": 2,
+              "description": "minor 7th",
+              "degreeIndex": 6,
+              "newValue": 25
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min-7min-2min",
+          "degrees": [
+            0,
+            2,
+            7,
+            13,
+            18,
+            22,
+            25,
+            31
+          ],
+          "intervals": [
+            2,
+            5,
+            6,
+            5,
+            4,
+            3,
+            6
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            },
+            {
+              "step": 2,
+              "description": "minor 7th",
+              "degreeIndex": 6,
+              "newValue": 25
+            },
+            {
+              "step": 3,
+              "description": "minor 2nd",
+              "degreeIndex": 1,
+              "newValue": 2
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Highly Dissonant"
+            ],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "High Tension"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Dense Interval Content"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min-7min-2min-4min",
+          "degrees": [
+            0,
+            2,
+            7,
+            11,
+            18,
+            22,
+            25,
+            31
+          ],
+          "intervals": [
+            2,
+            5,
+            4,
+            7,
+            4,
+            3,
+            6
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            },
+            {
+              "step": 2,
+              "description": "minor 7th",
+              "degreeIndex": 6,
+              "newValue": 25
+            },
+            {
+              "step": 3,
+              "description": "minor 2nd",
+              "degreeIndex": 1,
+              "newValue": 2
+            },
+            {
+              "step": 4,
+              "description": "diminished 4th",
+              "degreeIndex": 3,
+              "newValue": 11
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Dense Interval Content"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min-7min-2min-4min-5min",
+          "degrees": [
+            0,
+            2,
+            7,
+            11,
+            16,
+            22,
+            25,
+            31
+          ],
+          "intervals": [
+            2,
+            5,
+            4,
+            5,
+            6,
+            3,
+            6
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            },
+            {
+              "step": 2,
+              "description": "minor 7th",
+              "degreeIndex": 6,
+              "newValue": 25
+            },
+            {
+              "step": 3,
+              "description": "minor 2nd",
+              "degreeIndex": 1,
+              "newValue": 2
+            },
+            {
+              "step": 4,
+              "description": "diminished 4th",
+              "degreeIndex": 3,
+              "newValue": 11
+            },
+            {
+              "step": 5,
+              "description": "diminished 5th",
+              "degreeIndex": 4,
+              "newValue": 16
+            }
+          ],
+          "categories": {
+            "acoustic": [
+              "Highly Dissonant"
+            ],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral",
+              "High Tension"
+            ],
+            "mathematical": [
+              "Prime Cardinality",
+              "Dense Interval Content"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        },
+        {
+          "name": "Neutral 3min-7min-2min-4min-5min-6min",
+          "degrees": [
+            0,
+            2,
+            7,
+            11,
+            16,
+            20,
+            25,
+            31
+          ],
+          "intervals": [
+            2,
+            5,
+            4,
+            5,
+            4,
+            5,
+            6
+          ],
+          "modifications": [
+            {
+              "step": 1,
+              "description": "minor 3rd",
+              "degreeIndex": 2,
+              "newValue": 7
+            },
+            {
+              "step": 2,
+              "description": "minor 7th",
+              "degreeIndex": 6,
+              "newValue": 25
+            },
+            {
+              "step": 3,
+              "description": "minor 2nd",
+              "degreeIndex": 1,
+              "newValue": 2
+            },
+            {
+              "step": 4,
+              "description": "diminished 4th",
+              "degreeIndex": 3,
+              "newValue": 11
+            },
+            {
+              "step": 5,
+              "description": "diminished 5th",
+              "degreeIndex": 4,
+              "newValue": 16
+            },
+            {
+              "step": 6,
+              "description": "minor 6th",
+              "degreeIndex": 5,
+              "newValue": 20
+            }
+          ],
+          "categories": {
+            "acoustic": [],
+            "cultural": [
+              "Balkan",
+              "Indonesian Gamelan",
+              "Microtonal Tradition"
+            ],
+            "perceptual": [
+              "Neutral"
+            ],
+            "mathematical": [
+              "Prime Cardinality"
+            ],
+            "genera": [
+              "Mixed Genus"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "filteredCollections": {
+    "arabicInfluenced": {
+      "name": "SCALES WITH ARABIC/MIDDLE EASTERN INFLUENCE",
+      "count": 0,
+      "scales": []
+    }
+  },
+  "detailedReports": {
+    "panNeutral": {
+      "name": "Pan-neutral",
+      "report": {
+        "basicInformation": {
+          "degrees": [
+            0,
+            4,
+            9,
+            14,
+            18,
+            22,
+            27,
+            31
+          ],
+          "intervals": [
+            4,
+            5,
+            5,
+            4,
+            4,
+            5,
+            4
+          ],
+          "intervalQualities": [
+            {
+              "degrees": "1→2",
+              "quality": "neutral 2nd",
+              "steps": 4
+            },
+            {
+              "degrees": "2→3",
+              "quality": "major 2nd",
+              "steps": 5
+            },
+            {
+              "degrees": "3→4",
+              "quality": "major 2nd",
+              "steps": 5
+            },
+            {
+              "degrees": "4→5",
+              "quality": "neutral 2nd",
+              "steps": 4
+            },
+            {
+              "degrees": "5→6",
+              "quality": "neutral 2nd",
+              "steps": 4
+            },
+            {
+              "degrees": "6→7",
+              "quality": "major 2nd",
+              "steps": 5
+            },
+            {
+              "degrees": "7→8",
+              "quality": "neutral 2nd",
+              "steps": 4
+            }
+          ],
+          "semitoneApproximation": [
+            1.55,
+            1.94,
+            1.94,
+            1.55,
+            1.55,
+            1.94,
+            1.55
+          ]
+        },
+        "categories": {
+          "acoustic": [
+            "Equal-Spaced"
+          ],
+          "cultural": [
+            "Microtonal Tradition"
+          ],
+          "perceptual": [
+            "Neutral",
+            "Ambiguous"
+          ],
+          "mathematical": [
+            "Prime Cardinality",
+            "Sparse Interval Content",
+            "Equal Heptatonic Division"
+          ],
+          "genera": [
+            "Neutral Genus"
+          ]
+        },
+        "historicalConnections": [
+          {
+            "tradition": "Indonesian Gamelan",
+            "significance": "Low",
+            "description": "Interval spacing somewhat resembles slendro/pelog tunings"
+          }
+        ],
+        "traditionalAnalogues": [
+          {
+            "name": "Major (Western)",
+            "tradition": "Western European",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 1,
+            "similarMatches": 7
+          },
+          {
+            "name": "Natural Minor (Western)",
+            "tradition": "Western European",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 2,
+            "similarMatches": 6
+          },
+          {
+            "name": "Harmonic Minor (Western)",
+            "tradition": "Western European",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 2,
+            "similarMatches": 6
+          },
+          {
+            "name": "Maqam Rast (Arabic)",
+            "tradition": "Arabic/Middle Eastern",
+            "relationship": "Direct analogue",
+            "similarity": "High",
+            "exactMatches": 5,
+            "similarMatches": 7
+          },
+          {
+            "name": "Maqam Bayati (Arabic)",
+            "tradition": "Arabic/Middle Eastern",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 2,
+            "similarMatches": 7
+          },
+          {
+            "name": "Maqam Hijaz (Arabic)",
+            "tradition": "Arabic/Middle Eastern",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 1,
+            "similarMatches": 6
+          },
+          {
+            "name": "Dastgah Shur (Persian)",
+            "tradition": "Persian",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 2,
+            "similarMatches": 6
+          },
+          {
+            "name": "Makam Hicaz (Turkish)",
+            "tradition": "Turkish/Ottoman",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 0,
+            "similarMatches": 6
+          },
+          {
+            "name": "Phrygian Dominant (Balkan/Klezmer)",
+            "tradition": "Balkan/Jewish",
+            "relationship": "Similar structure",
+            "similarity": "Medium-High",
+            "exactMatches": 1,
+            "similarMatches": 6
+          }
+        ],
+        "suggestedUses": [
+          "Useful for creating ambiguous, uncertain moods",
+          "The neutral intervals provide opportunities for microtonal expression not available in 12edo"
+        ]
+      }
+    }
+  },
+  "traditionalAnalogues": {
+    "scale": {
+      "name": "Hijaz-like scale",
+      "degrees": [
+        0,
+        3,
+        9,
+        12,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        3,
+        6,
+        3,
+        6,
+        4
+      ],
+      "categories": {
+        "acoustic": [
+          "Highly Dissonant"
+        ],
+        "cultural": [
+          "Balkan",
+          "Microtonal Tradition"
+        ],
+        "perceptual": [
+          "Neutral",
+          "High Tension"
+        ],
+        "mathematical": [
+          "Prime Cardinality"
+        ],
+        "genera": [
+          "Chromatic Genus"
+        ]
+      }
+    },
+    "analogues": [
+      {
+        "name": "Maqam Bayati (Arabic)",
+        "tradition": "Arabic/Middle Eastern",
+        "relationship": "Similar structure",
+        "similarity": "Medium-High",
+        "exactMatches": 2,
+        "similarMatches": 7
+      },
+      {
+        "name": "Maqam Hijaz (Arabic)",
+        "tradition": "Arabic/Middle Eastern",
+        "relationship": "Similar structure",
+        "similarity": "Medium-High",
+        "exactMatches": 4,
+        "similarMatches": 7
+      },
+      {
+        "name": "Dastgah Shur (Persian)",
+        "tradition": "Persian",
+        "relationship": "Similar structure",
+        "similarity": "Medium-High",
+        "exactMatches": 3,
+        "similarMatches": 7
+      },
+      {
+        "name": "Makam Hicaz (Turkish)",
+        "tradition": "Turkish/Ottoman",
+        "relationship": "Direct analogue",
+        "similarity": "High",
+        "exactMatches": 5,
+        "similarMatches": 7
+      },
+      {
+        "name": "Phrygian Dominant (Balkan/Klezmer)",
+        "tradition": "Balkan/Jewish",
+        "relationship": "Similar structure",
+        "similarity": "Medium-High",
+        "exactMatches": 4,
+        "similarMatches": 7
+      }
+    ]
+  }
+}
