@@ -162,18 +162,6 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
     return 'text-white';
   };
 
-  // Commented out for future use
-  // const getJustIntonationRatio = (interval: number): string => {
-  //   switch(interval) {
-  //     // Perfect consonances
-  //     case 0: return "1:1";
-  //     case 18: return "3:2";
-  //     case 31: return "2:1";
-  //     // ... other cases
-  //   }
-  //   return "";
-  // };
-
   // Add this function to get chord structure description
   const getChordStructure = (chordType: string): string => {
     switch(chordType) {
@@ -236,12 +224,12 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
                 `}
               >
                 <div className="font-bold">{getStepNoteName(note)}</div>
-                <div className="text-xs opacity-75">
+                {/* <div className="text-xs opacity-75">
                   {index === 0 ? '5th' : 
                    index === sortedNotes.length - 1 ? 'Root' : 
                    index === 1 ? '7th' : 
                    index === 2 ? '3rd' : ''}
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
@@ -251,7 +239,7 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
         <div className="flex-grow">
           <div className="mb-3 p-2 rounded-lg bg-gray-50">
             <div className="flex justify-between items-center">
-              <span className="font-medium">Overall Consonance:</span>
+              <span className="font-medium text-black">Overall Consonance:</span>
               <div 
                 className={`px-2 py-1 rounded-md text-sm font-bold ${getConsonanceColor(overallConsonance)} ${getConsonanceTextColor(overallConsonance)}`}
               >
@@ -261,7 +249,7 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
             <div className="text-sm text-gray-700">{consonanceDescription}</div>
           </div>
           
-          <div className="space-y-2 max-h-64 overflow-y-auto pr-2">
+          <div className="space-y-2 max-h-64 overflow-y-auto pr-2 text-gray-800">
             {intervals.map((interval, index) => (
               <div 
                 key={index} 
@@ -275,7 +263,7 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
                   </div>
                 </div>
                 <div className="flex flex-col items-end">
-                  <div className="text-xs bg-gray-100 px-2 py-1 rounded-md">
+                  <div className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-md">
                     {interval.steps} steps
                   </div>
                   <div className="text-xs mt-1">

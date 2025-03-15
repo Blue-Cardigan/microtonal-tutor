@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useAudio } from '../utils/AudioContext';
 import { formatName } from '../utils/IntervalUtils';
 import * as Tone from 'tone';
@@ -56,6 +56,10 @@ interface ScaleBrowserProps {
     notes: number[];
     type: string;
     degreeRoman: string;
+  } | null) => void;
+  onScaleSelect?: (scale: {
+    name: string;
+    degrees: number[];
   } | null) => void;
 }
 
@@ -233,7 +237,7 @@ const getChordType = (intervals: number[]): string => {
   return "unknown";
 };
 
-const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) => {
+const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleBrowserProps) => {
   const { playNote, stopAllNotes, scheduleNote, isLoaded } = useAudio();
   const [scaleData, setScaleData] = useState<ScaleData | null>(null);
   const [families, setFamilies] = useState<string[]>([]);
@@ -683,6 +687,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [generatedChords, activeKeys, playChord, stopChord, useSeventhChords, selectedChord]);
 
   // Function to set the inversion - wrapped in useCallback to avoid dependency issues
@@ -741,8 +746,8 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
     setIsPlaying(true);
     
     // Set up Tone.js timing variables
-    const noteDuration = 0.3; // 300ms note duration
-    const noteSpacing = 0.5; // 500ms between note starts
+    const noteDuration = 0.4; // 300ms note duration
+    const noteSpacing = 0.3; // 500ms between note starts
     const now = Tone.now();
     
     // Play each note in sequence using Tone.js scheduling
@@ -773,6 +778,21 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
       }
     });
   }, [selectedScale, isLoaded, stopAllNotes, scheduleNote, updateHighlightedNotes, clearAllScheduledEvents]);
+
+  // Memoize the scale data to pass to parent to prevent unnecessary re-renders
+  const scaleForParent = useMemo(() => {
+    return selectedScale ? {
+      name: selectedScale.name,
+      degrees: selectedScale.degrees
+    } : null;
+  }, [selectedScale]);
+  
+  // Update the selected scale and notify parent component
+  useEffect(() => {
+    if (onScaleSelect) {
+      onScaleSelect(scaleForParent);
+    }
+  }, [scaleForParent, onScaleSelect]);
 
   // Cleanup on unmount or when dependencies change
   useEffect(() => {
@@ -1014,7 +1034,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
             </div>
           </div>
           
-          <p className="text-sm text-gray-600 mb-3">
+          <div className="text-sm text-gray-600 mb-3">
             <div className="flex items-center mb-1">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-indigo-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
@@ -1027,7 +1047,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
             <div className="flex items-center ml-5">
               <span>Press <span className="font-bold mx-1">a</span> for auto inversion (lowest bass note).</span>
             </div>
-          </p>
+          </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
             {(useSeventhChords ? generatedChords.sevenths : generatedChords.triads).map((chord, index) => (

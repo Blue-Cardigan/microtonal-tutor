@@ -193,7 +193,7 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       sampler.triggerAttackRelease(freq, duration, time);
       
       // Schedule removal from active notes using Tone.Transport for precise timing
-      const eventId = Tone.Transport.schedule((time) => {
+      const eventId = Tone.Transport.schedule(() => {
         setActiveNotes(prev => {
           const newSet = new Set(prev);
           newSet.delete(note);

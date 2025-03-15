@@ -9,7 +9,7 @@ import fs from 'fs';
 
 // Constants for 31-EDO system
 const OCTAVE = 31; // Steps in an octave
-const FIFTH = 18; // A perfect fifth in 31-EDO is 18 steps
+// const FIFTH = 18; // A perfect fifth in 31-EDO is 18 steps
 
 // Enumeration constants for categorization
 const ACOUSTIC_PROPERTIES = {
@@ -126,9 +126,9 @@ function generateHeptatonicScales() {
       });
       
       // Generate name, description
-      const namingInfo = generateScaleName(newScale, baseScale);
+      const namingInfo = generateScaleName(newScale);
       newScale.name = namingInfo.name;
-      newScale.description = generateDescription(newScale, baseScale);
+      newScale.description = generateDescription(newScale);
       
       // Add categories
       newScale.categories = categorizeScale(newScale, baseScale, MODIFICATION_PATHS.STANDARD);
@@ -158,7 +158,7 @@ function recalculateIntervals(scale) {
 }
 
 // Function to generate scale names based on interval patterns
-function generateScaleName(scale, baseScale) {
+function generateScaleName(scale) {
   // Basic scale type identification based on patterns
   // Format: [modifier][root mode name]
   
@@ -243,8 +243,10 @@ function generateScaleName(scale, baseScale) {
   
   // Add symmetry modifiers
   let isSymmetric = true;
-  for (let i = 0; i < 3; i++) {
-    if (scale.intervals[i] !== scale.intervals[6-i]) {
+  const halfLength = Math.floor(scale.intervals.length / 2);
+  
+  for (let i = 0; i < halfLength; i++) {
+    if (scale.intervals[i] !== scale.intervals[scale.intervals.length - 1 - i]) {
       isSymmetric = false;
       break;
     }
@@ -268,7 +270,7 @@ function generateScaleName(scale, baseScale) {
 }
 
 // Function to generate detailed description of how the scale has been altered
-function generateDescription(scale, baseScale) {
+function generateDescription(scale) {
   if (scale.alterations.length === 0) {
     return "Original hyperlydian scale with no alterations.";
   }
@@ -367,7 +369,7 @@ function categorizeScale(scale, baseScale, modPath) {
   
   // Check for harmonic series approximation
   // 31edo can approximate harmonics 7-16 well
-  const harmonicIntervals = [28, 18, 13, 10]; // Approximates harmonics 7, 5, 4, 3
+  // const harmonicIntervals = [28, 18, 13, 10]; // Approximates harmonics 7, 5, 4, 3
   let harmonicCount = 0;
   for (let i = 0; i < scale.degrees.length; i++) {
     const degree = scale.degrees[i];
@@ -510,7 +512,6 @@ function categorizeScale(scale, baseScale, modPath) {
   // MATHEMATICAL/STRUCTURAL PROPERTIES
   
   // Symmetry check
-  const scalePattern = scale.intervals.join('-');
   let isSymmetric = true;
   const halfLength = Math.floor(scale.intervals.length / 2);
   

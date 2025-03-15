@@ -5,7 +5,6 @@ import { AudioProvider } from '../utils/AudioContext';
 import Keyboard from '../components/Keyboard';
 import ScaleBrowser from '../components/ScaleBrowser';
 import ChordVisualizer from '../components/ChordVisualizer';
-import Footer from '../components/Footer';
 
 export default function Home() {
   const [highlightedNotes, setHighlightedNotes] = useState<Set<number>>(new Set());
@@ -13,6 +12,10 @@ export default function Home() {
     notes: number[];
     type: string;
     degreeRoman: string;
+  } | null>(null);
+  const [selectedScale, setSelectedScale] = useState<{
+    name: string;
+    degrees: number[];
   } | null>(null);
 
   // Handle chord selection from ScaleBrowser
@@ -22,6 +25,14 @@ export default function Home() {
     degreeRoman: string;
   } | null) => {
     setSelectedChord(chord);
+  };
+
+  // Handle scale selection from ScaleBrowser
+  const handleScaleSelect = (scale: {
+    name: string;
+    degrees: number[];
+  } | null) => {
+    setSelectedScale(scale);
   };
 
   return (
@@ -46,7 +57,7 @@ export default function Home() {
                   Click keys or use your computer keyboard (Q-], A-\, Z-/) to play notes.
                   <span className="ml-2 px-2 py-1 bg-gray-100 rounded text-sm font-medium">Hold Shift for higher octave</span>
                 </p>
-                <Keyboard highlightedNotes={highlightedNotes} />
+                <Keyboard highlightedNotes={highlightedNotes} selectedScale={selectedScale} />
               </div>
             </div>
           </section>
@@ -62,6 +73,7 @@ export default function Home() {
                     <ScaleBrowser 
                       onHighlightNotes={setHighlightedNotes} 
                       onChordSelect={handleChordSelect}
+                      onScaleSelect={handleScaleSelect}
                     />
                   </div>
                 </div>
@@ -71,7 +83,7 @@ export default function Home() {
               <div className="lg:col-span-1">
                 <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
                   <div className="p-6">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Chord Visualizer</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Interval Visualizer</h2>
                     <ChordVisualizer selectedChord={selectedChord} />
                   </div>
                 </div>

@@ -23,12 +23,17 @@ const isWhiteKey = (step: number): boolean => {
 
 interface KeyboardProps {
   highlightedNotes?: Set<number>;
+  selectedScale?: {
+    name: string;
+    degrees: number[];
+  } | null;
 }
 
-const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
+const Keyboard = ({ highlightedNotes, selectedScale }: KeyboardProps) => {
   const { playNote, stopNote, activeNotes, isLoaded } = useAudio();
   const [keyboardActive, setKeyboardActive] = useState<{ [key: string]: boolean }>({});
   const [octaveShift, setOctaveShift] = useState<number>(0);
+  const [showScale, setShowScale] = useState<boolean>(true);
 
   // Generate all keys for the keyboard (single octave + top C)
   const generateKeys = useCallback(() => {
@@ -104,6 +109,28 @@ const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
   
   return (
     <div className="w-full">
+      {selectedScale && (
+        <div className="flex justify-between items-center mb-2">
+          <div className="text-sm text-gray-700 font-medium">
+            {selectedScale.name}
+          </div>
+          <div className="flex items-center">
+            <span className="text-sm text-gray-600 mr-2">Show scale</span>
+            <button
+              onClick={() => setShowScale(prev => !prev)}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+                showScale ? 'bg-indigo-600' : 'bg-gray-200'
+              }`}
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  showScale ? 'translate-x-6' : 'translate-x-1'
+                }`}
+              />
+            </button>
+          </div>
+        </div>
+      )}
       <div className="relative h-48 w-full bg-gray-100 p-2 rounded-lg">
         {/* All keys in a single layout */}
         {keys.map((noteStep) => {
@@ -112,8 +139,13 @@ const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
           const isHighlighted = highlightedNotes?.has(noteStep);
           const noteName = getStepNoteName(noteStep);
           
+          // Check if this note is part of the selected scale
+          const isScaleNote = selectedScale && showScale && 
+            selectedScale.degrees.some(degree => (degree % 31) === (noteStep % 31));
+          
           // Find the keyboard key for this note (for display)
-          const keyboardKey = Object.entries(KEYBOARD_MAPPING).find(([key, step]) => step === noteStep)?.[0];
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const keyboardKey = Object.entries(KEYBOARD_MAPPING).find(([_, step]) => step === noteStep)?.[0];
           
           // Calculate position
           const stepInOctave = noteStep % 31;
@@ -131,8 +163,8 @@ const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
               className={`
                 absolute rounded-b-md
                 ${isWhite 
-                  ? (isActive ? 'bg-blue-200' : isHighlighted ? 'bg-green-100' : 'bg-white') 
-                  : (isActive ? 'bg-blue-700' : isHighlighted ? 'bg-green-600' : 'bg-gray-800')}
+                  ? (isActive ? 'bg-blue-200' : isHighlighted ? 'bg-green-100' : isScaleNote ? 'bg-indigo-100' : 'bg-white') 
+                  : (isActive ? 'bg-blue-700' : isHighlighted ? 'bg-green-600' : isScaleNote ? 'bg-indigo-500' : 'bg-gray-800')}
                 ${isWhite ? 'h-4/5 z-0' : 'h-3/5 z-10'}
                 ${isWhite ? 'text-black' : 'text-white'}
                 flex flex-col justify-end items-center pb-1 cursor-pointer select-none
