@@ -865,7 +865,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
           <div className="w-full md:w-1/3">
             <select
               id="family-select"
-              className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full p-2 border text-gray-800 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               value={selectedFamily}
               onChange={handleFamilyChange}
             >
