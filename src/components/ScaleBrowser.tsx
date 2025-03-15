@@ -110,30 +110,6 @@ const getIntervalType = (interval: number): string => {
   }
 };
 
-// Function to convert 31-EDO note number to a readable note name
-const getNoteNameFrom31EDO = (note: number): string => {
-  // In 31-EDO, each octave has 31 steps
-  // C = 0, C# = 1, D♭ = 2, D = 5, etc.
-  const noteNames = [
-    "C", "C♯", "D♭", "C♯♯", "D", "D♯", "E♭", "D♯♯", "E", "E♯", "F", 
-    "F♯", "G♭", "F♯♯", "G", "G♯", "A♭", "G♯♯", "A", "A♯", "B♭", 
-    "A♯♯", "B", "B♯", "C♭", "B♯♯", "C", "C♯", "D♭", "C♯♯", "D"
-  ];
-  
-  // Special case for note 31 (high C)
-  if (note === 31) {
-    return `C${Math.floor(note / 31) + 5}`; // One octave higher than the base C
-  }
-  
-  // Get the octave number (assuming C4 = 0)
-  const octave = Math.floor(note / 31) + 4;
-  
-  // Get the note within the octave
-  const noteIndex = ((note % 31) + 31) % 31;
-  
-  return `${noteNames[noteIndex]}${octave}`;
-};
-
 // Enhanced function to determine chord type based on intervals in 31-EDO
 const getChordType = (intervals: number[]): string => {
   if (intervals.length < 2) return "unknown";
@@ -258,7 +234,7 @@ const getChordType = (intervals: number[]): string => {
 };
 
 const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) => {
-  const { playNote, stopNote, stopAllNotes, scheduleNote, isLoaded } = useAudio();
+  const { playNote, stopAllNotes, scheduleNote, isLoaded } = useAudio();
   const [scaleData, setScaleData] = useState<ScaleData | null>(null);
   const [families, setFamilies] = useState<string[]>([]);
   const [selectedFamily, setSelectedFamily] = useState<string>('');
@@ -426,7 +402,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
     stopAllNotes(0.05);
     
     // Schedule all notes in the chord with precise timing
-    const now = Tone.now() + 0.05; // Add small delay for stopping previous notes
+    // Add small delay for stopping previous notes
     
     // Play all notes in the chord with indefinite sustain
     invertedNotes.forEach(note => {
@@ -709,8 +685,8 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
     };
   }, [generatedChords, activeKeys, playChord, stopChord, useSeventhChords, selectedChord]);
 
-  // Function to set the inversion
-  const setInversion = (inversion: number, auto: boolean = false) => {
+  // Function to set the inversion - wrapped in useCallback to avoid dependency issues
+  const setInversion = useCallback((inversion: number, auto: boolean = false) => {
     setCurrentInversion(inversion);
     setUseAutoInversion(auto);
     
@@ -718,7 +694,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
     if (selectedChord) {
       playChord(selectedChord);
     }
-  };
+  }, [selectedChord, playChord, setCurrentInversion, setUseAutoInversion]);
 
   // Handle family change
   const handleFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -744,17 +720,12 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
 
   // Navigate to next scale
   const handleNextScale = () => {
-    if (!scaleData || !selectedFamily) return;
+    const scales = scaleData?.families[selectedFamily]?.scales || [];
+    if (scales.length === 0) return;
     
-    const scales = scaleData.families[selectedFamily].scales;
     const newIndex = (scaleIndex + 1) % scales.length;
     setScaleIndex(newIndex);
     setSelectedScale(scales[newIndex]);
-  };
-
-  // Toggle between triads and seventh chords
-  const toggleChordType = () => {
-    setUseSeventhChords(prev => !prev);
   };
 
   // Update the playScale function to use Tone.js scheduling completely
@@ -792,7 +763,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect }: ScaleBrowserProps) =>
         const endTime = startTime + noteDuration + 0.1; // Add a small buffer
         
         // Schedule the cleanup using Tone.js instead of setTimeout
-        const eventId = Tone.Transport.schedule((time) => {
+        const eventId = Tone.Transport.schedule(() => {
           setIsPlaying(false);
           // Clear highlighted notes when done playing
           updateHighlightedNotes(new Set());

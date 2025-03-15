@@ -113,7 +113,7 @@ const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
           const noteName = getStepNoteName(noteStep);
           
           // Find the keyboard key for this note (for display)
-          const keyboardKey = Object.entries(KEYBOARD_MAPPING).find(([_, step]) => step === noteStep)?.[0];
+          const keyboardKey = Object.entries(KEYBOARD_MAPPING).find(([key, step]) => step === noteStep)?.[0];
           
           // Calculate position
           const stepInOctave = noteStep % 31;

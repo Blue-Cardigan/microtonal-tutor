@@ -6,8 +6,7 @@ import {
   calculateOverallConsonance, 
   findClosestJustRatio, 
   INTERVAL_NAMES, 
-  getConsonanceRating,
-  stepToCents
+  getConsonanceRating
 } from '@/utils/IntervalUtils';
 
 interface IntervalInfo {

@@ -118,7 +118,18 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
           note2,
           steps,
           name,
-          justRatio: justRatio as any,
+          justRatio: justRatio as {
+            ratio: string;
+            name: string;
+            cents: number;
+            deviation: number;
+            secondaryRatio: {
+              ratio: string;
+              name: string;
+              cents: number;
+              deviation: number;
+            } | null;
+          },
           consonance,
           consonanceDescription
         });
@@ -151,46 +162,17 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
     return 'text-white';
   };
 
-  // Add this function to get JI ratio approximation for 31-EDO intervals
-  const getJustIntonationRatio = (interval: number): string => {
-    switch(interval) {
-      // Perfect consonances
-      case 0: return "1:1";
-      case 18: return "3:2";
-      case 31: return "2:1";
-      
-      // Major/minor thirds and sixths
-      case 8: return "6:5";
-      case 10: return "5:4";
-      case 21: return "8:5";
-      case 23: return "5:3";
-      
-      // Neutral intervals
-      case 9: return "11:9";
-      case 22: return "16:11";
-      
-      // Subminor/supermajor intervals
-      case 7: return "7:6";
-      case 11: return "9:7";
-      case 20: return "7:4";
-      case 24: return "12:7";
-      
-      // Sevenths
-      case 25: return "7:4";
-      case 26: return "9:5";
-      case 27: return "11:6";
-      case 28: return "15:8";
-      
-      // Other common intervals
-      case 13: return "4:3";
-      case 15: return "7:5";
-      case 16: return "10:7";
-      case 17: return "16:11";
-      case 19: return "8:5";
-      
-      default: return "approx";
-    }
-  };
+  // Commented out for future use
+  // const getJustIntonationRatio = (interval: number): string => {
+  //   switch(interval) {
+  //     // Perfect consonances
+  //     case 0: return "1:1";
+  //     case 18: return "3:2";
+  //     case 31: return "2:1";
+  //     // ... other cases
+  //   }
+  //   return "";
+  // };
 
   // Add this function to get chord structure description
   const getChordStructure = (chordType: string): string => {
