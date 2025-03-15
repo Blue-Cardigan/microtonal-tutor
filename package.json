@@ -6,8 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-scales": "node src/scripts/generateScalesIteratively.js"
   },
+  "type": "module",
   "dependencies": {
     "next": "15.2.2",
     "react": "^19.0.0",

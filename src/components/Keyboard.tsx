@@ -133,7 +133,7 @@ const Keyboard = ({ highlightedNotes }: KeyboardProps) => {
                 ${isWhite 
                   ? (isActive ? 'bg-blue-200' : isHighlighted ? 'bg-green-100' : 'bg-white') 
                   : (isActive ? 'bg-blue-700' : isHighlighted ? 'bg-green-600' : 'bg-gray-800')}
-                ${isWhite ? 'h-full z-0' : 'h-3/5 z-10'}
+                ${isWhite ? 'h-4/5 z-0' : 'h-3/5 z-10'}
                 ${isWhite ? 'text-black' : 'text-white'}
                 flex flex-col justify-end items-center pb-1 cursor-pointer select-none
                 shadow-md hover:shadow-lg transition-shadow
