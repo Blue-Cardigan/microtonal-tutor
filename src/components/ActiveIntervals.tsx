@@ -30,6 +30,11 @@ interface IntervalInfo {
   consonanceDescription: string;
 }
 
+interface ConsonanceResult {
+  rating: number;
+  description: string;
+}
+
 const ActiveIntervals = () => {
   const { activeNotes } = useAudio();
   const [intervals, setIntervals] = useState<IntervalInfo[]>([]);
@@ -59,7 +64,7 @@ const ActiveIntervals = () => {
         const steps = rawSteps % 31;
         
         // Get the interval name
-        const name = INTERVAL_NAMES[steps] || `Unknown (${steps} steps)`;
+        const name = INTERVAL_NAMES[steps as keyof typeof INTERVAL_NAMES] || `Unknown (${steps} steps)`;
         
         // Find the closest just ratio
         const justRatio = findClosestJustRatio(steps);
@@ -96,7 +101,18 @@ const ActiveIntervals = () => {
           note2,
           steps,
           name,
-          justRatio,
+          justRatio: justRatio as {
+            ratio: string;
+            name: string;
+            cents: number;
+            deviation: number;
+            secondaryRatio: {
+              ratio: string;
+              name: string;
+              cents: number;
+              deviation: number;
+            } | null;
+          },
           consonance,
           consonanceDescription
         });
@@ -104,7 +120,7 @@ const ActiveIntervals = () => {
     }
     
     // Calculate overall consonance
-    const consonanceResult = calculateOverallConsonance(activeNotes);
+    const consonanceResult = calculateOverallConsonance(activeNotes) as ConsonanceResult;
     setOverallConsonance(consonanceResult.rating);
     setConsonanceDescription(consonanceResult.description);
     
