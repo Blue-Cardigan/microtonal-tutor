@@ -143,7 +143,19 @@ const getFunctionFromDegree = (degree: number, isMajorLike: boolean): string => 
 
 // Enhanced function to determine chord type based on intervals in 31-EDO
 const getChordType = (intervals: number[]): string => {
-  if (intervals.length < 2) return "unknown";
+  if (intervals.length === 0) return "single note";
+  if (intervals.length === 1) {
+    // For dyads (two-note chords), classify based on the interval
+    const interval = intervals[0];
+    if (interval <= 6) return "second";
+    if (interval <= 11) return "third";
+    if (interval <= 14) return "fourth";
+    if (interval <= 16) return "tritone";
+    if (interval <= 19) return "fifth";
+    if (interval <= 24) return "sixth";
+    if (interval <= 28) return "seventh";
+    return "octave+";
+  }
   
   // For triads
   if (intervals.length === 2) {
@@ -151,33 +163,51 @@ const getChordType = (intervals: number[]): string => {
     const fifth = intervals[1];
     
     // Standard triads with perfect fifth (18 steps)
-    if (fifth === 18) {
+    if (fifth === 18 || (fifth >= 17 && fifth <= 19)) {
       if (third === 7) return "subminor"; // Subminor third (7 steps)
       if (third === 8) return "minor";    // Minor third (8 steps)
       if (third === 9) return "neutral";  // Neutral third (9 steps)
       if (third === 10) return "major";   // Major third (10 steps)
       if (third === 11) return "supermajor"; // Supermajor third (11 steps)
+      
+      // More flexible matching
+      if (third >= 7 && third < 8.5) return "subminor";
+      if (third >= 8.5 && third < 9.5) return "minor";
+      if (third >= 9.5 && third < 10.5) return "neutral";
+      if (third >= 10.5) return "supermajor";
     }
     
     // Augmented triads (fifth = 19 steps)
-    if (fifth === 19) {
+    if (fifth >= 19) {
       if (third === 8) return "minor augmented"; // Minor third with augmented fifth
       if (third === 9) return "neutral augmented"; // Neutral third with augmented fifth
       if (third === 10) return "augmented";     // Major third with augmented fifth
       if (third === 11) return "supermajor augmented"; // Supermajor third with augmented fifth
+      
+      // More flexible matching
+      if (third >= 7 && third < 8.5) return "subminor augmented";
+      if (third >= 8.5 && third < 9.5) return "minor augmented";
+      if (third >= 9.5 && third < 10.5) return "neutral augmented";
+      if (third >= 10.5) return "augmented";
     }
     
     // Diminished triads (fifth = 17 steps)
-    if (fifth === 17) {
+    if (fifth <= 17) {
       if (third === 7) return "subminor diminished"; // Subminor third with diminished fifth
       if (third === 8) return "diminished";  // Minor third with diminished fifth
       if (third === 9) return "neutral diminished"; // Neutral third with diminished fifth
       if (third === 10) return "major diminished"; // Major third with diminished fifth
+      
+      // More flexible matching
+      if (third >= 7 && third < 8.5) return "subminor diminished";
+      if (third >= 8.5 && third < 9.5) return "diminished";
+      if (third >= 9.5 && third < 10.5) return "neutral diminished";
+      if (third >= 10.5) return "major diminished";
     }
     
     // Special cases for other fifths
-    if (fifth === 16 && third === 8) return "double diminished"; // Minor third with double diminished fifth
-    if (fifth === 20 && third === 10) return "double augmented"; // Major third with double augmented fifth
+    if (fifth <= 16 && third >= 7 && third <= 9) return "double diminished"; // Minor third with double diminished fifth
+    if (fifth >= 20 && third >= 9 && third <= 11) return "double augmented"; // Major third with double augmented fifth
     
     // Harmonic triads
     if (third === 7 && fifth === 16) return "harmonic diminished"; // 5:6:7 ratio
@@ -198,41 +228,41 @@ const getChordType = (intervals: number[]): string => {
     // Identify the triad type first
     let triadType = "";
     
-    if (third === 7 && fifth === 18) triadType = "subminor";
-    else if (third === 8 && fifth === 18) triadType = "minor";
-    else if (third === 9 && fifth === 18) triadType = "neutral";
-    else if (third === 10 && fifth === 18) triadType = "major";
-    else if (third === 11 && fifth === 18) triadType = "supermajor";
-    else if (third === 8 && fifth === 17) triadType = "diminished";
-    else if (third === 10 && fifth === 19) triadType = "augmented";
+    if ((third >= 7 && third < 8) && (fifth >= 17 && fifth <= 19)) triadType = "subminor";
+    else if ((third >= 8 && third < 9) && (fifth >= 17 && fifth <= 19)) triadType = "minor";
+    else if ((third >= 9 && third < 10) && (fifth >= 17 && fifth <= 19)) triadType = "neutral";
+    else if ((third >= 10 && third < 11) && (fifth >= 17 && fifth <= 19)) triadType = "major";
+    else if ((third >= 11) && (fifth >= 17 && fifth <= 19)) triadType = "supermajor";
+    else if ((third >= 8 && third < 9) && fifth <= 17) triadType = "diminished";
+    else if ((third >= 10 && third < 11) && fifth >= 19) triadType = "augmented";
     else triadType = `${getIntervalType(third)}-${getIntervalType(fifth)}`;
     
     // Special named seventh chords
     
     // Harmonic seventh chord (4:5:6:7)
-    if (third === 10 && fifth === 18 && seventh === 25) return "harmonic 7";
+    if (third >= 10 && third <= 11 && fifth >= 17 && fifth <= 19 && seventh >= 24 && seventh <= 26) return "harmonic 7";
     
     // Undecimal tetrad (6:7:9:11)
-    if (third === 7 && fifth === 18 && seventh === 27) return "undecimal tetrad";
+    if (third >= 7 && third <= 8 && fifth >= 17 && fifth <= 19 && seventh >= 26 && seventh <= 28) return "undecimal tetrad";
     
     // Utonal tetrad (12/10/8/7)
-    if (third === 8 && fifth === 18 && seventh === 20) return "utonal tetrad";
+    if (third >= 8 && third <= 9 && fifth >= 17 && fifth <= 19 && seventh >= 19 && seventh <= 21) return "utonal tetrad";
     
     // 9-over tetrad (9/7/6/5)
-    if (third === 11 && fifth === 18 && seventh === 26) return "9-over tetrad";
+    if (third >= 11 && fifth >= 17 && fifth <= 19 && seventh >= 25 && seventh <= 27) return "9-over tetrad";
     
-    // Standard seventh chord types
-    if (triadType === "major" && seventh === 28) return "major 7";
-    if (triadType === "major" && seventh === 27) return "dominant 7";
-    if (triadType === "minor" && seventh === 26) return "minor 7";
-    if (triadType === "diminished" && seventh === 26) return "half-diminished 7";
-    if (triadType === "diminished" && seventh === 25) return "diminished 7";
-    if (triadType === "neutral" && seventh === 27) return "neutral dominant 7";
-    if (triadType === "neutral" && seventh === 26) return "neutral minor 7";
-    if (triadType === "subminor" && seventh === 25) return "subminor 7";
-    if (triadType === "subminor" && seventh === 27) return "subminor neutral 7";
-    if (triadType === "supermajor" && seventh === 28) return "supermajor 7";
-    if (triadType === "supermajor" && seventh === 26) return "supermajor minor 7";
+    // Standard seventh chord types with more flexible matching
+    if (triadType === "major" && seventh >= 27 && seventh <= 29) return "major 7";
+    if (triadType === "major" && seventh >= 25 && seventh < 27) return "dominant 7";
+    if (triadType === "minor" && seventh >= 25 && seventh < 27) return "minor 7";
+    if (triadType === "diminished" && seventh >= 25 && seventh < 27) return "half-diminished 7";
+    if (triadType === "diminished" && seventh >= 24 && seventh < 25) return "diminished 7";
+    if (triadType === "neutral" && seventh >= 26 && seventh < 28) return "neutral dominant 7";
+    if (triadType === "neutral" && seventh >= 25 && seventh < 26) return "neutral minor 7";
+    if (triadType === "subminor" && seventh >= 24 && seventh < 26) return "subminor 7";
+    if (triadType === "subminor" && seventh >= 26 && seventh < 28) return "subminor neutral 7";
+    if (triadType === "supermajor" && seventh >= 27 && seventh < 29) return "supermajor 7";
+    if (triadType === "supermajor" && seventh >= 25 && seventh < 27) return "supermajor minor 7";
     
     // If no specific name, combine triad type with seventh type
     return `${triadType} ${getIntervalType(seventh)} 7`;
@@ -244,15 +274,18 @@ const getChordType = (intervals: number[]): string => {
     
     // Otonality (4:5:6:7:9:11)
     if (intervals.length >= 5 && 
-        intervals[0] === 10 && intervals[1] === 18 && 
-        intervals[2] === 25 && intervals[3] === 28) {
+        intervals[0] >= 10 && intervals[0] <= 11 && 
+        intervals[1] >= 17 && intervals[1] <= 19 && 
+        intervals[2] >= 24 && intervals[2] <= 26 && 
+        intervals[3] >= 27 && intervals[3] <= 29) {
       return intervals.length === 5 ? "otonality (9)" : "otonality (11)";
     }
     
     // Extended harmonic series chord
     if (intervals.length >= 5 && 
-        intervals[0] === 10 && intervals[1] === 18 && 
-        intervals[2] === 25) {
+        intervals[0] >= 10 && intervals[0] <= 11 && 
+        intervals[1] >= 17 && intervals[1] <= 19 && 
+        intervals[2] >= 24 && intervals[2] <= 26) {
       return `harmonic ${intervals.length + 1}`;
     }
     
@@ -610,8 +643,12 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
       const triads: Chord[] = [];
       
       // Determine if the scale is major-like or minor-like based on the third degree
-      const thirdInterval = degrees[2] - degrees[0];
-      const isMajorLike = thirdInterval >= 9; // Major or neutral third
+      // Default to major if we can't determine
+      let isMajorLike = true;
+      if (degrees.length > 2) {
+        const thirdInterval = degrees[2] - degrees[0];
+        isMajorLike = thirdInterval >= 9; // Major or neutral third
+      }
       const romanNumerals = isMajorLike ? ROMAN_NUMERALS_MAJOR : ROMAN_NUMERALS;
       
       // Create extended scale degrees that include the next octave
@@ -630,28 +667,80 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
         extendedDegrees.push(degrees[i] + 31); // Add the same note one octave higher
       }
       
+      // Add notes from the second octave for more options
+      for (let i = 0; i < degrees.length; i++) {
+        extendedDegrees.push(degrees[i] + 62); // Add the same note two octaves higher
+      }
+      
       // Generate triads for each scale degree
-      for (let i = 0; i < degrees.length - 1; i++) { // Skip the octave
+      for (let i = 0; i < degrees.length; i++) {
+        // Skip the octave if it's the last note and equals 31
+        if (i === degrees.length - 1 && degrees[i] === 31) continue;
+        
         const root = degrees[i];
-        const third = extendedDegrees.find(note => 
-          note > root && note - root >= 8 && note - root <= 11
+        
+        // Find the best third - look for intervals between 7-11 steps
+        // If not found, look for the closest note that could function as a third
+        let third = extendedDegrees.find(note => 
+          note > root && note - root >= 7 && note - root <= 11
         );
-        const fifth = extendedDegrees.find(note => 
+        
+        // If no third found in ideal range, find the closest approximation
+        if (!third) {
+          const possibleThirds = extendedDegrees.filter(note => note > root);
+          if (possibleThirds.length > 0) {
+            // Find the note closest to an ideal third (9 steps)
+            third = possibleThirds.reduce((best, current) => {
+              const idealThird = root + 9;
+              const currentDiff = Math.abs(current - idealThird);
+              const bestDiff = Math.abs(best - idealThird);
+              return currentDiff < bestDiff ? current : best;
+            }, possibleThirds[0]);
+          }
+        }
+        
+        // Find the best fifth - look for intervals between 17-19 steps
+        // If not found, look for the closest note that could function as a fifth
+        let fifth = extendedDegrees.find(note => 
           note > root && note - root >= 17 && note - root <= 19
         );
         
-        if (third && fifth) {
-          const chordNotes = [root, third, fifth];
-          const intervals = [third - root, fifth - root];
+        // If no fifth found in ideal range, find the closest approximation
+        if (!fifth) {
+          const possibleFifths = extendedDegrees.filter(note => note > (third || root));
+          if (possibleFifths.length > 0) {
+            // Find the note closest to an ideal fifth (18 steps)
+            fifth = possibleFifths.reduce((best, current) => {
+              const idealFifth = root + 18;
+              const currentDiff = Math.abs(current - idealFifth);
+              const bestDiff = Math.abs(best - idealFifth);
+              return currentDiff < bestDiff ? current : best;
+            }, possibleFifths[0]);
+          }
+        }
+        
+        // If we have at least a root and one other note, create a chord
+        if (third || fifth) {
+          const chordNotes = [root];
+          if (third) chordNotes.push(third);
+          if (fifth) chordNotes.push(fifth);
+          
+          // Calculate intervals
+          const intervals = [];
+          if (third) intervals.push(third - root);
+          if (fifth) intervals.push(fifth - root);
           
           // Determine chord type
           const chordType = getChordType(intervals);
           
+          // Use appropriate roman numeral index, with fallback
+          const romanIndex = i < romanNumerals.length ? i : i % romanNumerals.length;
+          
           triads.push({
             degree: i,
-            degreeRoman: romanNumerals[i],
+            degreeRoman: romanNumerals[romanIndex],
             type: chordType,
-            function: getFunctionFromDegree(i, isMajorLike),
+            function: getFunctionFromDegree(i % 7, isMajorLike),
             notes: chordNotes,
             intervals: intervals
           });
@@ -667,8 +756,12 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
       const sevenths: Chord[] = [];
       
       // Determine if the scale is major-like or minor-like based on the third degree
-      const thirdInterval = degrees[2] - degrees[0];
-      const isMajorLike = thirdInterval >= 9; // Major or neutral third
+      // Default to major if we can't determine
+      let isMajorLike = true;
+      if (degrees.length > 2) {
+        const thirdInterval = degrees[2] - degrees[0];
+        isMajorLike = thirdInterval >= 9; // Major or neutral third
+      }
       const romanNumerals = isMajorLike ? ROMAN_NUMERALS_MAJOR : ROMAN_NUMERALS;
       
       // Create extended scale degrees that include the next octave
@@ -692,31 +785,99 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
         extendedDegrees.push(degrees[i] + 62); // Add the same note two octaves higher
       }
       
+      // Add notes from the third octave for more options
+      for (let i = 0; i < degrees.length; i++) {
+        extendedDegrees.push(degrees[i] + 93); // Add the same note three octaves higher
+      }
+      
       // Generate seventh chords for each scale degree
-      for (let i = 0; i < degrees.length - 1; i++) { // Skip the octave
+      for (let i = 0; i < degrees.length; i++) {
+        // Skip the octave if it's the last note and equals 31
+        if (i === degrees.length - 1 && degrees[i] === 31) continue;
+        
         const root = degrees[i];
-        const third = extendedDegrees.find(note => 
-          note > root && note - root >= 8 && note - root <= 11
+        
+        // Find the best third - look for intervals between 7-11 steps
+        let third = extendedDegrees.find(note => 
+          note > root && note - root >= 7 && note - root <= 11
         );
-        const fifth = extendedDegrees.find(note => 
+        
+        // If no third found in ideal range, find the closest approximation
+        if (!third) {
+          const possibleThirds = extendedDegrees.filter(note => note > root);
+          if (possibleThirds.length > 0) {
+            // Find the note closest to an ideal third (9 steps)
+            third = possibleThirds.reduce((best, current) => {
+              const idealThird = root + 9;
+              const currentDiff = Math.abs(current - idealThird);
+              const bestDiff = Math.abs(best - idealThird);
+              return currentDiff < bestDiff ? current : best;
+            }, possibleThirds[0]);
+          }
+        }
+        
+        // Find the best fifth - look for intervals between 17-19 steps
+        let fifth = extendedDegrees.find(note => 
           note > root && note - root >= 17 && note - root <= 19
         );
-        const seventh = extendedDegrees.find(note => 
+        
+        // If no fifth found in ideal range, find the closest approximation
+        if (!fifth) {
+          const possibleFifths = extendedDegrees.filter(note => note > (third || root));
+          if (possibleFifths.length > 0) {
+            // Find the note closest to an ideal fifth (18 steps)
+            fifth = possibleFifths.reduce((best, current) => {
+              const idealFifth = root + 18;
+              const currentDiff = Math.abs(current - idealFifth);
+              const bestDiff = Math.abs(best - idealFifth);
+              return currentDiff < bestDiff ? current : best;
+            }, possibleFifths[0]);
+          }
+        }
+        
+        // Find the best seventh - look for intervals between 25-28 steps
+        let seventh = extendedDegrees.find(note => 
           note > root && note - root >= 25 && note - root <= 28
         );
         
-        if (third && fifth && seventh) {
-          const chordNotes = [root, third, fifth, seventh];
-          const intervals = [third - root, fifth - root, seventh - root];
+        // If no seventh found in ideal range, find the closest approximation
+        if (!seventh) {
+          const possibleSevenths = extendedDegrees.filter(note => note > (fifth || third || root));
+          if (possibleSevenths.length > 0) {
+            // Find the note closest to an ideal seventh (26 steps)
+            seventh = possibleSevenths.reduce((best, current) => {
+              const idealSeventh = root + 26;
+              const currentDiff = Math.abs(current - idealSeventh);
+              const bestDiff = Math.abs(best - idealSeventh);
+              return currentDiff < bestDiff ? current : best;
+            }, possibleSevenths[0]);
+          }
+        }
+        
+        // If we have at least a root and two other notes, create a chord
+        if ((third && fifth) || (third && seventh) || (fifth && seventh)) {
+          const chordNotes = [root];
+          if (third) chordNotes.push(third);
+          if (fifth) chordNotes.push(fifth);
+          if (seventh) chordNotes.push(seventh);
+          
+          // Calculate intervals
+          const intervals = [];
+          if (third) intervals.push(third - root);
+          if (fifth) intervals.push(fifth - root);
+          if (seventh) intervals.push(seventh - root);
           
           // Determine chord type
           const chordType = getChordType(intervals);
           
+          // Use appropriate roman numeral index, with fallback
+          const romanIndex = i < romanNumerals.length ? i : i % romanNumerals.length;
+          
           sevenths.push({
             degree: i,
-          degreeRoman: romanNumerals[i],
+            degreeRoman: romanNumerals[romanIndex],
             type: chordType,
-            function: getFunctionFromDegree(i, isMajorLike),
+            function: getFunctionFromDegree(i % 7, isMajorLike),
             notes: chordNotes,
             intervals: intervals
           });
