@@ -512,6 +512,8 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
   useEffect(() => {
     const loadScaleData = async () => {
       try {
+        console.log("Starting to load scale data...");
+        
         // Load scales from all three files
         const [modesResponse, culturalResponse, extraResponse] = await Promise.all([
           fetch('/data/modes.json'),
@@ -519,9 +521,23 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
           fetch('/data/extraScales.json')
         ]);
         
+        console.log("Fetch responses received:", {
+          modesStatus: modesResponse.status,
+          culturalStatus: culturalResponse.status,
+          extraStatus: extraResponse.status
+        });
+        
         const modesData = await modesResponse.json();
         const culturalData = await culturalResponse.json();
         const extraData = await extraResponse.json();
+        
+        console.log("JSON data parsed:", {
+          modesDataType: typeof modesData,
+          modesIsArray: Array.isArray(modesData),
+          modesLength: Array.isArray(modesData) ? modesData.length : 'N/A',
+          culturalDataKeys: Object.keys(culturalData),
+          extraDataKeys: Object.keys(extraData)
+        });
         
         // Create a merged data structure
         const mergedData: ScaleData = {
@@ -536,6 +552,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
             name: "Modes",
             scales: modesData
           };
+          console.log(`Added Modes family with ${modesData.length} scales`);
         }
         
         // Process cultural data (object with categories)
@@ -548,6 +565,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
                 name: formattedCategory,
                 scales: scales as Scale[]
               };
+              console.log(`Added cultural category ${category} with ${scales.length} scales`);
             }
           });
         }
@@ -562,9 +580,15 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
                 name: formattedCategory,
                 scales: scales as Scale[]
               };
+              console.log(`Added extra category ${category} with ${scales.length} scales`);
             }
           });
         }
+        
+        console.log("Final merged data structure:", {
+          familyCount: Object.keys(mergedData.families).length,
+          familyNames: Object.keys(mergedData.families)
+        });
         
         setScaleData(mergedData);
         
@@ -585,7 +609,12 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
           const firstFamily = mergedData.families[familyNames[0]];
           if (firstFamily.scales.length > 0) {
             setSelectedScale(firstFamily.scales[0]);
+            console.log(`Set initial scale to ${firstFamily.scales[0].name} from family ${familyNames[0]}`);
+          } else {
+            console.log(`First family ${familyNames[0]} has no scales`);
           }
+        } else {
+          console.log("No families found in merged data");
         }
       } catch (error) {
         console.error('Error loading scale data:', error);
@@ -894,9 +923,27 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
 
   // Filter and sort scales based on search criteria
   useEffect(() => {
-    if (!scaleData || !selectedFamily) return;
+    console.log("Filter effect running with:", { 
+      hasScaleData: !!scaleData, 
+      selectedFamily, 
+      searchTerm, 
+      selectedCategory, 
+      noteCount 
+    });
+    
+    if (!scaleData || !selectedFamily) {
+      console.log("Early return: missing scaleData or selectedFamily");
+      return;
+    }
+    
+    // Check if the family exists in scaleData
+    if (!scaleData.families[selectedFamily]) {
+      console.log(`Family "${selectedFamily}" not found in scaleData`);
+      return;
+    }
     
     const scales = scaleData.families[selectedFamily].scales;
+    console.log(`Starting with ${scales.length} scales in family "${selectedFamily}"`);
     
     // Apply filters
     let filtered = [...scales];
@@ -921,6 +968,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
         
         return false;
       });
+      console.log(`After search term filter: ${filtered.length} scales remain`);
     }
     
     // Filter by category
@@ -928,17 +976,19 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
       filtered = filtered.filter(scale => {
         if (!scale.categories) return false;
         
-        for (const [category, values] of Object.entries(scale.categories)) {
+        for (const [category] of Object.entries(scale.categories)) {
           if (category === selectedCategory) return true;
         }
         
         return false;
       });
+      console.log(`After category filter: ${filtered.length} scales remain`);
     }
     
     // Filter by note count
     if (noteCount !== null) {
       filtered = filtered.filter(scale => scale.degrees.length === noteCount + 1); // +1 for octave
+      console.log(`After note count filter: ${filtered.length} scales remain`);
     }
     
     // Apply sorting
@@ -965,15 +1015,28 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
       
       return 0;
     });
+    console.log(`After sorting: ${filtered.length} scales to display`);
     
     setFilteredScales(filtered);
     
     // Update scale selection if needed
-    if (filtered.length > 0 && (!selectedScale || !filtered.includes(selectedScale))) {
-      setSelectedScale(filtered[0]);
-      setScaleIndex(0);
+    if (filtered.length > 0) {
+      // If there's no selected scale or the current selected scale is not in the filtered list
+      if (!selectedScale || !filtered.includes(selectedScale)) {
+        console.log("Updating selectedScale to first filtered scale");
+        setSelectedScale(filtered[0]);
+        setScaleIndex(0);
+      } else {
+        // If the selected scale is in the filtered list, update the index
+        const newIndex = filtered.indexOf(selectedScale);
+        console.log(`Selected scale found in filtered list at index ${newIndex}`);
+        setScaleIndex(newIndex);
+      }
     } else if (filtered.length === 0) {
+      console.log("No scales match filters, setting selectedScale to null");
       setSelectedScale(null);
+    } else {
+      console.log("Keeping current selectedScale");
     }
     
   }, [scaleData, selectedFamily, searchTerm, selectedCategory, noteCount, sortBy, sortDirection, selectedScale]);
@@ -1075,11 +1138,22 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
   // Handle family change
   const handleFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const family = e.target.value;
+    console.log(`Family changed to: ${family}`);
+    
     setSelectedFamily(family);
     setScaleIndex(0);
-    if (scaleData && scaleData.families[family].scales.length > 0) {
+    
+    // Reset filters when changing families to ensure we see results
+    setSearchTerm('');
+    setSelectedCategory('all');
+    setNoteCount(null);
+    
+    // Check if the family has scales
+    if (scaleData && scaleData.families[family] && scaleData.families[family].scales.length > 0) {
+      console.log(`Setting selected scale to first scale in family ${family}`);
       setSelectedScale(scaleData.families[family].scales[0]);
     } else {
+      console.log(`Family ${family} has no scales, setting selectedScale to null`);
       setSelectedScale(null);
     }
   };
@@ -1204,7 +1278,8 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
     setAvailableCategories(Array.from(categories).sort());
   }, [scaleData]);
 
-  if (!scaleData || !selectedScale) {
+  // Render loading state or component
+  if (!scaleData) {
     return (
       <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg animate-pulse">
         <div className="flex items-center space-x-2">
@@ -1213,6 +1288,100 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
           <span className="text-gray-600">Loading scale data...</span>
+        </div>
+      </div>
+    );
+  }
+  
+  // Handle case where we have scaleData but no selectedScale
+  if (!selectedScale) {
+    return (
+      <div>
+        {/* View Mode Toggle */}
+        <div className="mb-4 flex justify-end">
+          <div className="inline-flex rounded-md shadow-sm">
+            <button
+              onClick={() => setViewMode('basic')}
+              className={`px-4 py-2 text-sm font-medium rounded-l-md ${
+                viewMode === 'basic'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Basic
+            </button>
+            <button
+              onClick={() => setViewMode('advanced')}
+              className={`px-4 py-2 text-sm font-medium rounded-r-md ${
+                viewMode === 'advanced'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Advanced
+            </button>
+          </div>
+        </div>
+        
+        {/* Search and Filter Section */}
+        <div className={`mb-6 ${viewMode === 'basic' ? 'hidden' : ''}`}>
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Search & Filter</h3>
+            
+            {/* Include the search and filter UI here */}
+            {/* ... */}
+            
+            {/* Results Count */}
+            <div className="mt-4 text-sm text-gray-600">
+              Found {filteredScales.length} scales matching your criteria
+            </div>
+          </div>
+        </div>
+        
+        <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg">
+          <div className="text-center p-4">
+            <div className="text-red-500 font-medium mb-2">No scales found matching your criteria</div>
+            <div className="text-gray-600 text-sm mb-4">
+              Try adjusting your search terms or filters.
+              <br />
+              <span className="text-xs mt-2 block">
+                Debug info: {families.length} families available, 
+                {selectedFamily ? ` "${selectedFamily}" selected` : " no family selected"}
+              </span>
+            </div>
+            
+            {/* Family selection dropdown */}
+            <div className="mb-4">
+              <label htmlFor="family-select-empty" className="block text-sm font-medium text-gray-700 mb-1">
+                Select a different scale family:
+              </label>
+              <select
+                id="family-select-empty"
+                className="w-full p-2 border text-gray-800 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                value={selectedFamily}
+                onChange={handleFamilyChange}
+              >
+                {families.map(family => (
+                  <option key={family} value={family}>
+                    {scaleData.families[family].name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <button 
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+                setNoteCount(null);
+                setSortBy('name');
+                setSortDirection('asc');
+              }}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -1266,7 +1435,7 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
                 <input
                   type="text"
                   id="search"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                  className="text-gray-800 focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                   placeholder="Search by name, description, or category"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}

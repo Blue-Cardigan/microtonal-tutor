@@ -225,7 +225,6 @@ function generateNonSequentialScaleName(scale, mutatedDegrees, path) {
  */
 function generateNonSequentialDescription(scale, mutatedDegrees) {
   const degreeNames = ["1st (tonic)", "2nd", "3rd", "4th", "5th", "6th", "7th"];
-  const mutatedDegreeNames = Array.from(mutatedDegrees).map(d => degreeNames[d]);
   
   // Count mutations per degree
   const mutationsByDegree = {};
@@ -417,7 +416,6 @@ function generateVariableCardinalityScales() {
  */
 function createEquallySpacedScale(numNotes) {
   const degrees = [0];
-  const idealStep = OCTAVE / numNotes;
   let remainingSteps = OCTAVE;
   
   // Calculate degrees with as equal spacing as possible
