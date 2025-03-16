@@ -1,0 +1,2911 @@
+[
+  {
+    "degrees": [
+      0,
+      5,
+      10,
+      13,
+      18,
+      23,
+      28,
+      31
+    ],
+    "intervals": [
+      5,
+      5,
+      3,
+      5,
+      5,
+      5,
+      3
+    ],
+    "name": "Hyperlydian",
+    "description": "Original hyperlydian scale with maximum brightness, no alterations.",
+    "alterations": [],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation",
+        "Harmonic Series Approximation",
+        "Equal Spacing"
+      ],
+      "cultural": [
+        "African"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Sparse Intervals",
+        "Equiheptatonic"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -1,
+      5,
+      10,
+      13,
+      18,
+      23,
+      28,
+      31
+    ],
+    "intervals": [
+      6,
+      5,
+      3,
+      5,
+      5,
+      5,
+      2
+    ],
+    "name": "Modified Lydian",
+    "description": "Derived from hyperlydian by lowering the 1st degree by 1 step. Contains augmented intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation",
+        "Harmonic Series Approximation"
+      ],
+      "cultural": [
+        "Western Classical"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      13,
+      18,
+      23,
+      28,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      3,
+      5,
+      5,
+      5,
+      1
+    ],
+    "name": "QuasiMicrotonal Lydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation",
+        "Harmonic Series Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      12,
+      18,
+      23,
+      28,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      2,
+      6,
+      5,
+      5,
+      1
+    ],
+    "name": "QuasiMicrotonal Lydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps and lowering the 4th degree by 1 step. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Harmonic Series Approximation",
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      11,
+      18,
+      23,
+      28,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      1,
+      7,
+      5,
+      5,
+      1
+    ],
+    "name": "QuasiMicrotonal Lydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps and flattening the 4th degree by 2 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Harmonic Series Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      11,
+      18,
+      23,
+      27,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      1,
+      7,
+      5,
+      4,
+      2
+    ],
+    "name": "QuasiMicrotonalUltra Lydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and lowering the 7th degree by 1 step. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      11,
+      18,
+      23,
+      26,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      1,
+      7,
+      5,
+      3,
+      3
+    ],
+    "name": "QuasiMicrotonalUltra Lydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and flattening the 7th degree by 2 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Mixed"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      11,
+      18,
+      23,
+      25,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      1,
+      7,
+      5,
+      2,
+      4
+    ],
+    "name": "QuasiMicrotonalUltra Aeolian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and diminishing the 7th degree by 3 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      10,
+      11,
+      18,
+      23,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      1,
+      7,
+      5,
+      1,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Aeolian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Harmonic Series Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      9,
+      11,
+      18,
+      23,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      4,
+      2,
+      7,
+      5,
+      1,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Aeolian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, lowering the 3rd degree by 1 step, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      8,
+      11,
+      18,
+      23,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      3,
+      3,
+      7,
+      5,
+      1,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Ionian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 3rd degree by 2 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Mixed"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      7,
+      11,
+      18,
+      23,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      2,
+      4,
+      7,
+      5,
+      1,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Ionian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, diminishing the 3rd degree by 3 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      6,
+      11,
+      18,
+      23,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      1,
+      5,
+      7,
+      5,
+      1,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Ionian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      6,
+      11,
+      18,
+      22,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      1,
+      5,
+      7,
+      4,
+      2,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Ionian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, lowering the 6th degree by 1 step, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      6,
+      11,
+      18,
+      21,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      1,
+      5,
+      7,
+      3,
+      3,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Ionian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, flattening the 6th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Mixed"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      6,
+      11,
+      18,
+      20,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      1,
+      5,
+      7,
+      2,
+      4,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Phrygian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, diminishing the 6th degree by 3 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      5,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      7,
+      1,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Phrygian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      4,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      6,
+      2,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Phrygian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, lowering the 2nd degree by 1 step, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      3,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      5,
+      3,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Phrygian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 2nd degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      2,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      4,
+      4,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "NeutralQuasiMicrotonalUltra Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, diminishing the 2nd degree by 3 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Mixed"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      1,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      3,
+      5,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 2nd degree by 4 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      18,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      7,
+      1,
+      5,
+      5
+    ],
+    "name": "QuasiMicrotonalUltra Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      17,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      6,
+      2,
+      5,
+      5
+    ],
+    "name": "SuperSemi Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, lowering the 5th degree by 1 step, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains consecutive semitones.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      16,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      5,
+      3,
+      5,
+      5
+    ],
+    "name": "Modified Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, flattening the 5th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation"
+      ],
+      "cultural": [
+        "Western Classical"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      15,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      4,
+      4,
+      5,
+      5
+    ],
+    "name": "Neutral Mixolydian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, diminishing the 5th degree by 3 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Gamelan"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Mixed"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      14,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      3,
+      5,
+      5,
+      5
+    ],
+    "name": "Modified Locrian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 5th degree by 4 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Just Intonation Approximation"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Gamelan"
+      ],
+      "perceptual": [
+        "Neutral"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Diatonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      -2,
+      0,
+      6,
+      11,
+      13,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      5,
+      2,
+      6,
+      5,
+      5
+    ],
+    "name": "SuperSemi Locrian",
+    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, maximally diminishing the 5th degree by 5 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains consecutive semitones.",
+    "alterations": [
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 1
+      },
+      {
+        "degree": 0,
+        "degreeName": "1st",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 1
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 2
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 3
+      },
+      {
+        "degree": 6,
+        "degreeName": "7th",
+        "steps": 4
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 1
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 2
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 3
+      },
+      {
+        "degree": 2,
+        "degreeName": "3rd",
+        "steps": 4
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 1
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 2
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 3
+      },
+      {
+        "degree": 5,
+        "degreeName": "6th",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 5
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Gamelan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  }
+]

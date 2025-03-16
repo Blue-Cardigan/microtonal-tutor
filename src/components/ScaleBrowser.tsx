@@ -19,6 +19,10 @@ interface Scale {
   degrees: number[];
   intervals: number[];
   modifications: string[];
+  description?: string;
+  properties?: {
+    [key: string]: string | number | boolean;
+  };
   categories: {
     [key: string]: string[];
   };
@@ -112,6 +116,29 @@ const getIntervalType = (interval: number): string => {
     
     default: return "unknown";
   }
+};
+
+// Function to determine chord function based on scale degree
+const getFunctionFromDegree = (degree: number, isMajorLike: boolean): string => {
+  // Basic functional harmony assignments
+  if (degree === 0) return "Tonic";
+  if (degree === 4) return "Dominant";
+  if (degree === 3) return "Subdominant";
+  
+  // Different assignments for major vs minor modes
+  if (isMajorLike) {
+    if (degree === 2) return "Supertonic";
+    if (degree === 5) return "Submediant";
+    if (degree === 1) return "Mediant";
+    if (degree === 6) return "Leading Tone";
+  } else {
+    if (degree === 1) return "Supertonic";
+    if (degree === 5) return "Dominant";
+    if (degree === 2) return "Mediant";
+    if (degree === 6) return "Subtonic";
+  }
+  
+  return "Unknown";
 };
 
 // Enhanced function to determine chord type based on intervals in 31-EDO
@@ -257,6 +284,16 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
   const [useAutoInversion, setUseAutoInversion] = useState<boolean>(false);
   const [actualAutoInversion, setActualAutoInversion] = useState<number>(0);
   
+  // New state variables for enhanced filtering and searching
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [availableCategories, setAvailableCategories] = useState<string[]>([]);
+  const [filteredScales, setFilteredScales] = useState<Scale[]>([]);
+  const [noteCount, setNoteCount] = useState<number | null>(null);
+  const [viewMode, setViewMode] = useState<'basic' | 'advanced'>('basic');
+  const [sortBy, setSortBy] = useState<'name' | 'noteCount' | 'brightness'>('name');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  
   // Reference to track scheduled event IDs for cleanup
   const scheduledEventsRef = useRef<number[]>([]);
   
@@ -289,8 +326,6 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
       }
       return note % 31;
     });
-    
-    console.log(normalizedNotes);
     
     let lowestBassNote = Number.MAX_SAFE_INTEGER;
     let optimalInversion = 0;
@@ -444,18 +479,77 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
   useEffect(() => {
     const loadScaleData = async () => {
       try {
-        const response = await fetch('/data/results_with_chords.json');
-        const data = await response.json();
-        setScaleData(data);
+        // Load scales from all three files
+        const [modesResponse, culturalResponse, extraResponse] = await Promise.all([
+          fetch('/data/modes.json'),
+          fetch('/data/CulturalEtc.json'),
+          fetch('/data/extraScales.json')
+        ]);
+        
+        const modesData = await modesResponse.json();
+        const culturalData = await culturalResponse.json();
+        const extraData = await extraResponse.json();
+        
+        // Create a merged data structure
+        const mergedData: ScaleData = {
+          title: "31-EDO Scales",
+          families: {}
+        };
+        
+        // Process modes data (array format)
+        if (Array.isArray(modesData) && modesData.length > 0) {
+          // Create a "Modes" family
+          mergedData.families["Modes"] = {
+            name: "Modes",
+            scales: modesData
+          };
+        }
+        
+        // Process cultural data (object with categories)
+        if (culturalData) {
+          // Each key in culturalData is a category
+          Object.entries(culturalData).forEach(([category, scales]) => {
+            if (Array.isArray(scales) && scales.length > 0) {
+              const formattedCategory = formatName(category);
+              mergedData.families[category] = {
+                name: formattedCategory,
+                scales: scales as Scale[]
+              };
+            }
+          });
+        }
+        
+        // Process extra scales data (object with categories)
+        if (extraData) {
+          // Each key in extraData is a category
+          Object.entries(extraData).forEach(([category, scales]) => {
+            if (Array.isArray(scales) && scales.length > 0) {
+              const formattedCategory = formatName(category);
+              mergedData.families[category] = {
+                name: formattedCategory,
+                scales: scales as Scale[]
+              };
+            }
+          });
+        }
+        
+        setScaleData(mergedData);
         
         // Get family names
-        const familyNames = Object.keys(data.families);
+        const familyNames = Object.keys(mergedData.families);
         setFamilies(familyNames);
+        
+        // Log scale counts for debugging
+        console.log("Loaded scale families:", 
+          Object.entries(mergedData.families).map(([key, family]) => 
+            `${key}: ${family.scales.length} scales`
+          )
+        );
         
         // Set default selections
         if (familyNames.length > 0) {
           setSelectedFamily(familyNames[0]);
-          const firstFamily = data.families[familyNames[0]];
+          const firstFamily = mergedData.families[familyNames[0]];
           if (firstFamily.scales.length > 0) {
             setSelectedScale(firstFamily.scales[0]);
           }
@@ -473,8 +567,103 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
     if (!selectedScale) return;
     
     const generateChordsForScale = () => {
+      // If the scale already has a chord system defined, use it
+      if (selectedScale.chordSystem) {
+        // Extract triads and seventh chords from the existing chord system
+        const existingTriads: Chord[] = [];
+        const existingSevenths: Chord[] = [];
+        
+        // Process chords by degree
+        if (selectedScale.chordSystem.chordsByDegree) {
+          Object.values(selectedScale.chordSystem.chordsByDegree).forEach(degreeGroup => {
+            degreeGroup.forEach(group => {
+              group.chords.forEach(chord => {
+                if (chord.notes.length === 3) {
+                  existingTriads.push(chord);
+                } else if (chord.notes.length === 4) {
+                  existingSevenths.push(chord);
+                }
+              });
+            });
+          });
+        }
+        
+        // If we found existing chords, use them
+        if (existingTriads.length > 0 || existingSevenths.length > 0) {
+          return {
+            triads: existingTriads.length > 0 ? existingTriads : generateTriads(),
+            sevenths: existingSevenths.length > 0 ? existingSevenths : generateSeventhChords()
+          };
+        }
+      }
+      
+      // Otherwise, generate chords algorithmically
+      return {
+        triads: generateTriads(),
+        sevenths: generateSeventhChords()
+      };
+    };
+    
+    // Generate triads algorithmically
+    const generateTriads = () => {
       const degrees = selectedScale.degrees;
       const triads: Chord[] = [];
+      
+      // Determine if the scale is major-like or minor-like based on the third degree
+      const thirdInterval = degrees[2] - degrees[0];
+      const isMajorLike = thirdInterval >= 9; // Major or neutral third
+      const romanNumerals = isMajorLike ? ROMAN_NUMERALS_MAJOR : ROMAN_NUMERALS;
+      
+      // Create extended scale degrees that include the next octave
+      const extendedDegrees = [...degrees];
+      
+      // Special case: If the scale includes both C (0) and high C (31),
+      // we need to ensure they're treated as the same pitch class in different octaves
+      const hasHighC = degrees.includes(31);
+      const hasLowC = degrees.includes(0);
+      
+      // Add notes from the next octave
+      for (let i = 0; i < degrees.length; i++) {
+        // Skip adding high C from the next octave if the scale already has both C and high C
+        if (hasHighC && hasLowC && degrees[i] === 0) continue;
+        
+        extendedDegrees.push(degrees[i] + 31); // Add the same note one octave higher
+      }
+      
+      // Generate triads for each scale degree
+      for (let i = 0; i < degrees.length - 1; i++) { // Skip the octave
+        const root = degrees[i];
+        const third = extendedDegrees.find(note => 
+          note > root && note - root >= 8 && note - root <= 11
+        );
+        const fifth = extendedDegrees.find(note => 
+          note > root && note - root >= 17 && note - root <= 19
+        );
+        
+        if (third && fifth) {
+          const chordNotes = [root, third, fifth];
+          const intervals = [third - root, fifth - root];
+          
+          // Determine chord type
+          const chordType = getChordType(intervals);
+          
+          triads.push({
+            degree: i,
+            degreeRoman: romanNumerals[i],
+            type: chordType,
+            function: getFunctionFromDegree(i, isMajorLike),
+            notes: chordNotes,
+            intervals: intervals
+          });
+        }
+      }
+      
+      return triads;
+    };
+    
+    // Generate seventh chords algorithmically
+    const generateSeventhChords = () => {
+      const degrees = selectedScale.degrees;
       const sevenths: Chord[] = [];
       
       // Determine if the scale is major-like or minor-like based on the third degree
@@ -498,114 +687,135 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
         extendedDegrees.push(degrees[i] + 31); // Add the same note one octave higher
       }
       
-      // Function to voice a chord within a single octave
-      const voiceChordInOctave = (notes: number[]): number[] => {
-        if (notes.length <= 1) return notes;
-        
-        const root = notes[0];
-        
-        // Simply normalize all notes to be within an octave of the root
-        // without attempting to create tighter voicings through inversions
-        return notes.map(note => {
-          let normalized = note;
-          // If the note is above the root by more than an octave, bring it down
-          while (normalized - root >= 31) {
-            normalized -= 31;
-          }
-          // If the note is below the root, bring it up
-          while (normalized < root) {
-            normalized += 31;
-          }
-          return normalized;
-        });
-      };
-      
-      // Generate triads and seventh chords for each scale degree
+      // Add notes from the second octave for seventh chords
       for (let i = 0; i < degrees.length; i++) {
-        const root = degrees[i];
-        
-        // Skip generating chords for the high C if we already have chords for the low C
-        // This prevents duplicate chords with the same pitch class
-        if (hasHighC && hasLowC && root === 31) continue;
-        
-        // Build triad (1-3-5)
-        // Use extended degrees to properly handle notes that wrap around the octave
-        const rawTriadNotes = [
-          root,
-          extendedDegrees[i + 2], // Third
-          extendedDegrees[i + 4]  // Fifth
-        ];
-        
-        // Voice the triad within an octave
-        const triadNotes = voiceChordInOctave(rawTriadNotes);
-        
-        // Calculate intervals from the root
-        const triadIntervals = [
-          triadNotes[1] - triadNotes[0],
-          triadNotes[2] - triadNotes[0]
-        ];
-        
-        // Ensure intervals are within an octave
-        triadIntervals[0] = ((triadIntervals[0] % 31) + 31) % 31;
-        triadIntervals[1] = ((triadIntervals[1] % 31) + 31) % 31;
-        
-        // Create triad chord
-        const triadType = getChordType(triadIntervals);
-        const triad: Chord = {
-          degree: i + 1,
-          degreeRoman: romanNumerals[i],
-          type: triadType,
-          function: "",
-          notes: triadNotes,
-          intervals: triadIntervals
-        };
-        
-        triads.push(triad);
-        
-        // Build seventh chord (1-3-5-7)
-        const rawSeventhNotes = [
-          root,
-          extendedDegrees[i + 2], // Third
-          extendedDegrees[i + 4], // Fifth
-          extendedDegrees[i + 6]  // Seventh
-        ];
-        
-        // Voice the seventh chord within an octave
-        const seventhNotes = voiceChordInOctave(rawSeventhNotes);
-        
-        // Calculate intervals from the root
-        const seventhIntervals = [
-          seventhNotes[1] - seventhNotes[0],
-          seventhNotes[2] - seventhNotes[0],
-          seventhNotes[3] - seventhNotes[0]
-        ];
-        
-        // Ensure intervals are within an octave
-        seventhIntervals[0] = ((seventhIntervals[0] % 31) + 31) % 31;
-        seventhIntervals[1] = ((seventhIntervals[1] % 31) + 31) % 31;
-        seventhIntervals[2] = ((seventhIntervals[2] % 31) + 31) % 31;
-        
-        // Create seventh chord
-        const seventhType = getChordType(seventhIntervals);
-        const seventh: Chord = {
-          degree: i + 1,
-          degreeRoman: romanNumerals[i],
-          type: seventhType,
-          function: "",
-          notes: seventhNotes,
-          intervals: seventhIntervals
-        };
-        
-        sevenths.push(seventh);
+        extendedDegrees.push(degrees[i] + 62); // Add the same note two octaves higher
       }
       
-      return { triads, sevenths };
+      // Generate seventh chords for each scale degree
+      for (let i = 0; i < degrees.length - 1; i++) { // Skip the octave
+        const root = degrees[i];
+        const third = extendedDegrees.find(note => 
+          note > root && note - root >= 8 && note - root <= 11
+        );
+        const fifth = extendedDegrees.find(note => 
+          note > root && note - root >= 17 && note - root <= 19
+        );
+        const seventh = extendedDegrees.find(note => 
+          note > root && note - root >= 25 && note - root <= 28
+        );
+        
+        if (third && fifth && seventh) {
+          const chordNotes = [root, third, fifth, seventh];
+          const intervals = [third - root, fifth - root, seventh - root];
+          
+          // Determine chord type
+          const chordType = getChordType(intervals);
+          
+          sevenths.push({
+            degree: i,
+          degreeRoman: romanNumerals[i],
+            type: chordType,
+            function: getFunctionFromDegree(i, isMajorLike),
+            notes: chordNotes,
+            intervals: intervals
+          });
+        }
+      }
+      
+      return sevenths;
     };
     
     const chords = generateChordsForScale();
     setGeneratedChords(chords);
     
   }, [selectedScale]);
+
+  // Filter and sort scales based on search criteria
+  useEffect(() => {
+    if (!scaleData || !selectedFamily) return;
+    
+    const scales = scaleData.families[selectedFamily].scales;
+    
+    // Apply filters
+    let filtered = [...scales];
+    
+    // Filter by search term
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(scale => {
+        // Search in name
+        if (scale.name && scale.name.toLowerCase().includes(term)) return true;
+        
+        // Search in description
+        if (scale.description && scale.description.toLowerCase().includes(term)) return true;
+        
+        // Search in categories
+        if (scale.categories) {
+          for (const [category, values] of Object.entries(scale.categories)) {
+            if (category.toLowerCase().includes(term)) return true;
+            if (values.some(value => value.toLowerCase().includes(term))) return true;
+          }
+        }
+        
+        return false;
+      });
+    }
+    
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(scale => {
+        if (!scale.categories) return false;
+        
+        for (const [category, values] of Object.entries(scale.categories)) {
+          if (category === selectedCategory) return true;
+        }
+        
+        return false;
+      });
+    }
+    
+    // Filter by note count
+    if (noteCount !== null) {
+      filtered = filtered.filter(scale => scale.degrees.length === noteCount + 1); // +1 for octave
+    }
+    
+    // Apply sorting
+    filtered.sort((a, b) => {
+      if (sortBy === 'name') {
+        return sortDirection === 'asc' 
+          ? (a.name || '').localeCompare(b.name || '') 
+          : (b.name || '').localeCompare(a.name || '');
+      }
+      
+      if (sortBy === 'noteCount') {
+        const countA = a.degrees.length;
+        const countB = b.degrees.length;
+        return sortDirection === 'asc' ? countA - countB : countB - countA;
+      }
+      
+      if (sortBy === 'brightness') {
+        // Calculate brightness based on interval content
+        // Higher values of intervals = brighter scale
+        const brightnessA = a.intervals.reduce((sum, interval) => sum + interval, 0);
+        const brightnessB = b.intervals.reduce((sum, interval) => sum + interval, 0);
+        return sortDirection === 'asc' ? brightnessA - brightnessB : brightnessB - brightnessA;
+      }
+      
+      return 0;
+    });
+    
+    setFilteredScales(filtered);
+    
+    // Update scale selection if needed
+    if (filtered.length > 0 && (!selectedScale || !filtered.includes(selectedScale))) {
+      setSelectedScale(filtered[0]);
+      setScaleIndex(0);
+    } else if (filtered.length === 0) {
+      setSelectedScale(null);
+    }
+    
+  }, [scaleData, selectedFamily, searchTerm, selectedCategory, noteCount, sortBy, sortDirection, selectedScale]);
 
   // Handle keyboard shortcuts for playing chords
   useEffect(() => {
@@ -715,22 +925,20 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
 
   // Navigate to previous scale
   const handlePrevScale = () => {
-    if (!scaleData || !selectedFamily) return;
+    if (filteredScales.length === 0) return;
     
-    const scales = scaleData.families[selectedFamily].scales;
-    const newIndex = (scaleIndex - 1 + scales.length) % scales.length;
+    const newIndex = (scaleIndex - 1 + filteredScales.length) % filteredScales.length;
     setScaleIndex(newIndex);
-    setSelectedScale(scales[newIndex]);
+    setSelectedScale(filteredScales[newIndex]);
   };
 
   // Navigate to next scale
   const handleNextScale = () => {
-    const scales = scaleData?.families[selectedFamily]?.scales || [];
-    if (scales.length === 0) return;
+    if (filteredScales.length === 0) return;
     
-    const newIndex = (scaleIndex + 1) % scales.length;
+    const newIndex = (scaleIndex + 1) % filteredScales.length;
     setScaleIndex(newIndex);
-    setSelectedScale(scales[newIndex]);
+    setSelectedScale(filteredScales[newIndex]);
   };
 
   // Update the playScale function to use Tone.js scheduling completely
@@ -815,6 +1023,26 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
     };
   }, [clearAllScheduledEvents, stopAllNotes, onHighlightNotes]);
 
+  // Collect all available categories from scales
+  useEffect(() => {
+    if (!scaleData) return;
+    
+    const categories = new Set<string>();
+    
+    // Go through all scales in all families
+    Object.values(scaleData.families).forEach(family => {
+      family.scales.forEach(scale => {
+        if (scale.categories) {
+          Object.keys(scale.categories).forEach(category => {
+            categories.add(category);
+          });
+        }
+      });
+    });
+    
+    setAvailableCategories(Array.from(categories).sort());
+  }, [scaleData]);
+
   if (!scaleData || !selectedScale) {
     return (
       <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg animate-pulse">
@@ -831,6 +1059,143 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
 
   return (
     <div>
+      {/* View Mode Toggle */}
+      <div className="mb-4 flex justify-end">
+        <div className="inline-flex rounded-md shadow-sm">
+          <button
+            onClick={() => setViewMode('basic')}
+            className={`px-4 py-2 text-sm font-medium rounded-l-md ${
+              viewMode === 'basic'
+                ? 'bg-indigo-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Basic
+          </button>
+          <button
+            onClick={() => setViewMode('advanced')}
+            className={`px-4 py-2 text-sm font-medium rounded-r-md ${
+              viewMode === 'advanced'
+                ? 'bg-indigo-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Advanced
+          </button>
+        </div>
+      </div>
+      
+      {/* Search and Filter Section */}
+      <div className={`mb-6 ${viewMode === 'basic' ? 'hidden' : ''}`}>
+        <div className="bg-gray-50 rounded-lg p-4">
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Search & Filter</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Search Input */}
+            <div>
+              <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
+                Search Scales
+              </label>
+              <div className="relative rounded-md shadow-sm">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="search"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Search by name, description, or category"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+            </div>
+            
+            {/* Category Filter */}
+            <div>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+                Filter by Category
+              </label>
+              <select
+                id="category"
+                className="mt-1 block w-full pl-3 pr-10 py-2 text-gray-800 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option value="all">All Categories</option>
+                {availableCategories.map(category => (
+                  <option key={category} value={category}>
+                    {formatName(category)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {/* Note Count Filter */}
+            <div>
+              <label htmlFor="noteCount" className="block text-sm font-medium text-gray-700 mb-1">
+                Number of Notes
+              </label>
+              <select
+                id="noteCount"
+                className="mt-1 block w-full pl-3 pr-10 py-2 text-gray-800 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                value={noteCount === null ? 'all' : noteCount.toString()}
+                onChange={(e) => setNoteCount(e.target.value === 'all' ? null : parseInt(e.target.value))}
+              >
+                <option value="all">Any</option>
+                {[5, 6, 7, 8, 9, 10, 11, 12].map(count => (
+                  <option key={count} value={count}>
+                    {count} notes
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            {/* Sort By */}
+            <div>
+              <label htmlFor="sortBy" className="block text-sm font-medium text-gray-700 mb-1">
+                Sort By
+              </label>
+              <select
+                id="sortBy"
+                className="mt-1 block w-full pl-3 pr-10 py-2 text-gray-800 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'name' | 'noteCount' | 'brightness')}
+              >
+                <option value="name">Name</option>
+                <option value="noteCount">Number of Notes</option>
+                <option value="brightness">Brightness</option>
+              </select>
+            </div>
+            
+            {/* Sort Direction */}
+            <div>
+              <label htmlFor="sortDirection" className="block text-sm font-medium text-gray-700 mb-1">
+                Sort Direction
+              </label>
+              <select
+                id="sortDirection"
+                className="mt-1 block w-full pl-3 pr-10 py-2 text-gray-800 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                value={sortDirection}
+                onChange={(e) => setSortDirection(e.target.value as 'asc' | 'desc')}
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+          </div>
+          
+          {/* Results Count */}
+          <div className="mt-4 text-sm text-gray-600">
+            Found {filteredScales.length} scales matching your criteria
+          </div>
+        </div>
+      </div>
+      
       {/* Scale Selection */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
@@ -869,11 +1234,23 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
               value={selectedFamily}
               onChange={handleFamilyChange}
             >
-              {families.map(family => (
-                <option key={family} value={family}>
-                  {scaleData.families[family].name}
-                </option>
-              ))}
+              {families.map(family => {
+                // Determine the source of the family
+                let source = "";
+                if (family === "Modes") {
+                  source = "Modes";
+                } else if (["cultural", "nonSequentialHeptatonic", "variableCardinality"].includes(family)) {
+                  source = "Cultural";
+                } else if (["historical", "hybrid", "mos", "transformed", "wellFormed", "xenharmonic"].includes(family)) {
+                  source = "Extra";
+                }
+                
+                return (
+                  <option key={family} value={family}>
+                    {scaleData.families[family].name} {source ? `(${source})` : ""}
+                  </option>
+                );
+              })}
             </select>
           </div>
           
@@ -943,17 +1320,69 @@ const ScaleBrowser = ({ onHighlightNotes, onChordSelect, onScaleSelect }: ScaleB
             </div>
           </div>
           
+          {/* Description - shown only if available */}
+          {selectedScale.description && (
+            <div className="mt-4">
+              <div className="bg-white p-3 rounded-md shadow-sm">
+                <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Description</h4>
+                <p className="text-sm text-gray-700">{selectedScale.description}</p>
+              </div>
+            </div>
+          )}
+          
           <div className="mt-4">
             <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Categories</h4>
             <div className="bg-white p-3 rounded-md shadow-sm">
-              {Object.entries(selectedScale.categories).map(([category, values]) => (
+              {Object.entries(selectedScale.categories || {}).map(([category, values]) => (
                 <div key={category} className="mb-2 last:mb-0">
                   <span className="text-sm font-medium text-indigo-600">{formatName(category)}:</span>{' '}
                   <span className="text-sm text-gray-700">{values.join(', ')}</span>
                 </div>
               ))}
+              {(!selectedScale.categories || Object.keys(selectedScale.categories).length === 0) && (
+                <p className="text-sm text-gray-500 italic">No categories available</p>
+              )}
             </div>
           </div>
+          
+          {/* Advanced information - only shown in advanced mode */}
+          {viewMode === 'advanced' && (
+            <>
+              {/* Additional properties if available */}
+              {selectedScale.properties && (
+                <div className="mt-4">
+                  <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Properties</h4>
+                  <div className="bg-white p-3 rounded-md shadow-sm">
+                    {Object.entries(selectedScale.properties).map(([key, value]) => (
+                      <div key={key} className="mb-2 last:mb-0">
+                        <span className="text-sm font-medium text-indigo-600">{formatName(key)}:</span>{' '}
+                        <span className="text-sm text-gray-700">{value.toString()}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Modifications if available */}
+              {selectedScale.modifications && selectedScale.modifications.length > 0 && (
+                <div className="mt-4">
+                  <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Modifications</h4>
+                  <div className="bg-white p-3 rounded-md shadow-sm">
+                    <div className="flex flex-wrap gap-1">
+                      {selectedScale.modifications.map((mod, index) => (
+                        <span 
+                          key={`mod-${index}`} 
+                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                        >
+                          {mod}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
       

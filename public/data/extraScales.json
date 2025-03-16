@@ -1,0 +1,5871 @@
+{
+  "mos": [],
+  "wellFormed": [
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "name": "BiWF-perfectfourth-7",
+      "description": "Well-formed scale with 7 notes generated from stacked perfect fourths (4:3).",
+      "type": "well-formed",
+      "properties": {
+        "generator": 13,
+        "generatorName": "perfect fourth",
+        "generatorRatio": "4:3",
+        "noteCount": 7
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        5,
+        3
+      ],
+      "name": "BiWF-perfectfifth-7",
+      "description": "Well-formed scale with 7 notes generated from stacked perfect fifths (3:2).",
+      "type": "well-formed",
+      "properties": {
+        "generator": 18,
+        "generatorName": "perfect fifth",
+        "generatorRatio": "3:2",
+        "noteCount": 7
+      }
+    }
+  ],
+  "hybrid": [
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Arabesqued Major-Rast",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Arabic Rast.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Arabic",
+        "upperScale": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Alternating Arabesqued Major-Rast",
+      "description": "Hybrid scale alternating between notes from Western Major and Arabic Rast.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Arabic",
+        "scale2": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        4,
+        5,
+        4
+      ],
+      "name": "Arabesqued Major-Bayati",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Arabic Bayati.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Arabic",
+        "upperScale": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Alternating Arabesqued Major-Bayati",
+      "description": "Hybrid scale alternating between notes from Western Major and Arabic Bayati.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Arabic",
+        "scale2": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Arabesqued Major-Hijaz",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Arabic Hijaz.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Arabic",
+        "upperScale": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Alternating Arabesqued Major-Hijaz",
+      "description": "Hybrid scale alternating between notes from Western Major and Arabic Hijaz.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Arabic",
+        "scale2": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Arabesqued Minor-Rast",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Arabic Rast.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Minor-Rast",
+      "description": "Hybrid scale alternating between notes from Western Minor and Arabic Rast.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Arabic",
+        "scale2": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        4,
+        5,
+        4
+      ],
+      "name": "Arabesqued Minor-Bayati",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Arabic Bayati.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Minor-Bayati",
+      "description": "Hybrid scale alternating between notes from Western Minor and Arabic Bayati.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Arabic",
+        "scale2": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Arabesqued Minor-Hijaz",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Arabic Hijaz.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Minor-Hijaz",
+      "description": "Hybrid scale alternating between notes from Western Minor and Arabic Hijaz.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Arabic",
+        "scale2": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "name": "Arabesqued Harmonic Minor-Rast",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Arabic Rast.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Harmonic Minor-Rast",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Arabic Rast.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Arabic",
+        "scale2": "Rast"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        4,
+        5,
+        4
+      ],
+      "name": "Arabesqued Harmonic Minor-Bayati",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Arabic Bayati.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Harmonic Minor-Bayati",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Arabic Bayati.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Arabic",
+        "scale2": "Bayati"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Arabesqued Harmonic Minor-Hijaz",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Arabic Hijaz.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Arabic",
+        "upperScale": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        3,
+        6,
+        4
+      ],
+      "name": "Alternating Arabesqued Harmonic Minor-Hijaz",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Arabic Hijaz.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Arabic",
+        "scale2": "Hijaz"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "name": "Indionized Major-Bilawal",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Indian Bilawal.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Indian",
+        "upperScale": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "name": "Alternating Indionized Major-Bilawal",
+      "description": "Hybrid scale alternating between notes from Western Major and Indian Bilawal.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Indian",
+        "scale2": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Indionized Major-Kafi",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Indian Kafi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Indian",
+        "upperScale": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Alternating Indionized Major-Kafi",
+      "description": "Hybrid scale alternating between notes from Western Major and Indian Kafi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Indian",
+        "scale2": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Indionized Major-Bhairavi",
+      "description": "Hybrid scale with lower tetrachord from Western Major and upper tetrachord from Indian Bhairavi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Major",
+        "upperTradition": "Indian",
+        "upperScale": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Alternating Indionized Major-Bhairavi",
+      "description": "Hybrid scale alternating between notes from Western Major and Indian Bhairavi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Major",
+        "tradition2": "Indian",
+        "scale2": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "name": "Indionized Minor-Bilawal",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Indian Bilawal.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        21,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        3,
+        7,
+        3
+      ],
+      "name": "Alternating Indionized Minor-Bilawal",
+      "description": "Hybrid scale alternating between notes from Western Minor and Indian Bilawal.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Indian",
+        "scale2": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Indionized Minor-Kafi",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Indian Kafi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Indionized Minor-Kafi",
+      "description": "Hybrid scale alternating between notes from Western Minor and Indian Kafi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Indian",
+        "scale2": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Indionized Minor-Bhairavi",
+      "description": "Hybrid scale with lower tetrachord from Western Minor and upper tetrachord from Indian Bhairavi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Indionized Minor-Bhairavi",
+      "description": "Hybrid scale alternating between notes from Western Minor and Indian Bhairavi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Minor",
+        "tradition2": "Indian",
+        "scale2": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "name": "Indionized Harmonic Minor-Bilawal",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Indian Bilawal.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        21,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        3,
+        7,
+        3
+      ],
+      "name": "Alternating Indionized Harmonic Minor-Bilawal",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Indian Bilawal.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Indian",
+        "scale2": "Bilawal"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Indionized Harmonic Minor-Kafi",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Indian Kafi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Indionized Harmonic Minor-Kafi",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Indian Kafi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Indian",
+        "scale2": "Kafi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Indionized Harmonic Minor-Bhairavi",
+      "description": "Hybrid scale with lower tetrachord from Western Harmonic Minor and upper tetrachord from Indian Bhairavi.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Western",
+        "lowerScale": "Harmonic Minor",
+        "upperTradition": "Indian",
+        "upperScale": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Indionized Harmonic Minor-Bhairavi",
+      "description": "Hybrid scale alternating between notes from Western Harmonic Minor and Indian Bhairavi.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Western",
+        "scale1": "Harmonic Minor",
+        "tradition2": "Indian",
+        "scale2": "Bhairavi"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Raglues Bilawal-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Indian Bilawal and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Indian",
+        "lowerScale": "Bilawal",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Alternating Raglues Bilawal-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Indian Bilawal and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Indian",
+        "scale1": "Bilawal",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Raglues Kafi-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Indian Kafi and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Indian",
+        "lowerScale": "Kafi",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Alternating Raglues Kafi-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Indian Kafi and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Indian",
+        "scale1": "Kafi",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Raglues Bhairavi-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Indian Bhairavi and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Indian",
+        "lowerScale": "Bhairavi",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Raglues Bhairavi-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Indian Bhairavi and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Indian",
+        "scale1": "Bhairavi",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Maqablues Rast-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Arabic Rast and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Arabic",
+        "lowerScale": "Rast",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Alternating Maqablues Rast-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Arabic Rast and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Arabic",
+        "scale1": "Rast",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Maqablues Bayati-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Arabic Bayati and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Arabic",
+        "lowerScale": "Bayati",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Alternating Maqablues Bayati-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Arabic Bayati and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Arabic",
+        "scale1": "Bayati",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Maqablues Hijaz-Neutral Blues",
+      "description": "Hybrid scale with lower tetrachord from Arabic Hijaz and upper tetrachord from Blues Neutral Blues.",
+      "type": "hybrid-tetrachord",
+      "properties": {
+        "lowerTradition": "Arabic",
+        "lowerScale": "Hijaz",
+        "upperTradition": "Blues",
+        "upperScale": "Neutral Blues"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Alternating Maqablues Hijaz-Neutral Blues",
+      "description": "Hybrid scale alternating between notes from Arabic Hijaz and Blues Neutral Blues.",
+      "type": "hybrid-alternating",
+      "properties": {
+        "tradition1": "Arabic",
+        "scale1": "Hijaz",
+        "tradition2": "Blues",
+        "scale2": "Neutral Blues"
+      }
+    }
+  ],
+  "xenharmonic": [
+    {
+      "name": "Complete Neutriton",
+      "description": "Scale with all neutral intervals (2nd, 3rd, 6th, 7th)",
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "type": "xenharmonic-neutral",
+      "properties": {
+        "neutralSeconds": 4,
+        "neutralThirds": true
+      }
+    },
+    {
+      "name": "Neutral Triad",
+      "description": "Scale with neutral 2nd and 3rd but standard 6th and 7th",
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        5,
+        4,
+        4
+      ],
+      "type": "xenharmonic-neutral",
+      "properties": {
+        "neutralSeconds": 4,
+        "neutralThirds": true
+      }
+    },
+    {
+      "name": "Neutral Mediant",
+      "description": "Scale with neutral 3rd and 6th but standard 2nd and 7th",
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "type": "xenharmonic-neutral",
+      "properties": {
+        "neutralSeconds": 4,
+        "neutralThirds": true
+      }
+    },
+    {
+      "name": "Neutralized Minor",
+      "description": "Minor scale with 2nd, 6th and 7th replaced by neutral equivalents",
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        5,
+        4,
+        4,
+        5
+      ],
+      "type": "xenharmonic-neutral",
+      "properties": {
+        "neutralSeconds": 4,
+        "neutralThirds": false
+      }
+    },
+    {
+      "name": "Semi-Neutralized",
+      "description": "Scale with neutral 2nd, 3rd and 6th but major 7th",
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        6,
+        3
+      ],
+      "type": "xenharmonic-neutral",
+      "properties": {
+        "neutralSeconds": 3,
+        "neutralThirds": true
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        10,
+        14,
+        17,
+        21,
+        24,
+        28,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3
+      ],
+      "name": "34-Alternator",
+      "description": "Xenharmonic scale alternating between 3-step and 4-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,4",
+        "step1": 3,
+        "step2": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        11,
+        16,
+        19,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        3,
+        5,
+        3,
+        5,
+        7
+      ],
+      "name": "35-Alternator",
+      "description": "Xenharmonic scale alternating between 3-step and 5-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,5",
+        "step1": 3,
+        "step2": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        12,
+        18,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        3,
+        6,
+        3,
+        6,
+        4
+      ],
+      "name": "36-Alternator",
+      "description": "Xenharmonic scale alternating between 3-step and 6-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,6",
+        "step1": 3,
+        "step2": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        11,
+        14,
+        18,
+        21,
+        25,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        3
+      ],
+      "name": "43-Alternator",
+      "description": "Xenharmonic scale alternating between 4-step and 3-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,3",
+        "step1": 4,
+        "step2": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "name": "45-Alternator",
+      "description": "Xenharmonic scale alternating between 4-step and 5-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,5",
+        "step1": 4,
+        "step2": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        14,
+        20,
+        24,
+        30,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "name": "46-Alternator",
+      "description": "Xenharmonic scale alternating between 4-step and 6-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,6",
+        "step1": 4,
+        "step2": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        16,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        3,
+        5,
+        3,
+        7
+      ],
+      "name": "53-Alternator",
+      "description": "Xenharmonic scale alternating between 5-step and 3-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,3",
+        "step1": 5,
+        "step2": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        14,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4,
+        4
+      ],
+      "name": "54-Alternator",
+      "description": "Xenharmonic scale alternating between 5-step and 4-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,4",
+        "step1": 5,
+        "step2": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        16,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        5,
+        6,
+        5,
+        4
+      ],
+      "name": "56-Alternator",
+      "description": "Xenharmonic scale alternating between 5-step and 6-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,6",
+        "step1": 5,
+        "step2": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        9,
+        15,
+        18,
+        24,
+        27,
+        31
+      ],
+      "intervals": [
+        6,
+        3,
+        6,
+        3,
+        6,
+        3,
+        4
+      ],
+      "name": "63-Alternator",
+      "description": "Xenharmonic scale alternating between 6-step and 3-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,3",
+        "step1": 6,
+        "step2": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        16,
+        20,
+        26,
+        30,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        6,
+        4,
+        6,
+        4,
+        1
+      ],
+      "name": "64-Alternator",
+      "description": "Xenharmonic scale alternating between 6-step and 4-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,4",
+        "step1": 6,
+        "step2": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        17,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        6,
+        5,
+        6,
+        3
+      ],
+      "name": "65-Alternator",
+      "description": "Xenharmonic scale alternating between 6-step and 5-step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,5",
+        "step1": 6,
+        "step2": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        6,
+        10,
+        13,
+        16,
+        20,
+        23,
+        26,
+        30,
+        31
+      ],
+      "intervals": [
+        3,
+        3,
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        4,
+        1
+      ],
+      "name": "334-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 3, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,3,4",
+        "step1": 3,
+        "step2": 3,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        6,
+        11,
+        14,
+        17,
+        22,
+        25,
+        31
+      ],
+      "intervals": [
+        3,
+        3,
+        5,
+        3,
+        3,
+        5,
+        3,
+        6
+      ],
+      "name": "335-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 3, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,3,5",
+        "step1": 3,
+        "step2": 3,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        6,
+        12,
+        15,
+        18,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        3,
+        6,
+        3,
+        3,
+        6,
+        7
+      ],
+      "name": "336-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 3, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,3,6",
+        "step1": 3,
+        "step2": 3,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        10,
+        13,
+        17,
+        20,
+        23,
+        27,
+        30,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        4,
+        3,
+        1
+      ],
+      "name": "343-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 4, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,4,3",
+        "step1": 3,
+        "step2": 4,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        11,
+        14,
+        18,
+        22,
+        25,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        6
+      ],
+      "name": "344-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 4, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,4,4",
+        "step1": 3,
+        "step2": 4,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        12,
+        15,
+        19,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        5,
+        3,
+        4,
+        5,
+        7
+      ],
+      "name": "345-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 4, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,4,5",
+        "step1": 3,
+        "step2": 4,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        13,
+        16,
+        20,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        6,
+        3,
+        4,
+        6,
+        5
+      ],
+      "name": "346-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 4, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,4,6",
+        "step1": 3,
+        "step2": 4,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        11,
+        14,
+        19,
+        22,
+        25,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        3,
+        3,
+        5,
+        3,
+        3,
+        6
+      ],
+      "name": "353-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 5, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,5,3",
+        "step1": 3,
+        "step2": 5,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        12,
+        15,
+        20,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        4,
+        3,
+        5,
+        4,
+        7
+      ],
+      "name": "354-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 5, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,5,4",
+        "step1": 3,
+        "step2": 5,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "name": "355-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 5, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,5,5",
+        "step1": 3,
+        "step2": 5,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        14,
+        17,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        6,
+        3,
+        5,
+        6,
+        3
+      ],
+      "name": "356-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 5, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,5,6",
+        "step1": 3,
+        "step2": 5,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        12,
+        15,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        3,
+        3,
+        6,
+        3,
+        7
+      ],
+      "name": "363-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 6, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,6,3",
+        "step1": 3,
+        "step2": 6,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        13,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        4,
+        3,
+        6,
+        4,
+        5
+      ],
+      "name": "364-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 6, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,6,4",
+        "step1": 3,
+        "step2": 6,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        14,
+        17,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        5,
+        3,
+        6,
+        5,
+        3
+      ],
+      "name": "365-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 6, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,6,5",
+        "step1": 3,
+        "step2": 6,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        9,
+        15,
+        18,
+        24,
+        30,
+        31
+      ],
+      "intervals": [
+        3,
+        6,
+        6,
+        3,
+        6,
+        6,
+        1
+      ],
+      "name": "366-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 3, 6, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "3,6,6",
+        "step1": 3,
+        "step2": 6,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        10,
+        14,
+        17,
+        20,
+        24,
+        27,
+        30,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "name": "433-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 3, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,3,3",
+        "step1": 4,
+        "step2": 3,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        11,
+        15,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        5
+      ],
+      "name": "434-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 3, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,3,4",
+        "step1": 4,
+        "step2": 3,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        12,
+        16,
+        19,
+        24,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        5,
+        4,
+        3,
+        5,
+        7
+      ],
+      "name": "435-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 3, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,3,5",
+        "step1": 4,
+        "step2": 3,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        13,
+        17,
+        20,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        6,
+        4,
+        3,
+        6,
+        5
+      ],
+      "name": "436-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 3, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,3,6",
+        "step1": 4,
+        "step2": 3,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        11,
+        15,
+        19,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        5
+      ],
+      "name": "443-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 4, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,4,3",
+        "step1": 4,
+        "step2": 4,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        17,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        4,
+        4,
+        5,
+        5
+      ],
+      "name": "445-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 4, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,4,5",
+        "step1": 4,
+        "step2": 4,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        14,
+        18,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        6,
+        4,
+        4,
+        6,
+        3
+      ],
+      "name": "446-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 4, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,4,6",
+        "step1": 4,
+        "step2": 4,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        12,
+        16,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        3,
+        4,
+        5,
+        3,
+        7
+      ],
+      "name": "453-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 5, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,5,3",
+        "step1": 4,
+        "step2": 5,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        17,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        4,
+        5,
+        4,
+        5
+      ],
+      "name": "454-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 5, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,5,4",
+        "step1": 4,
+        "step2": 5,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        14,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        5,
+        4,
+        5,
+        5,
+        3
+      ],
+      "name": "455-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 5, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,5,5",
+        "step1": 4,
+        "step2": 5,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        15,
+        19,
+        24,
+        30,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        6,
+        4,
+        5,
+        6,
+        1
+      ],
+      "name": "456-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 5, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,5,6",
+        "step1": 4,
+        "step2": 5,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        13,
+        17,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        3,
+        4,
+        6,
+        3,
+        5
+      ],
+      "name": "463-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 6, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,6,3",
+        "step1": 4,
+        "step2": 6,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        14,
+        18,
+        24,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        4,
+        4,
+        6,
+        4,
+        3
+      ],
+      "name": "464-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 6, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,6,4",
+        "step1": 4,
+        "step2": 6,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        15,
+        19,
+        25,
+        30,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        5,
+        4,
+        6,
+        5,
+        1
+      ],
+      "name": "465-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 6, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,6,5",
+        "step1": 4,
+        "step2": 6,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        16,
+        20,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        6,
+        4,
+        6,
+        5
+      ],
+      "name": "466-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 4, 6, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "4,6,6",
+        "step1": 4,
+        "step2": 6,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        11,
+        16,
+        19,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        3,
+        5,
+        3,
+        3,
+        5,
+        4
+      ],
+      "name": "533-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 3, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,3,3",
+        "step1": 5,
+        "step2": 3,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        12,
+        17,
+        20,
+        24,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        4,
+        5,
+        3,
+        4,
+        7
+      ],
+      "name": "534-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 3, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,3,4",
+        "step1": 5,
+        "step2": 3,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "535-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 3, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,3,5",
+        "step1": 5,
+        "step2": 3,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        14,
+        19,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        6,
+        5,
+        3,
+        6,
+        3
+      ],
+      "name": "536-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 3, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,3,6",
+        "step1": 5,
+        "step2": 3,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        12,
+        17,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        3,
+        5,
+        4,
+        3,
+        7
+      ],
+      "name": "543-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 4, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,4,3",
+        "step1": 5,
+        "step2": 4,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "544-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 4, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,4,4",
+        "step1": 5,
+        "step2": 4,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        14,
+        19,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        5,
+        5,
+        4,
+        5,
+        3
+      ],
+      "name": "545-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 4, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,4,5",
+        "step1": 5,
+        "step2": 4,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        15,
+        20,
+        24,
+        30,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        6,
+        5,
+        4,
+        6,
+        1
+      ],
+      "name": "546-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 4, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,4,6",
+        "step1": 5,
+        "step2": 4,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "553-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 5, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,5,3",
+        "step1": 5,
+        "step2": 5,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        14,
+        19,
+        24,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        4,
+        5,
+        5,
+        4,
+        3
+      ],
+      "name": "554-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 5, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,5,4",
+        "step1": 5,
+        "step2": 5,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        6,
+        5,
+        5,
+        5
+      ],
+      "name": "556-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 5, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,5,6",
+        "step1": 5,
+        "step2": 5,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        14,
+        19,
+        25,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        3,
+        5,
+        6,
+        3,
+        3
+      ],
+      "name": "563-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 6, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,6,3",
+        "step1": 5,
+        "step2": 6,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        15,
+        20,
+        26,
+        30,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        4,
+        5,
+        6,
+        4,
+        1
+      ],
+      "name": "564-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 6, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,6,4",
+        "step1": 5,
+        "step2": 6,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        16,
+        21,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        5,
+        5,
+        6,
+        4
+      ],
+      "name": "565-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 6, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,6,5",
+        "step1": 5,
+        "step2": 6,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        17,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        6,
+        5,
+        6,
+        3
+      ],
+      "name": "566-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 5, 6, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "5,6,6",
+        "step1": 5,
+        "step2": 6,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        9,
+        12,
+        18,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        6,
+        3,
+        3,
+        6,
+        3,
+        3,
+        7
+      ],
+      "name": "633-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 3, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,3,3",
+        "step1": 6,
+        "step2": 3,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        9,
+        13,
+        19,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        3,
+        4,
+        6,
+        3,
+        4,
+        5
+      ],
+      "name": "634-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 3, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,3,4",
+        "step1": 6,
+        "step2": 3,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        9,
+        14,
+        20,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        3,
+        5,
+        6,
+        3,
+        5,
+        3
+      ],
+      "name": "635-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 3, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,3,5",
+        "step1": 6,
+        "step2": 3,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        9,
+        15,
+        21,
+        24,
+        30,
+        31
+      ],
+      "intervals": [
+        6,
+        3,
+        6,
+        6,
+        3,
+        6,
+        1
+      ],
+      "name": "636-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 3, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,3,6",
+        "step1": 6,
+        "step2": 3,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        13,
+        19,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        3,
+        6,
+        4,
+        3,
+        5
+      ],
+      "name": "643-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 4, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,4,3",
+        "step1": 6,
+        "step2": 4,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        14,
+        20,
+        24,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        4,
+        6,
+        4,
+        4,
+        3
+      ],
+      "name": "644-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 4, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,4,4",
+        "step1": 6,
+        "step2": 4,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        15,
+        21,
+        25,
+        30,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        5,
+        6,
+        4,
+        5,
+        1
+      ],
+      "name": "645-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 4, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,4,5",
+        "step1": 6,
+        "step2": 4,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        6,
+        6,
+        4,
+        5
+      ],
+      "name": "646-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 4, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,4,6",
+        "step1": 6,
+        "step2": 4,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        14,
+        20,
+        25,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        3,
+        6,
+        5,
+        3,
+        3
+      ],
+      "name": "653-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 5, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,5,3",
+        "step1": 6,
+        "step2": 5,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        15,
+        21,
+        26,
+        30,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        4,
+        6,
+        5,
+        4,
+        1
+      ],
+      "name": "654-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 5, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,5,4",
+        "step1": 6,
+        "step2": 5,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        16,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        5,
+        6,
+        5,
+        4
+      ],
+      "name": "655-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 5, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,5,5",
+        "step1": 6,
+        "step2": 5,
+        "step3": 5
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        17,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        6,
+        6,
+        5,
+        3
+      ],
+      "name": "656-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 5, and 6 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,5,6",
+        "step1": 6,
+        "step2": 5,
+        "step3": 6
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        12,
+        15,
+        21,
+        27,
+        30,
+        31
+      ],
+      "intervals": [
+        6,
+        6,
+        3,
+        6,
+        6,
+        3,
+        1
+      ],
+      "name": "663-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 6, and 3 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,6,3",
+        "step1": 6,
+        "step2": 6,
+        "step3": 3
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        12,
+        16,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        6,
+        4,
+        6,
+        6,
+        3
+      ],
+      "name": "664-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 6, and 4 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,6,4",
+        "step1": 6,
+        "step2": 6,
+        "step3": 4
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        12,
+        17,
+        23,
+        29,
+        31
+      ],
+      "intervals": [
+        6,
+        6,
+        5,
+        6,
+        6,
+        2
+      ],
+      "name": "665-Trialternator",
+      "description": "Xenharmonic scale with repeating pattern of 6, 6, and 5 step intervals.",
+      "type": "xenharmonic-patterned",
+      "properties": {
+        "pattern": "6,6,5",
+        "step1": 6,
+        "step2": 6,
+        "step3": 5
+      }
+    },
+    {
+      "name": "Superflat Xenotonic",
+      "description": "Scale with stacked semitones in the lower tetrachord and upper tetrachord",
+      "degrees": [
+        0,
+        3,
+        6,
+        10,
+        18,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        3,
+        4,
+        8,
+        3,
+        3,
+        7
+      ],
+      "type": "xenharmonic-exotic",
+      "properties": {
+        "uniqueIntervals": 4,
+        "smallestInterval": 3,
+        "largestInterval": 8
+      }
+    },
+    {
+      "name": "Supermajor Xenotonic",
+      "description": "Scale featuring augmented seconds and major thirds",
+      "degrees": [
+        0,
+        3,
+        10,
+        13,
+        18,
+        21,
+        28,
+        31
+      ],
+      "intervals": [
+        3,
+        7,
+        3,
+        5,
+        3,
+        7,
+        3
+      ],
+      "type": "xenharmonic-exotic",
+      "properties": {
+        "uniqueIntervals": 3,
+        "smallestInterval": 3,
+        "largestInterval": 7
+      }
+    },
+    {
+      "name": "Whole-tone Xenotonic",
+      "description": "Scale composed of 6-step intervals (augmented seconds)",
+      "degrees": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        31
+      ],
+      "intervals": [
+        6,
+        6,
+        6,
+        6,
+        7
+      ],
+      "type": "xenharmonic-exotic",
+      "properties": {
+        "uniqueIntervals": 2,
+        "smallestInterval": 6,
+        "largestInterval": 7
+      }
+    },
+    {
+      "name": "Neutral-augmented Xenotonic",
+      "description": "Scale alternating between neutral seconds and major thirds",
+      "degrees": [
+        0,
+        4,
+        10,
+        14,
+        20,
+        24,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        7
+      ],
+      "type": "xenharmonic-exotic",
+      "properties": {
+        "uniqueIntervals": 3,
+        "smallestInterval": 4,
+        "largestInterval": 7
+      }
+    },
+    {
+      "name": "Ultrachromatic Xenotonic",
+      "description": "Scale featuring a quartertone step and otherwise standard major intervals",
+      "degrees": [
+        0,
+        1,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        1,
+        4,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "xenharmonic-exotic",
+      "properties": {
+        "uniqueIntervals": 4,
+        "smallestInterval": 1,
+        "largestInterval": 5
+      }
+    }
+  ],
+  "historical": [
+    {
+      "name": "Quarter-comma Meantone",
+      "description": "31-EDO approximation of 1/4-comma meantone temperament",
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Ionian",
+      "description": "Ionian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Dorian",
+      "description": "Dorian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Phrygian",
+      "description": "Phrygian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Lydian",
+      "description": "Lydian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Mixolydian",
+      "description": "Mixolydian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Quarter-comma Meantone Aeolian",
+      "description": "Aeolian mode of the Quarter-comma Meantone temperament.",
+      "properties": {
+        "era": "Renaissance/Baroque",
+        "qualities": "Pure major thirds, wolf fifth",
+        "baseTemperament": "Quarter-comma Meantone",
+        "mode": "Aeolian"
+      }
+    },
+    {
+      "name": "Sixth-comma Meantone",
+      "description": "31-EDO approximation of 1/6-comma meantone temperament",
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Ionian",
+      "description": "Ionian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Dorian",
+      "description": "Dorian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Phrygian",
+      "description": "Phrygian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Lydian",
+      "description": "Lydian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Mixolydian",
+      "description": "Mixolydian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Sixth-comma Meantone Aeolian",
+      "description": "Aeolian mode of the Sixth-comma Meantone temperament.",
+      "properties": {
+        "era": "Baroque",
+        "qualities": "Better fifths than 1/4-comma, still good thirds",
+        "baseTemperament": "Sixth-comma Meantone",
+        "mode": "Aeolian"
+      }
+    },
+    {
+      "name": "Werckmeister III",
+      "description": "31-EDO approximation of Werckmeister's third temperament",
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        4,
+        4
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        4,
+        4,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Ionian",
+      "description": "Ionian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        17,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        4,
+        4,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Dorian",
+      "description": "Dorian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        12,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Phrygian",
+      "description": "Phrygian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Lydian",
+      "description": "Lydian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Mixolydian",
+      "description": "Mixolydian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        14,
+        19,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        5,
+        5,
+        3,
+        5,
+        4
+      ],
+      "type": "historical-temperament",
+      "name": "Werckmeister III Aeolian",
+      "description": "Aeolian mode of the Werckmeister III temperament.",
+      "properties": {
+        "era": "Late Baroque",
+        "qualities": "Well-temperament with varying key colors",
+        "baseTemperament": "Werckmeister III",
+        "mode": "Aeolian"
+      }
+    },
+    {
+      "name": "Kirnberger III",
+      "description": "31-EDO approximation of Kirnberger's third temperament",
+      "degrees": [
+        0,
+        5,
+        9,
+        14,
+        18,
+        23,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4,
+        4
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        4,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Ionian",
+      "description": "Ionian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        14,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        5,
+        4,
+        4,
+        5,
+        4
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Dorian",
+      "description": "Dorian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        17,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        4,
+        5,
+        4,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Phrygian",
+      "description": "Phrygian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        9,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        4,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Lydian",
+      "description": "Lydian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        17,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Mixolydian",
+      "description": "Mixolydian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "type": "historical-temperament",
+      "name": "Kirnberger III Aeolian",
+      "description": "Aeolian mode of the Kirnberger III temperament.",
+      "properties": {
+        "era": "Classical",
+        "qualities": "Pure fifths in most common keys",
+        "baseTemperament": "Kirnberger III",
+        "mode": "Aeolian"
+      }
+    },
+    {
+      "name": "Just Intonation Major",
+      "description": "31-EDO approximation of just intonation major scale",
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Ionian",
+      "description": "Ionian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Dorian",
+      "description": "Dorian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Phrygian",
+      "description": "Phrygian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Lydian",
+      "description": "Lydian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Mixolydian",
+      "description": "Mixolydian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Just Intonation Major Aeolian",
+      "description": "Aeolian mode of the Just Intonation Major temperament.",
+      "properties": {
+        "era": "Theoretical",
+        "qualities": "Approximates pure 5-limit just intonation ratios",
+        "baseTemperament": "Just Intonation Major",
+        "mode": "Aeolian"
+      }
+    },
+    {
+      "name": "Pythagorean",
+      "description": "31-EDO approximation of Pythagorean tuning",
+      "degrees": [
+        0,
+        5,
+        10,
+        15,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        5,
+        3,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Ionian",
+      "description": "Ionian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Ionian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Dorian",
+      "description": "Dorian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Dorian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        3,
+        5,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Phrygian",
+      "description": "Phrygian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Phrygian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Lydian",
+      "description": "Lydian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Lydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        8,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        3,
+        5,
+        5,
+        5,
+        3,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Mixolydian",
+      "description": "Mixolydian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Mixolydian"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "type": "historical-temperament",
+      "name": "Pythagorean Aeolian",
+      "description": "Aeolian mode of the Pythagorean temperament.",
+      "properties": {
+        "era": "Medieval",
+        "qualities": "Chain of pure fifths, sharp major thirds",
+        "baseTemperament": "Pythagorean",
+        "mode": "Aeolian"
+      }
+    }
+  ],
+  "transformed": [
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        13,
+        18,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        5,
+        5
+      ],
+      "name": "Inverted Major",
+      "description": "Scale with inverted interval pattern of Western Major.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Major",
+        "baseTradition": "Western",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        11,
+        15,
+        19,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        4,
+        3,
+        5
+      ],
+      "name": "Diminished Major",
+      "description": "Scale derived by diminishing each interval of Western Major by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Major",
+        "baseTradition": "Western",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        12,
+        16,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        6,
+        4,
+        6,
+        6,
+        3
+      ],
+      "name": "Augmented Major",
+      "description": "Scale derived by augmenting each interval of Western Major by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Major",
+        "baseTradition": "Western",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Inverted Minor",
+      "description": "Scale with inverted interval pattern of Western Minor.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Minor",
+        "baseTradition": "Western",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        11,
+        15,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        5
+      ],
+      "name": "Diminished Minor",
+      "description": "Scale derived by diminishing each interval of Western Minor by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Minor",
+        "baseTradition": "Western",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        6,
+        6,
+        4,
+        5
+      ],
+      "name": "Augmented Minor",
+      "description": "Scale derived by augmenting each interval of Western Minor by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Minor",
+        "baseTradition": "Western",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        10,
+        13,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        7,
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "name": "Inverted Harmonic Minor",
+      "description": "Scale with inverted interval pattern of Western Harmonic Minor.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Harmonic Minor",
+        "baseTradition": "Western",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        11,
+        15,
+        18,
+        24,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        4,
+        4,
+        3,
+        6,
+        3,
+        4
+      ],
+      "name": "Diminished Harmonic Minor",
+      "description": "Scale derived by diminishing each interval of Western Harmonic Minor by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Harmonic Minor",
+        "baseTradition": "Western",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        10,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        4,
+        6,
+        6,
+        4,
+        5
+      ],
+      "name": "Augmented Harmonic Minor",
+      "description": "Scale derived by augmenting each interval of Western Harmonic Minor by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Harmonic Minor",
+        "baseTradition": "Western",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        13,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        5,
+        5,
+        4,
+        4,
+        5
+      ],
+      "name": "Inverted Rast",
+      "description": "Scale with inverted interval pattern of Arabic Rast.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Rast",
+        "baseTradition": "Arabic",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        7,
+        10,
+        14,
+        18,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        4,
+        3,
+        3,
+        4,
+        4,
+        3,
+        3,
+        7
+      ],
+      "name": "Diminished Rast",
+      "description": "Scale derived by diminishing each interval of Arabic Rast by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Rast",
+        "baseTradition": "Arabic",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        16,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        5,
+        6,
+        6,
+        3
+      ],
+      "name": "Augmented Rast",
+      "description": "Scale derived by augmenting each interval of Arabic Rast by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Rast",
+        "baseTradition": "Arabic",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        13,
+        18,
+        22,
+        28,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        3,
+        5,
+        4,
+        6,
+        3
+      ],
+      "name": "Inverted Hijaz",
+      "description": "Scale with inverted interval pattern of Arabic Hijaz.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Hijaz",
+        "baseTradition": "Arabic",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        8,
+        11,
+        15,
+        18,
+        23,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        5,
+        3,
+        4,
+        3,
+        5,
+        3,
+        5
+      ],
+      "name": "Diminished Hijaz",
+      "description": "Scale derived by diminishing each interval of Arabic Hijaz by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Hijaz",
+        "baseTradition": "Arabic",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        11,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        7,
+        5,
+        6,
+        4,
+        5
+      ],
+      "name": "Augmented Hijaz",
+      "description": "Scale derived by augmenting each interval of Arabic Hijaz by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Hijaz",
+        "baseTradition": "Arabic",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        10,
+        13,
+        18,
+        23,
+        28,
+        31
+      ],
+      "intervals": [
+        5,
+        5,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "name": "Inverted Bhairavi",
+      "description": "Scale with inverted interval pattern of Indian Bhairavi.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Bhairavi",
+        "baseTradition": "Indian",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        11,
+        15,
+        18,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        5
+      ],
+      "name": "Diminished Bhairavi",
+      "description": "Scale derived by diminishing each interval of Indian Bhairavi by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Bhairavi",
+        "baseTradition": "Indian",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        10,
+        16,
+        22,
+        26,
+        31
+      ],
+      "intervals": [
+        4,
+        6,
+        6,
+        6,
+        4,
+        5
+      ],
+      "name": "Augmented Bhairavi",
+      "description": "Scale derived by augmenting each interval of Indian Bhairavi by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Bhairavi",
+        "baseTradition": "Indian",
+        "transformation": "augmentation"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        6,
+        11,
+        16,
+        21,
+        26,
+        31
+      ],
+      "intervals": [
+        6,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "name": "Inverted Whole Tone",
+      "description": "Scale with inverted interval pattern of Modern Whole Tone.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Whole Tone",
+        "baseTradition": "Modern",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        25,
+        31
+      ],
+      "intervals": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        6
+      ],
+      "name": "Diminished Whole Tone",
+      "description": "Scale derived by diminishing each interval of Modern Whole Tone by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Whole Tone",
+        "baseTradition": "Modern",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "name": "Inverted Neutral",
+      "description": "Scale with inverted interval pattern of Microtonal Neutral.",
+      "type": "transformed-inverted",
+      "properties": {
+        "baseName": "Neutral",
+        "baseTradition": "Microtonal",
+        "transformation": "inversion"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        3,
+        7,
+        10,
+        14,
+        17,
+        21,
+        24,
+        31
+      ],
+      "intervals": [
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        7
+      ],
+      "name": "Diminished Neutral",
+      "description": "Scale derived by diminishing each interval of Microtonal Neutral by one step.",
+      "type": "transformed-diminished",
+      "properties": {
+        "baseName": "Neutral",
+        "baseTradition": "Microtonal",
+        "transformation": "diminution"
+      }
+    },
+    {
+      "degrees": [
+        0,
+        5,
+        11,
+        16,
+        22,
+        27,
+        31
+      ],
+      "intervals": [
+        5,
+        6,
+        5,
+        6,
+        5,
+        4
+      ],
+      "name": "Augmented Neutral",
+      "description": "Scale derived by augmenting each interval of Microtonal Neutral by one step.",
+      "type": "transformed-augmented",
+      "properties": {
+        "baseName": "Neutral",
+        "baseTradition": "Microtonal",
+        "transformation": "augmentation"
+      }
+    }
+  ]
+}
