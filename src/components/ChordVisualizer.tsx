@@ -191,7 +191,7 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
 
   if (sortedNotes.length === 0) {
     return (
-      <div className="bg-white rounded-lg p-4 h-64 flex items-center justify-center">
+      <div className="bg-white rounded-lg p-4 h-48 flex items-center justify-center">
         <p className="text-gray-500 text-center">
           Play notes or select a chord to see interval information
         </p>
@@ -200,94 +200,97 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
   }
 
   return (
-    <div className="bg-white rounded-lg p-4">
+    <div className="bg-white rounded-lg">
       {selectedChord && (
-        <div className="mb-4 text-center">
+        <div className="mb-3 text-center">
           <span className="text-lg font-bold text-indigo-700">{selectedChord.degreeRoman}</span>
           <span className="ml-2 text-gray-600">{selectedChord.type}</span>
         </div>
       )}
       
-      <div className="flex items-stretch space-x-4">
-        {/* Vertical note stack */}
-        <div className="w-24 flex-shrink-0">
-          <div className="flex flex-col space-y-2 items-center">
-            {sortedNotes.map((note, index) => (
+      {/* Overall Consonance Meter */}
+      <div className="mb-3 p-2 rounded-lg bg-gray-50">
+        <div className="flex justify-between items-center mb-1">
+          <span className="font-medium text-sm text-gray-700">Overall Consonance:</span>
+          <div 
+            className={`px-2 py-1 rounded-md text-sm font-bold ${getConsonanceColor(overallConsonance)} ${getConsonanceTextColor(overallConsonance)}`}
+          >
+            {overallConsonance.toFixed(1)}
+          </div>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2.5">
+          <div 
+            className={`${getConsonanceColor(overallConsonance)} h-2.5 rounded-full`} 
+            style={{ width: `${Math.min(overallConsonance * 10, 100)}%` }}
+          ></div>
+        </div>
+        <div className="text-xs text-gray-600 mt-1">{consonanceDescription}</div>
+      </div>
+      
+      {/* Visual Interval Representation */}
+      <div className="mb-3">
+        <div className="flex items-center space-x-1">
+          {sortedNotes.map((note, index) => (
+            <React.Fragment key={`note-vis-${index}`}>
+              {index > 0 && (
+                <div className="h-8 flex items-center">
+                  <div 
+                    className={`h-0.5 ${getConsonanceColor(
+                      intervals.find(i => 
+                        (i.note1 === sortedNotes[index-1] && i.note2 === note) || 
+                        (i.note2 === sortedNotes[index-1] && i.note1 === note)
+                      )?.consonance || 5
+                    )}`} 
+                    style={{ width: `${Math.max((note - sortedNotes[index-1]) * 3, 10)}px` }}
+                  ></div>
+                </div>
+              )}
               <div 
-                key={`note-${index}`} 
                 className={`
-                  w-full py-2 px-3 rounded-md text-center
+                  w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
                   ${index === 0 ? 'bg-indigo-100 text-indigo-800' : 
                     index === 1 ? 'bg-blue-100 text-blue-800' : 
                     index === 2 ? 'bg-green-100 text-green-800' : 
                     'bg-amber-100 text-amber-800'}
                 `}
               >
-                <div className="font-bold">{getStepNoteName(note)}</div>
-                {/* <div className="text-xs opacity-75">
-                  {index === 0 ? '5th' : 
-                   index === sortedNotes.length - 1 ? 'Root' : 
-                   index === 1 ? '7th' : 
-                   index === 2 ? '3rd' : ''}
-                </div> */}
+                {getStepNoteName(note).replace(/[0-9]/g, '')}
               </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Interval information */}
-        <div className="flex-grow">
-          <div className="mb-3 p-2 rounded-lg bg-gray-50">
-            <div className="flex justify-between items-center">
-              <span className="font-medium text-black">Overall Consonance:</span>
-              <div 
-                className={`px-2 py-1 rounded-md text-sm font-bold ${getConsonanceColor(overallConsonance)} ${getConsonanceTextColor(overallConsonance)}`}
-              >
-                {overallConsonance.toFixed(1)}
-              </div>
-            </div>
-            <div className="text-sm text-gray-700">{consonanceDescription}</div>
-          </div>
-          
-          <div className="space-y-2 max-h-64 overflow-y-auto pr-2 text-gray-800">
-            {intervals.map((interval, index) => (
-              <div 
-                key={index} 
-                className="border-l-4 pl-2 py-1 text-sm flex items-center justify-between"
-                style={{ borderLeftColor: `rgba(${Math.round(255 - interval.consonance * 25)}, ${Math.round(interval.consonance * 25)}, 100, 0.8)` }}
-              >
-                <div>
-                  <div className="font-medium">{interval.name}</div>
-                  <div className="text-xs text-gray-500">
-                    {getStepNoteName(interval.note1)} - {getStepNoteName(interval.note2)}
-                  </div>
-                </div>
-                <div className="flex flex-col items-end">
-                  <div className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-md">
-                    {interval.steps} steps
-                  </div>
-                  <div className="text-xs mt-1">
-                    <span className="text-gray-600">{interval.justRatio.ratio}</span>
-                    <span className={interval.justRatio.deviation < 5 ? 'text-green-600 ml-1' : 'text-orange-600 ml-1'}>
-                      (±{interval.justRatio.deviation.toFixed(1)}¢)
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            </React.Fragment>
+          ))}
         </div>
       </div>
-
-      {selectedChord && (
-        <div className="mt-2 text-sm text-gray-600">
-          {getChordStructure(selectedChord.type) && (
-            <div className="mt-1 p-2 bg-indigo-50 rounded-md">
-              <p>{getChordStructure(selectedChord.type)}</p>
+      
+      {/* Interval List - Compact Version */}
+      <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+        {intervals.slice(0, 5).map((interval, index) => (
+          <div 
+            key={`interval-${index}`} 
+            className="p-2 rounded-md bg-gray-50 hover:bg-gray-100 transition-colors"
+          >
+            <div className="flex justify-between items-center">
+              <div className="font-medium text-sm">
+                {getStepNoteName(interval.note1)} - {getStepNoteName(interval.note2)}
+              </div>
+              <div 
+                className={`px-2 py-0.5 rounded text-xs font-bold ${getConsonanceColor(interval.consonance)} ${getConsonanceTextColor(interval.consonance)}`}
+              >
+                {interval.consonance.toFixed(1)}
+              </div>
             </div>
-          )}
-        </div>
-      )}
+            <div className="flex justify-between text-xs text-gray-600 mt-1">
+              <div>{interval.name}</div>
+              <div>{interval.justRatio.ratio} {interval.justRatio.name}</div>
+            </div>
+          </div>
+        ))}
+        
+        {intervals.length > 5 && (
+          <div className="text-center text-xs text-gray-500 mt-2">
+            + {intervals.length - 5} more intervals
+          </div>
+        )}
+      </div>
     </div>
   );
 };
