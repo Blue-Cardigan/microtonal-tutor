@@ -19,25 +19,21 @@
       5,
       3
     ],
-    "name": "Hyperlydian",
-    "description": "Original hyperlydian scale with maximum brightness, no alterations.",
+    "name": "Ionian",
+    "description": "Original Ionian scale, no alterations.",
     "alterations": [],
     "categories": {
       "acoustic": [
-        "Just Intonation Approximation",
-        "Harmonic Series Approximation",
-        "Equal Spacing"
+        "Just Intonation Approximation"
       ],
       "cultural": [
-        "African"
+        "Western Classical"
       ],
       "perceptual": [
-        "Neutral"
+        "Bright"
       ],
       "mathematical": [
-        "Prime Cardinality",
-        "Sparse Intervals",
-        "Equiheptatonic"
+        "Prime Cardinality"
       ],
       "genera": [
         "Diatonic"
