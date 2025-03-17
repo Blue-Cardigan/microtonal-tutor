@@ -420,9 +420,8 @@ function createEquallySpacedScale(numNotes) {
   
   // Calculate degrees with as equal spacing as possible
   for (let i = 1; i < numNotes; i++) {
-    const optimalStep = Math.round(remainingSteps / (numNotes - i + 1));
     // Constrain to our min/max step rules
-    const step = Math.max(MIN_STEP, Math.min(MAX_STEP, optimalStep));
+    const step = Math.max(MIN_STEP, Math.min(MAX_STEP, Math.round(remainingSteps / (numNotes - i + 1))));
     
     degrees.push(degrees[i-1] + step);
     remainingSteps -= step;
