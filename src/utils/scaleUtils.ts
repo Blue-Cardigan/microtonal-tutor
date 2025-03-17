@@ -1,5 +1,3 @@
-import { Scale, Chord } from '../types/scale';
-
 // Define 31-EDO interval classifications
 export const getIntervalType = (interval: number): string => {
   switch(interval) {
@@ -262,9 +260,6 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
   }
   
   // Ensure all notes are within a single octave (31 steps in 31-EDO)
-  // First, find the lowest note to use as reference
-  const lowestNote = Math.min(...result);
-  
   // Shift any notes that are more than an octave above the lowest note
   return result.map(note => {
     // If the note is more than 31 steps above the lowest note, shift it down by octaves

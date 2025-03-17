@@ -11,7 +11,6 @@ interface ChordDisplayProps {
   setCurrentInversion: (inversion: number) => void;
   useAutoInversion: boolean;
   setUseAutoInversion: (use: boolean) => void;
-  actualAutoInversion: number;
   onChordSelect: (chord: Chord | null) => void;
   onPlayChord: (chord: Chord) => void;
 }
@@ -26,7 +25,6 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
   setCurrentInversion,
   useAutoInversion,
   setUseAutoInversion,
-  actualAutoInversion,
   onChordSelect,
   onPlayChord
 }) => {

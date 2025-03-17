@@ -146,7 +146,7 @@ export const filterAndSortScales = (
     filtered = filtered.filter(scale => {
       if (!scale.categories) return false;
       
-      for (const [category, _values] of Object.entries(scale.categories)) {
+      for (const category of Object.keys(scale.categories)) {
         if (category === selectedCategory) return true;
       }
       

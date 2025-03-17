@@ -2,14 +2,13 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAudio } from '../utils/AudioContext';
-import { formatName } from '../utils/IntervalUtils';
 import * as Tone from 'tone';
 
 // Import types
 import { Scale, Chord, ScaleBrowserProps, ScaleData } from '../types/scale';
 
 // Import utility functions
-import { invertChord, findOptimalInversion } from '../utils/scaleUtils';
+import { invertChord } from '../utils/scaleUtils';
 import { generateChordsForScale } from '../utils/chordUtils';
 import { loadScaleData, extractCategories, filterAndSortScales } from '../utils/dataUtils';
 
@@ -39,7 +38,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   const [useSeventhChords, setUseSeventhChords] = useState<boolean>(false);
   const [currentInversion, setCurrentInversion] = useState<number>(0);
   const [useAutoInversion, setUseAutoInversion] = useState<boolean>(false);
-  const [actualAutoInversion, setActualAutoInversion] = useState<number>(0);
   
   // State variables for enhanced filtering and searching
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -248,7 +246,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     }
     
   // Remove selectedScale from the dependency array to break the circular dependency
-  }, [scaleData, selectedFamily, searchTerm, selectedCategory, noteCount, sortBy, sortDirection]);
+  }, [scaleData, selectedFamily, searchTerm, selectedCategory, noteCount, sortBy, sortDirection, selectedScale]);
   
   // Play a scale
   const playScale = useCallback(() => {
@@ -748,7 +746,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
           setCurrentInversion={setCurrentInversion}
           useAutoInversion={useAutoInversion}
           setUseAutoInversion={setUseAutoInversion}
-          actualAutoInversion={actualAutoInversion}
           onChordSelect={handleChordSelect}
           onPlayChord={playChord}
         />

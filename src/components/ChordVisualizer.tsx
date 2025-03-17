@@ -162,33 +162,6 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
     return 'text-white';
   };
 
-  // Add this function to get chord structure description
-  const getChordStructure = (chordType: string): string => {
-    switch(chordType) {
-      // Triads
-      case "subminor": return "6:7:9 ratio - consonant root triad";
-      case "minor": return "6/5/4 ratio - consonant minor triad";
-      case "neutral": return "18:22:27 ratio - important harmonic option";
-      case "major": return "4:5:6 ratio - consonant major triad";
-      case "supermajor": return "9/7/6 ratio - consonant root triad";
-      case "diminished": return "Minor third + diminished fifth";
-      case "augmented": return "Major third + augmented fifth";
-      case "harmonic diminished": return "5:6:7 ratio - more consonant than standard diminished";
-      
-      // Seventh chords
-      case "harmonic 7": return "4:5:6:7 ratio - natural harmonic series";
-      case "undecimal tetrad": return "6:7:9:11 ratio - low harmonic complexity";
-      case "utonal tetrad": return "12/10/8/7 ratio - undertone series";
-      case "9-over tetrad": return "9/7/6/5 ratio - alternative dominant seventh";
-      case "major 7": return "Major triad + major seventh";
-      case "dominant 7": return "Major triad + minor seventh";
-      case "minor 7": return "Minor triad + minor seventh";
-      case "neutral minor 7": return "18:22:27:33 ratio - distinctly cold sound";
-      
-      default: return "";
-    }
-  };
-
   if (sortedNotes.length === 0) {
     return (
       <div className="bg-white rounded-lg p-4 h-48 flex items-center justify-center">
@@ -296,3 +269,4 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
 };
 
 export default ChordVisualizer; 
+
