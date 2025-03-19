@@ -236,13 +236,13 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
       
       {/* Interval List - Compact Version */}
       <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
-        {intervals.slice(0, 5).map((interval, index) => (
+        {intervals.map((interval, index) => (
           <div 
             key={`interval-${index}`} 
             className="p-2 rounded-md bg-gray-50 hover:bg-gray-100 transition-colors"
           >
             <div className="flex justify-between items-center">
-              <div className="font-medium text-sm">
+              <div className="font-medium text-gray-800 text-sm">
                 {getStepNoteName(interval.note1)} - {getStepNoteName(interval.note2)}
               </div>
               <div 
@@ -258,11 +258,6 @@ const ChordVisualizer = ({ selectedChord }: ChordVisualizerProps) => {
           </div>
         ))}
         
-        {intervals.length > 5 && (
-          <div className="text-center text-xs text-gray-500 mt-2">
-            + {intervals.length - 5} more intervals
-          </div>
-        )}
       </div>
     </div>
   );

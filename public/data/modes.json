@@ -2,192 +2,32 @@
   {
     "degrees": [
       0,
-      5,
-      10,
-      13,
-      18,
-      23,
-      28,
+      6,
+      12,
+      17,
+      22,
+      27,
+      29,
       31
     ],
     "intervals": [
+      6,
+      6,
       5,
       5,
-      3,
       5,
-      5,
-      5,
-      3
+      2,
+      2
     ],
-    "name": "Ionian",
-    "description": "Original Ionian scale, no alterations.",
+    "name": "Hyperlydian",
+    "description": "The brightest valid heptatonic scale in 31-EDO, with maximally wide intervals while maintaining a minimum interval of 2 steps.",
     "alterations": [],
     "categories": {
       "acoustic": [
-        "Just Intonation Approximation"
-      ],
-      "cultural": [
-        "Western Classical"
-      ],
-      "perceptual": [
-        "Bright"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -1,
-      5,
-      10,
-      13,
-      18,
-      23,
-      28,
-      31
-    ],
-    "intervals": [
-      6,
-      5,
-      3,
-      5,
-      5,
-      5,
-      2
-    ],
-    "name": "Modified Lydian",
-    "description": "Derived from hyperlydian by lowering the 1st degree by 1 step. Contains augmented intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Just Intonation Approximation",
-        "Harmonic Series Approximation"
-      ],
-      "cultural": [
-        "Western Classical"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      10,
-      13,
-      18,
-      23,
-      28,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      3,
-      5,
-      5,
-      5,
-      1
-    ],
-    "name": "QuasiMicrotonal Lydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Just Intonation Approximation",
-        "Harmonic Series Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      10,
-      12,
-      18,
-      23,
-      28,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      2,
-      6,
-      5,
-      5,
-      1
-    ],
-    "name": "QuasiMicrotonal Lydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps and lowering the 4th degree by 1 step. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Harmonic Series Approximation",
         "Dissonant"
       ],
       "cultural": [
-        "Western Classical",
+        "Microtonal Tradition",
         "Experimental/Contemporary"
       ],
       "perceptual": [
@@ -195,70 +35,6 @@
         "Tense"
       ],
       "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      10,
-      11,
-      18,
-      23,
-      28,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      1,
-      7,
-      5,
-      5,
-      1
-    ],
-    "name": "QuasiMicrotonal Lydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps and flattening the 4th degree by 2 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Harmonic Series Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
         "Prime Cardinality"
       ],
       "genera": [
@@ -268,213 +44,47 @@
   },
   {
     "degrees": [
-      -2,
-      5,
-      10,
+      0,
+      6,
       11,
-      18,
-      23,
-      27,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      1,
-      7,
-      5,
-      4,
-      2
-    ],
-    "name": "QuasiMicrotonalUltra Lydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and lowering the 7th degree by 1 step. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      10,
-      11,
-      18,
-      23,
-      26,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      1,
-      7,
-      5,
-      3,
-      3
-    ],
-    "name": "QuasiMicrotonalUltra Lydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and flattening the 7th degree by 2 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Mixed"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      10,
-      11,
-      18,
+      16,
+      21,
       23,
       25,
       31
     ],
     "intervals": [
-      7,
+      6,
       5,
-      1,
-      7,
+      5,
       5,
       2,
-      4
+      2,
+      6
     ],
-    "name": "QuasiMicrotonalUltra Aeolian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and diminishing the 7th degree by 3 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
+    "name": "MacroBi Neutral Open Ionian",
+    "description": "1th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
     "alterations": [
       {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 1
       }
     ],
     "categories": {
-      "acoustic": [],
+      "acoustic": [
+        "Dissonant"
+      ],
       "cultural": [
         "Western Classical",
         "Experimental/Contemporary"
       ],
       "perceptual": [
-        "Neutral"
+        "Neutral",
+        "Tense"
       ],
       "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
+        "Prime Cardinality"
       ],
       "genera": [
         "Enharmonic"
@@ -483,1743 +93,31 @@
   },
   {
     "degrees": [
-      -2,
+      0,
       5,
       10,
-      11,
-      18,
-      23,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      5,
-      1,
-      7,
-      5,
-      1,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Aeolian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Harmonic Series Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      9,
-      11,
-      18,
-      23,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      4,
-      2,
-      7,
-      5,
-      1,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Aeolian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, lowering the 3rd degree by 1 step, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      8,
-      11,
-      18,
-      23,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      3,
-      3,
-      7,
-      5,
-      1,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Ionian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 3rd degree by 2 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Mixed"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      7,
-      11,
-      18,
-      23,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      2,
-      4,
-      7,
-      5,
-      1,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Ionian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, diminishing the 3rd degree by 3 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      6,
-      11,
-      18,
-      23,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      1,
-      5,
-      7,
-      5,
-      1,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Ionian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      6,
-      11,
-      18,
-      22,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      1,
-      5,
-      7,
-      4,
-      2,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Ionian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, lowering the 6th degree by 1 step, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      6,
-      11,
-      18,
-      21,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      1,
-      5,
-      7,
-      3,
-      3,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Ionian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, flattening the 6th degree by 2 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Mixed"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      6,
-      11,
-      18,
-      20,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      1,
-      5,
-      7,
-      2,
-      4,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Phrygian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, diminishing the 6th degree by 3 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      5,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      7,
-      1,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Phrygian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      4,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      6,
-      2,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Phrygian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, lowering the 2nd degree by 1 step, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Dissonant"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral",
-        "Tense"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      3,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      5,
-      3,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Phrygian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, flattening the 2nd degree by 2 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Just Intonation Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      2,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      4,
-      4,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "NeutralQuasiMicrotonalUltra Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, diminishing the 2nd degree by 3 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      }
-    ],
-    "categories": {
-      "acoustic": [],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Mixed"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      1,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      3,
-      5,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, severely diminishing the 2nd degree by 4 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Just Intonation Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      0,
-      6,
-      11,
-      18,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      2,
-      6,
-      5,
-      7,
-      1,
-      5,
-      5
-    ],
-    "name": "QuasiMicrotonalUltra Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Results in a scale with highly varied intervals. Contains microtonal intervals.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Dissonant"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Experimental/Contemporary"
-      ],
-      "perceptual": [
-        "Neutral",
-        "Tense"
-      ],
-      "mathematical": [
-        "Prime Cardinality",
-        "Dense Intervals"
-      ],
-      "genera": [
-        "Enharmonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      0,
-      6,
-      11,
+      15,
       17,
       19,
-      24,
+      25,
       31
     ],
     "intervals": [
+      5,
+      5,
+      5,
+      2,
       2,
       6,
-      5,
-      6,
-      2,
-      5,
-      5
+      6
     ],
-    "name": "SuperSemi Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, lowering the 5th degree by 1 step, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains consecutive semitones.",
+    "name": "MacroBi Neutral Open Ionian 2",
+    "description": "2th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
     "alterations": [
       {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 1
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 2
       }
     ],
     "categories": {
@@ -2244,643 +142,178 @@
   },
   {
     "degrees": [
-      -2,
       0,
-      6,
-      11,
-      16,
-      19,
-      24,
+      5,
+      10,
+      12,
+      14,
+      20,
+      26,
       31
     ],
     "intervals": [
+      5,
+      5,
+      2,
       2,
       6,
-      5,
-      5,
-      3,
-      5,
+      6,
       5
     ],
-    "name": "Modified Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, flattening the 5th degree by 2 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "name": "MacroBi Neutral Open Dorian",
+    "description": "3th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
     "alterations": [
       {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 1
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 2
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 3
       }
     ],
     "categories": {
       "acoustic": [
-        "Just Intonation Approximation"
+        "Dissonant"
       ],
       "cultural": [
-        "Western Classical"
+        "Western Classical",
+        "Experimental/Contemporary"
       ],
       "perceptual": [
-        "Neutral"
+        "Neutral",
+        "Tense"
       ],
       "mathematical": [
         "Prime Cardinality"
       ],
       "genera": [
-        "Diatonic"
+        "Enharmonic"
       ]
     }
   },
   {
     "degrees": [
-      -2,
       0,
-      6,
-      11,
+      5,
+      7,
+      9,
       15,
-      19,
-      24,
+      21,
+      26,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      6,
+      6,
+      5,
+      5
+    ],
+    "name": "MacroBi Neutral Open Ionian 3",
+    "description": "4th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      10,
+      16,
+      21,
+      26,
       31
     ],
     "intervals": [
       2,
+      2,
+      6,
       6,
       5,
-      4,
-      4,
       5,
       5
     ],
-    "name": "Neutral Mixolydian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, diminishing the 5th degree by 3 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "name": "MacroBi Neutral Open Ionian 4",
+    "description": "5th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
     "alterations": [
       {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 1
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 2
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 3
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 5
       }
     ],
     "categories": {
-      "acoustic": [],
+      "acoustic": [
+        "Dissonant"
+      ],
       "cultural": [
         "Western Classical",
-        "Balkan",
-        "Gamelan"
+        "Experimental/Contemporary"
       ],
       "perceptual": [
-        "Neutral"
+        "Neutral",
+        "Tense"
       ],
       "mathematical": [
         "Prime Cardinality"
       ],
       "genera": [
-        "Mixed"
+        "Enharmonic"
       ]
     }
   },
   {
     "degrees": [
-      -2,
       0,
-      6,
-      11,
+      2,
+      8,
       14,
       19,
       24,
+      29,
       31
     ],
     "intervals": [
       2,
       6,
+      6,
       5,
-      3,
       5,
       5,
-      5
+      2
     ],
-    "name": "Modified Locrian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, severely diminishing the 5th degree by 4 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains augmented intervals.",
+    "name": "MacroBi Neutral Open Dorian 2",
+    "description": "6th mode of Hyperlydian. A neutral, open mode derived from Hyperlydian.",
     "alterations": [
       {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 1
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 2
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 3
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 4
-      }
-    ],
-    "categories": {
-      "acoustic": [
-        "Just Intonation Approximation"
-      ],
-      "cultural": [
-        "Western Classical",
-        "Gamelan"
-      ],
-      "perceptual": [
-        "Neutral"
-      ],
-      "mathematical": [
-        "Prime Cardinality"
-      ],
-      "genera": [
-        "Diatonic"
-      ]
-    }
-  },
-  {
-    "degrees": [
-      -2,
-      0,
-      6,
-      11,
-      13,
-      19,
-      24,
-      31
-    ],
-    "intervals": [
-      2,
-      6,
-      5,
-      2,
-      6,
-      5,
-      5
-    ],
-    "name": "SuperSemi Locrian",
-    "description": "Derived from hyperlydian by flattening the 1st degree by 2 steps, maximally diminishing the 2nd degree by 5 steps, severely diminishing the 3rd degree by 4 steps, flattening the 4th degree by 2 steps, maximally diminishing the 5th degree by 5 steps, severely diminishing the 6th degree by 4 steps, and severely diminishing the 7th degree by 4 steps. Contains consecutive semitones.",
-    "alterations": [
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 1
-      },
-      {
-        "degree": 0,
-        "degreeName": "1st",
-        "steps": 2
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 1
-      },
-      {
-        "degree": 3,
-        "degreeName": "4th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 1
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 2
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 3
-      },
-      {
-        "degree": 6,
-        "degreeName": "7th",
-        "steps": 4
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 1
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 2
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 3
-      },
-      {
-        "degree": 2,
-        "degreeName": "3rd",
-        "steps": 4
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 1
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 2
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 3
-      },
-      {
-        "degree": 5,
-        "degreeName": "6th",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 1
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 2
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 3
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 4
-      },
-      {
-        "degree": 1,
-        "degreeName": "2nd",
-        "steps": 5
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 1
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 2
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 3
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 4
-      },
-      {
-        "degree": 4,
-        "degreeName": "5th",
-        "steps": 5
+        "type": "mode",
+        "from": "Hyperlydian",
+        "rotation": 6
       }
     ],
     "categories": {
@@ -2901,6 +334,4504 @@
       ],
       "genera": [
         "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      12,
+      16,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      6,
+      6,
+      4,
+      6,
+      5,
+      2,
+      2
+    ],
+    "name": "MacroBi Lydian",
+    "description": "Derived from hyperlydian by lowering the 4th degree by 1 step. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      10,
+      16,
+      21,
+      23,
+      25,
+      31
+    ],
+    "intervals": [
+      6,
+      4,
+      6,
+      5,
+      2,
+      2,
+      6
+    ],
+    "name": "MacroBi Neutral Open Ionian 5",
+    "description": "1th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      4,
+      10,
+      15,
+      17,
+      19,
+      25,
+      31
+    ],
+    "intervals": [
+      4,
+      6,
+      5,
+      2,
+      2,
+      6,
+      6
+    ],
+    "name": "MacroBi Neutral Open Dorian 3",
+    "description": "2th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      11,
+      13,
+      15,
+      21,
+      27,
+      31
+    ],
+    "intervals": [
+      6,
+      5,
+      2,
+      2,
+      6,
+      6,
+      4
+    ],
+    "name": "MacroBi Neutral Open Phrygian",
+    "description": "3th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      15,
+      21,
+      25,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      6,
+      6,
+      4,
+      6
+    ],
+    "name": "MacroBi Neutral Open Mixolydian",
+    "description": "4th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      10,
+      16,
+      20,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      6,
+      6,
+      4,
+      6,
+      5
+    ],
+    "name": "MacroBi Neutral Open Ionian 6",
+    "description": "5th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      8,
+      14,
+      18,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      6,
+      4,
+      6,
+      5,
+      2
+    ],
+    "name": "MacroBi Neutral Open Dorian 4",
+    "description": "6th mode of MacroBi Lydian. A neutral, open mode derived from MacroBi Lydian.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MacroBi Lydian",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Balkan",
+        "Gamelan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Enharmonic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      12,
+      15,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      6,
+      6,
+      3,
+      7,
+      5,
+      2,
+      2
+    ],
+    "name": "PolyMacro Lydian (4th↓2)",
+    "description": "Derived from hyperlydian by flattening the 4th degree by 2 steps. Results in a scale with highly varied intervals. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      9,
+      16,
+      21,
+      23,
+      25,
+      31
+    ],
+    "intervals": [
+      6,
+      3,
+      7,
+      5,
+      2,
+      2,
+      6
+    ],
+    "name": "PolyMacro Neutral Open Ionian",
+    "description": "1th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      3,
+      10,
+      15,
+      17,
+      19,
+      25,
+      31
+    ],
+    "intervals": [
+      3,
+      7,
+      5,
+      2,
+      2,
+      6,
+      6
+    ],
+    "name": "PolyMacro Neutral Open Dorian",
+    "description": "2th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      7,
+      12,
+      14,
+      16,
+      22,
+      28,
+      31
+    ],
+    "intervals": [
+      7,
+      5,
+      2,
+      2,
+      6,
+      6,
+      3
+    ],
+    "name": "PolyMacro Neutral Open Phrygian",
+    "description": "3th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      15,
+      21,
+      24,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      6,
+      6,
+      3,
+      7
+    ],
+    "name": "PolyMacro Neutral Open Mixolydian",
+    "description": "4th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      10,
+      16,
+      19,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      6,
+      6,
+      3,
+      7,
+      5
+    ],
+    "name": "PolyMacro Neutral Open Ionian 2",
+    "description": "5th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      8,
+      14,
+      17,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      6,
+      3,
+      7,
+      5,
+      2
+    ],
+    "name": "PolyMacro Neutral Open Dorian 2",
+    "description": "6th mode of PolyMacro Lydian (4th↓2). A neutral, open mode derived from PolyMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMacro Lydian (4th↓2)",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Gamelan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      12,
+      14,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      6,
+      6,
+      2,
+      8,
+      5,
+      2,
+      2
+    ],
+    "name": "MicroMacro Lydian (4th↓2)",
+    "description": "Derived from hyperlydian by diminishing the 4th degree by 3 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      8,
+      16,
+      21,
+      23,
+      25,
+      31
+    ],
+    "intervals": [
+      6,
+      2,
+      8,
+      5,
+      2,
+      2,
+      6
+    ],
+    "name": "MicroMacro Neutral Open Ionian",
+    "description": "1th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      10,
+      15,
+      17,
+      19,
+      25,
+      31
+    ],
+    "intervals": [
+      2,
+      8,
+      5,
+      2,
+      2,
+      6,
+      6
+    ],
+    "name": "MicroMacro Neutral Open Dorian",
+    "description": "2th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      13,
+      15,
+      17,
+      23,
+      29,
+      31
+    ],
+    "intervals": [
+      8,
+      5,
+      2,
+      2,
+      6,
+      6,
+      2
+    ],
+    "name": "MicroMacro Neutral Open Phrygian",
+    "description": "3th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      15,
+      21,
+      23,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      6,
+      6,
+      2,
+      8
+    ],
+    "name": "MicroMacro Neutral Open Mixolydian",
+    "description": "4th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      10,
+      16,
+      18,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      6,
+      6,
+      2,
+      8,
+      5
+    ],
+    "name": "MicroMacro Neutral Open Ionian 2",
+    "description": "5th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      8,
+      14,
+      16,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      6,
+      2,
+      8,
+      5,
+      2
+    ],
+    "name": "MicroMacro Neutral Open Dorian 2",
+    "description": "6th mode of MicroMacro Lydian (4th↓2). A neutral, open mode derived from MicroMacro Lydian (4th↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2)",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Gamelan",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      12,
+      14,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      5,
+      7,
+      2,
+      8,
+      5,
+      2,
+      2
+    ],
+    "name": "MicroMacro Lydian (4th↓2) 2",
+    "description": "Derived from hyperlydian by lowering the 2nd degree by 1 step and diminishing the 4th degree by 3 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      7,
+      9,
+      17,
+      22,
+      24,
+      26,
+      31
+    ],
+    "intervals": [
+      7,
+      2,
+      8,
+      5,
+      2,
+      2,
+      5
+    ],
+    "name": "MicroMacro Neutral Balanced Ionian",
+    "description": "1th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      10,
+      15,
+      17,
+      19,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      8,
+      5,
+      2,
+      2,
+      5,
+      7
+    ],
+    "name": "MicroMacro Neutral Balanced Dorian",
+    "description": "2th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      13,
+      15,
+      17,
+      22,
+      29,
+      31
+    ],
+    "intervals": [
+      8,
+      5,
+      2,
+      2,
+      5,
+      7,
+      2
+    ],
+    "name": "MicroMacro Neutral Balanced Phrygian",
+    "description": "3th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      14,
+      21,
+      23,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      5,
+      7,
+      2,
+      8
+    ],
+    "name": "MicroMacro Neutral Balanced Mixolydian",
+    "description": "4th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      9,
+      16,
+      18,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      5,
+      7,
+      2,
+      8,
+      5
+    ],
+    "name": "MicroMacro Neutral Balanced Ionian 2",
+    "description": "5th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      7,
+      14,
+      16,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      5,
+      7,
+      2,
+      8,
+      5,
+      2
+    ],
+    "name": "MicroMacro Neutral Balanced Dorian 2",
+    "description": "6th mode of MicroMacro Lydian (4th↓2) 2. A neutral, balanced mode derived from MicroMacro Lydian (4th↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (4th↓2) 2",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      4,
+      12,
+      14,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      4,
+      8,
+      2,
+      8,
+      5,
+      2,
+      2
+    ],
+    "name": "MicroMacro Lydian (2nd↓2)",
+    "description": "Derived from hyperlydian by flattening the 2nd degree by 2 steps and diminishing the 4th degree by 3 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      10,
+      18,
+      23,
+      25,
+      27,
+      31
+    ],
+    "intervals": [
+      8,
+      2,
+      8,
+      5,
+      2,
+      2,
+      4
+    ],
+    "name": "MicroMacro Neutral Balanced Ionian 3",
+    "description": "1th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      10,
+      15,
+      17,
+      19,
+      23,
+      31
+    ],
+    "intervals": [
+      2,
+      8,
+      5,
+      2,
+      2,
+      4,
+      8
+    ],
+    "name": "MicroMacro Neutral Balanced Dorian 3",
+    "description": "2th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      13,
+      15,
+      17,
+      21,
+      29,
+      31
+    ],
+    "intervals": [
+      8,
+      5,
+      2,
+      2,
+      4,
+      8,
+      2
+    ],
+    "name": "MicroMacro Neutral Balanced Phrygian 2",
+    "description": "3th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      13,
+      21,
+      23,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      4,
+      8,
+      2,
+      8
+    ],
+    "name": "MicroMacro Neutral Balanced Mixolydian 2",
+    "description": "4th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      8,
+      16,
+      18,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      4,
+      8,
+      2,
+      8,
+      5
+    ],
+    "name": "MicroMacro Neutral Balanced Ionian 4",
+    "description": "5th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      6,
+      14,
+      16,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      4,
+      8,
+      2,
+      8,
+      5,
+      2
+    ],
+    "name": "MicroMacro Neutral Balanced Dorian 4",
+    "description": "6th mode of MicroMacro Lydian (2nd↓2). A neutral, balanced mode derived from MicroMacro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "MicroMacro Lydian (2nd↓2)",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      3,
+      12,
+      14,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      3,
+      9,
+      2,
+      8,
+      5,
+      2,
+      2
+    ],
+    "name": "PolyMicro Lydian (2nd↓2)",
+    "description": "Derived from hyperlydian by diminishing the 2nd degree by 3 steps and diminishing the 4th degree by 3 steps. Results in a scale with highly varied intervals. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      9,
+      11,
+      19,
+      24,
+      26,
+      28,
+      31
+    ],
+    "intervals": [
+      9,
+      2,
+      8,
+      5,
+      2,
+      2,
+      3
+    ],
+    "name": "PolyMicro Neutral Dense Ionian",
+    "description": "1th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      10,
+      15,
+      17,
+      19,
+      22,
+      31
+    ],
+    "intervals": [
+      2,
+      8,
+      5,
+      2,
+      2,
+      3,
+      9
+    ],
+    "name": "PolyMicro Neutral Dense Dorian",
+    "description": "2th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      13,
+      15,
+      17,
+      20,
+      29,
+      31
+    ],
+    "intervals": [
+      8,
+      5,
+      2,
+      2,
+      3,
+      9,
+      2
+    ],
+    "name": "PolyMicro Neutral Dense Phrygian",
+    "description": "3th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      12,
+      21,
+      23,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      3,
+      9,
+      2,
+      8
+    ],
+    "name": "PolyMicro Neutral Dense Mixolydian",
+    "description": "4th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      7,
+      16,
+      18,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      3,
+      9,
+      2,
+      8,
+      5
+    ],
+    "name": "PolyMicro Neutral Dense Ionian 2",
+    "description": "5th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      5,
+      14,
+      16,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      3,
+      9,
+      2,
+      8,
+      5,
+      2
+    ],
+    "name": "PolyMicro Neutral Dense Dorian 2",
+    "description": "6th mode of PolyMicro Lydian (2nd↓2). A neutral, dense mode derived from PolyMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "PolyMicro Lydian (2nd↓2)",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality",
+        "Dense Intervals"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      22,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      8,
+      5,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2)",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps and diminishing the 4th degree by 3 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      20,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      8,
+      5,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      10,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      8,
+      5,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      8,
+      5,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Phrygian",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      7,
+      9,
+      11,
+      21,
+      23,
+      31
+    ],
+    "intervals": [
+      5,
+      2,
+      2,
+      2,
+      10,
+      2,
+      8
+    ],
+    "name": "SeptalMicro Neutral Dense Mixolydian",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      26,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      8,
+      5
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 2",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      24,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      8,
+      5,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 2",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2). A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2).",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2)",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      21,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      7,
+      6,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2) 2",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps, diminishing the 4th degree by 3 steps, and lowering the 5th degree by 1 step. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      19,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      7,
+      6,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Ionian",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      9,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      7,
+      6,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Open Dorian",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      7,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      7,
+      6,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Phrygian",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      8,
+      10,
+      12,
+      22,
+      24,
+      31
+    ],
+    "intervals": [
+      6,
+      2,
+      2,
+      2,
+      10,
+      2,
+      7
+    ],
+    "name": "SeptalMicro Neutral Open Mixolydian",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      25,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      7,
+      6
+    ],
+    "name": "SeptalMicro Neutral Open Ionian 2",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      23,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      7,
+      6,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Dorian 2",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2) 2. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 2.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 2",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      20,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      6,
+      7,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2) 3",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps, diminishing the 4th degree by 3 steps, and flattening the 5th degree by 2 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      18,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      6,
+      7,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Ionian 3",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      8,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      6,
+      7,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Open Dorian 3",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      6,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      6,
+      7,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Phrygian 2",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      7,
+      9,
+      11,
+      13,
+      23,
+      25,
+      31
+    ],
+    "intervals": [
+      7,
+      2,
+      2,
+      2,
+      10,
+      2,
+      6
+    ],
+    "name": "SeptalMicro Neutral Open Mixolydian 2",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      24,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      6,
+      7
+    ],
+    "name": "SeptalMicro Neutral Open Ionian 4",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      22,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      6,
+      7,
+      2
+    ],
+    "name": "SeptalMicro Neutral Open Dorian 4",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2) 3. A neutral, open mode derived from SeptalMicro Lydian (2nd↓2) 3.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 3",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      19,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      5,
+      8,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2) 4",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps, diminishing the 4th degree by 3 steps, and diminishing the 5th degree by 3 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      17,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      5,
+      8,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 3",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      7,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      5,
+      8,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 3",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      5,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      5,
+      8,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Phrygian 2",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      8,
+      10,
+      12,
+      14,
+      24,
+      26,
+      31
+    ],
+    "intervals": [
+      8,
+      2,
+      2,
+      2,
+      10,
+      2,
+      5
+    ],
+    "name": "SeptalMicro Neutral Dense Mixolydian 2",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      23,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      5,
+      8
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 4",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      21,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      5,
+      8,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 4",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2) 4. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 4.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 4",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "East Asian",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      18,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      4,
+      9,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2) 5",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps, diminishing the 4th degree by 3 steps, and severely diminishing the 5th degree by 4 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      16,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      4,
+      9,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 5",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      6,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      4,
+      9,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 5",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      4,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      4,
+      9,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Phrygian 3",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      9,
+      11,
+      13,
+      15,
+      25,
+      27,
+      31
+    ],
+    "intervals": [
+      9,
+      2,
+      2,
+      2,
+      10,
+      2,
+      4
+    ],
+    "name": "SeptalMicro Neutral Dense Mixolydian 3",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      22,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      4,
+      9
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 6",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      20,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      4,
+      9,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 6",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2) 5. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 5.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 5",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Arabic/Middle Eastern",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      12,
+      14,
+      17,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      10,
+      2,
+      3,
+      10,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Lydian (2nd↓2) 6",
+    "description": "Derived from hyperlydian by severely diminishing the 2nd degree by 4 steps, diminishing the 4th degree by 3 steps, and maximally diminishing the 5th degree by 5 steps. Contains multiple whole-tone intervals. All intervals are at least 2 steps to avoid chromatic tension.",
+    "alterations": [
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 1
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 2
+      },
+      {
+        "degree": 3,
+        "degreeName": "4th",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 1
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 2
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 3
+      },
+      {
+        "degree": 1,
+        "degreeName": "2nd",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 1
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 2
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 3
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 4
+      },
+      {
+        "degree": 4,
+        "degreeName": "5th",
+        "steps": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      15,
+      25,
+      27,
+      29,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      3,
+      10,
+      2,
+      2,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 7",
+    "description": "1th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 1
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      5,
+      15,
+      17,
+      19,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      3,
+      10,
+      2,
+      2,
+      2,
+      10
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 8",
+    "description": "2th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 2
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      3,
+      13,
+      15,
+      17,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      3,
+      10,
+      2,
+      2,
+      2,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Dorian 7",
+    "description": "3th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 3
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      10,
+      12,
+      14,
+      16,
+      26,
+      28,
+      31
+    ],
+    "intervals": [
+      10,
+      2,
+      2,
+      2,
+      10,
+      2,
+      3
+    ],
+    "name": "SeptalMicro Neutral Dense Phrygian 4",
+    "description": "4th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 4
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      21,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      2,
+      10,
+      2,
+      3,
+      10
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 9",
+    "description": "5th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 5
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
+      ]
+    }
+  },
+  {
+    "degrees": [
+      0,
+      2,
+      4,
+      14,
+      16,
+      19,
+      29,
+      31
+    ],
+    "intervals": [
+      2,
+      2,
+      10,
+      2,
+      3,
+      10,
+      2
+    ],
+    "name": "SeptalMicro Neutral Dense Ionian 10",
+    "description": "6th mode of SeptalMicro Lydian (2nd↓2) 6. A neutral, dense mode derived from SeptalMicro Lydian (2nd↓2) 6.",
+    "alterations": [
+      {
+        "type": "mode",
+        "from": "SeptalMicro Lydian (2nd↓2) 6",
+        "rotation": 6
+      }
+    ],
+    "categories": {
+      "acoustic": [
+        "Dissonant"
+      ],
+      "cultural": [
+        "Western Classical",
+        "Experimental/Contemporary"
+      ],
+      "perceptual": [
+        "Neutral",
+        "Tense"
+      ],
+      "mathematical": [
+        "Prime Cardinality"
+      ],
+      "genera": [
+        "Chromatic"
       ]
     }
   }

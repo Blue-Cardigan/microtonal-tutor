@@ -27,13 +27,32 @@ interface KeyboardProps {
     name: string;
     degrees: number[];
   } | null;
+  showScale: boolean;
 }
 
-const Keyboard = ({ highlightedNotes, selectedScale }: KeyboardProps) => {
+const Keyboard = ({ highlightedNotes, selectedScale, showScale }: KeyboardProps) => {
   const { playNote, stopNote, activeNotes, isLoaded } = useAudio();
   const [keyboardActive, setKeyboardActive] = useState<{ [key: string]: boolean }>({});
   const [octaveShift, setOctaveShift] = useState<number>(0);
-  const [showScale, setShowScale] = useState<boolean>(true);
+  const [localHighlightedNotes, setLocalHighlightedNotes] = useState<Set<number>>(new Set());
+
+  // Sync our local highlighted notes with the prop and activeNotes
+  useEffect(() => {
+    // If we have external highlighted notes (from a scale or chord)
+    if (highlightedNotes && highlightedNotes.size > 0) {
+      // Only use the highlightedNotes if we have active notes playing
+      // This ensures chord tones only show when they're actually sounding
+      if (activeNotes.size > 0) {
+        setLocalHighlightedNotes(highlightedNotes);
+      } else {
+        // When notes stop playing, clear our local highlights
+        setLocalHighlightedNotes(new Set());
+      }
+    } else {
+      // If no external highlights, clear local ones
+      setLocalHighlightedNotes(new Set());
+    }
+  }, [highlightedNotes, activeNotes]);
 
   // Generate all keys for the keyboard (single octave + top C)
   const generateKeys = useCallback(() => {
@@ -109,34 +128,12 @@ const Keyboard = ({ highlightedNotes, selectedScale }: KeyboardProps) => {
   
   return (
     <div className="w-full">
-      {selectedScale && (
-        <div className="flex justify-between items-center mb-2">
-          <div className="text-sm text-gray-700 font-medium">
-            {selectedScale.name}
-          </div>
-          <div className="flex items-center">
-            <span className="text-sm text-gray-600 mr-2">Show scale</span>
-            <button
-              onClick={() => setShowScale(prev => !prev)}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
-                showScale ? 'bg-indigo-600' : 'bg-gray-200'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  showScale ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-      )}
       <div className="relative h-48 w-full bg-gray-100 p-2 rounded-lg">
         {/* All keys in a single layout */}
         {keys.map((noteStep) => {
           const isWhite = isWhiteKey(noteStep);
           const isActive = activeNotes.has(noteStep);
-          const isHighlighted = highlightedNotes?.has(noteStep);
+          const isHighlighted = localHighlightedNotes.has(noteStep);
           const noteName = getStepNoteName(noteStep);
           
           // Check if this note is part of the selected scale
@@ -193,9 +190,6 @@ const Keyboard = ({ highlightedNotes, selectedScale }: KeyboardProps) => {
             </div>
           );
         })}
-      </div>
-      <div className="mt-2 text-center text-sm text-gray-600">
-        Hold <span className="font-bold">Shift</span> key to play the higher octave
       </div>
     </div>
   );

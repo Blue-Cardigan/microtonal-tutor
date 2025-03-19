@@ -13,6 +13,7 @@ interface ChordDisplayProps {
   setUseAutoInversion: (use: boolean) => void;
   onChordSelect: (chord: Chord | null) => void;
   onPlayChord: (chord: Chord) => void;
+  stopAllNotes: () => void;
 }
 
 const ChordDisplay: React.FC<ChordDisplayProps> = ({
@@ -26,7 +27,8 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
   useAutoInversion,
   setUseAutoInversion,
   onChordSelect,
-  onPlayChord
+  onPlayChord,
+  stopAllNotes
 }) => {
   const chords = useSeventhChords ? sevenths : triads;
   const maxInversion = useSeventhChords ? 3 : 2;
@@ -40,6 +42,27 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
     if (!selectedChord || selectedChord.degree !== chord.degree || selectedChord.type !== chord.type) {
       onChordSelect(chord);
     }
+  };
+  
+  // Add mouse events to handle stopping sounds on mouse up
+  const handleChordMouseDown = (chord: Chord) => {
+    // Play the chord
+    onPlayChord(chord);
+    
+    // If it's not already selected, also select it
+    if (!selectedChord || selectedChord.degree !== chord.degree || selectedChord.type !== chord.type) {
+      onChordSelect(chord);
+    }
+  };
+  
+  const handleChordMouseUp = () => {
+    // Stop all notes with a slight release time for natural decay
+    stopAllNotes();
+  };
+  
+  const handleChordMouseLeave = () => {
+    // Stop notes if mouse leaves the chord button while held down
+    stopAllNotes();
   };
   
   return (
@@ -79,7 +102,7 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
             <span className="font-mono bg-blue-100 px-1 rounded ml-1">9</span> (1st), 
             <span className="font-mono bg-blue-100 px-1 rounded ml-1">0</span> (2nd), 
             <span className="font-mono bg-blue-100 px-1 rounded ml-1">-</span> (3rd), 
-            <span className="font-mono bg-blue-100 px-1 rounded ml-1">=</span> or <span className="font-mono bg-blue-100 px-1 rounded">a</span> (auto)
+            <span className="font-mono bg-blue-100 px-1 rounded ml-1">=</span> (auto)
           </li>
         </ul>
       </div>
@@ -97,13 +120,22 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
                     ? 'bg-indigo-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
-                onClick={() => {
+                onMouseDown={() => {
                   setCurrentInversion(i);
                   // Play the selected chord with the new inversion if one is selected
                   if (selectedChord) {
                     onPlayChord(selectedChord);
                   }
                 }}
+                onMouseUp={handleChordMouseUp}
+                onMouseLeave={handleChordMouseLeave}
+                onTouchStart={() => {
+                  setCurrentInversion(i);
+                  if (selectedChord) {
+                    onPlayChord(selectedChord);
+                  }
+                }}
+                onTouchEnd={handleChordMouseUp}
               >
                 {i === 0 ? 'Root' : `${i}${i === 1 ? 'st' : i === 2 ? 'nd' : 'rd'}`}
                 <span className="ml-1 text-xs opacity-60">{i === 0 ? '(8)' : i === 1 ? '(9)' : i === 2 ? '(0)' : '(-)'}</span>
@@ -123,7 +155,11 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
                 ? 'bg-indigo-100 border border-indigo-300 shadow-sm'
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
             }`}
-            onClick={() => handleChordClick(chord)}
+            onMouseDown={() => handleChordMouseDown(chord)}
+            onMouseUp={handleChordMouseUp}
+            onMouseLeave={handleChordMouseLeave}
+            onTouchStart={() => handleChordMouseDown(chord)}
+            onTouchEnd={handleChordMouseUp}
           >
             <div className="font-medium text-sm text-gray-800">
               {chord.degreeRoman}

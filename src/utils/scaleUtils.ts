@@ -76,134 +76,219 @@ export const getFunctionFromDegree = (degree: number, isMajorLike: boolean): str
   }
 };
 
-// Function to determine chord type based on intervals
+// Improved interval classification helper functions for more flexible chord detection
+const isMinorSecondLike = (interval: number): boolean => interval >= 2 && interval <= 4;
+const isMajorSecondLike = (interval: number): boolean => interval >= 5 && interval <= 6;
+const isMinorThirdLike = (interval: number): boolean => interval >= 7 && interval <= 9;
+const isMajorThirdLike = (interval: number): boolean => interval >= 10 && interval <= 11;
+const isPerfectFourthLike = (interval: number): boolean => interval >= 12 && interval <= 14;
+const isTritoneLike = (interval: number): boolean => interval >= 15 && interval <= 17;
+const isPerfectFifthLike = (interval: number): boolean => interval >= 18 && interval <= 19;
+const isMinorSixthLike = (interval: number): boolean => interval >= 20 && interval <= 22;
+const isMajorSixthLike = (interval: number): boolean => interval >= 23 && interval <= 24;
+const isMinorSeventhLike = (interval: number): boolean => interval >= 25 && interval <= 27;
+const isMajorSeventhLike = (interval: number): boolean => interval >= 28 && interval <= 30;
+
+// Function to determine chord type based on intervals with improved flexibility for 31-EDO
 export const getChordType = (intervals: number[]): string => {
   if (intervals.length === 0) {
     return "single note";
   }
   
   if (intervals.length === 1) {
-    // Dyad classification
+    // Dyad classification with improved ranges
     const interval = intervals[0];
     if (interval <= 6) return "second";
     if (interval <= 11) return "third";
     if (interval <= 14) return "fourth";
-    if (interval <= 16) return "tritone";
+    if (interval <= 17) return "tritone";
     if (interval <= 19) return "fifth";
     if (interval <= 24) return "sixth";
-    if (interval <= 28) return "seventh";
+    if (interval <= 30) return "seventh";
     return "octave";
   }
   
-  // For triads and beyond, we need to analyze the structure
+  // For triads and beyond, analyze the structure with greater tolerance for microtonal differences
   if (intervals.length >= 2) {
     const firstInterval = intervals[0];
     const secondInterval = intervals[1];
     const totalInterval = firstInterval + secondInterval;
     
-    // Check for triads
+    // Triad classification with improved microtonal awareness
     if (intervals.length === 2) {
-      // Major triad: major third (10) + minor third (8) = perfect fifth (18)
-      if ((firstInterval === 10 || firstInterval === 9) && 
-          (secondInterval === 8 || secondInterval === 9) && 
-          (totalInterval === 18 || totalInterval === 19)) {
+      // Check for major triad and variants
+      if (isMajorThirdLike(firstInterval) && isMinorThirdLike(secondInterval) && 
+          (totalInterval >= 17 && totalInterval <= 20)) {
+        if (totalInterval > 19) return "augmented major";
+        if (totalInterval < 18) return "diminished major";
         return "major";
       }
       
-      // Minor triad: minor third (8) + major third (10) = perfect fifth (18)
-      if ((firstInterval === 8 || firstInterval === 7) && 
-          (secondInterval === 10 || secondInterval === 11) && 
-          (totalInterval === 18 || totalInterval === 19)) {
+      // Check for minor triad and variants
+      if (isMinorThirdLike(firstInterval) && isMajorThirdLike(secondInterval) && 
+          (totalInterval >= 17 && totalInterval <= 20)) {
+        if (totalInterval > 19) return "augmented minor";
+        if (totalInterval < 18) return "diminished minor";
         return "minor";
       }
       
-      // Diminished triad: minor third (8) + minor third (8) = diminished fifth (16)
-      if ((firstInterval === 8 || firstInterval === 7) && 
-          (secondInterval === 8 || secondInterval === 7) && 
-          (totalInterval === 15 || totalInterval === 16)) {
+      // Check for diminished triad and variants
+      if (isMinorThirdLike(firstInterval) && isMinorThirdLike(secondInterval)) {
         return "diminished";
       }
       
-      // Augmented triad: major third (10) + major third (10) = augmented fifth (20)
-      if ((firstInterval === 10 || firstInterval === 11) && 
-          (secondInterval === 10 || secondInterval === 11) && 
-          (totalInterval >= 20)) {
+      // Check for augmented triad
+      if (isMajorThirdLike(firstInterval) && isMajorThirdLike(secondInterval)) {
         return "augmented";
       }
       
-      // Sus4 triad: perfect fourth (13) + major second (5) = perfect fifth (18)
-      if ((firstInterval === 13 || firstInterval === 12) && 
-          (secondInterval === 5 || secondInterval === 6) && 
-          (totalInterval === 18 || totalInterval === 19)) {
+      // Check for suspended triads
+      if (isPerfectFourthLike(firstInterval) && isMajorSecondLike(secondInterval) && 
+          (totalInterval >= 17 && totalInterval <= 20)) {
         return "sus4";
       }
       
-      // Sus2 triad: major second (5) + perfect fourth (13) = perfect fifth (18)
-      if ((firstInterval === 5 || firstInterval === 6) && 
-          (secondInterval === 13 || secondInterval === 12) && 
-          (totalInterval === 18 || totalInterval === 19)) {
+      if (isMajorSecondLike(firstInterval) && isPerfectFourthLike(secondInterval) && 
+          (totalInterval >= 17 && totalInterval <= 20)) {
         return "sus2";
       }
+      
+      // Check for quartal triads (built on fourths)
+      if (isPerfectFourthLike(firstInterval) && isPerfectFourthLike(secondInterval)) {
+        return "quartal";
+      }
+      
+      // Check for neutral triads (specific to microtonal systems)
+      if ((firstInterval === 9 || firstInterval === 10) && 
+          (secondInterval === 9 || secondInterval === 10)) {
+        return "neutral";
+      }
+      
+      // Check for "hard" triads with seconds
+      if (isMinorSecondLike(firstInterval) || isMinorSecondLike(secondInterval)) {
+        return "secundal";
+      }
+      
+      // Check for mixed interval triads
+      const hasPerfectFifth = totalInterval >= 17 && totalInterval <= 19;
+      if (hasPerfectFifth) {
+        if (firstInterval <= 6 || secondInterval <= 6) return "quintal-secundal";
+        if (isPerfectFourthLike(firstInterval) || isPerfectFourthLike(secondInterval)) {
+          return "mixed quartal";
+        }
+      }
     }
     
-    // Check for seventh chords
+    // Seventh chord classification with improved detection
     if (intervals.length >= 3) {
       const thirdInterval = intervals[2];
+      const triadType = getChordType(intervals.slice(0, 2));
+      const fullInterval = totalInterval + thirdInterval;
       
-      // Major seventh: major triad + major third = major seventh
-      if (getChordType(intervals.slice(0, 2)) === "major" && 
-          (thirdInterval === 10 || thirdInterval === 9) && 
-          (totalInterval + thirdInterval >= 28)) {
-        return "major seventh";
+      // Major seventh family
+      if (triadType === "major") {
+        if (isMajorSeventhLike(fullInterval)) return "major seventh";
+        if (isMinorSeventhLike(fullInterval)) return "dominant seventh";
+        if (isMajorSixthLike(fullInterval)) return "major sixth";
+        if (isPerfectFifthLike(thirdInterval)) return "major add11";
+        if (isMajorSecondLike(thirdInterval)) return "major add9";
       }
       
-      // Dominant seventh: major triad + minor third = minor seventh
-      if (getChordType(intervals.slice(0, 2)) === "major" && 
-          (thirdInterval === 8 || thirdInterval === 7) && 
-          (totalInterval + thirdInterval >= 26 && totalInterval + thirdInterval <= 27)) {
-        return "dominant seventh";
+      // Minor seventh family
+      if (triadType === "minor") {
+        if (isMajorSeventhLike(fullInterval)) return "minor-major seventh";
+        if (isMinorSeventhLike(fullInterval)) return "minor seventh";
+        if (isMajorSixthLike(fullInterval)) return "minor sixth";
+        if (isPerfectFifthLike(thirdInterval)) return "minor add11";
+        if (isMajorSecondLike(thirdInterval)) return "minor add9";
       }
       
-      // Minor seventh: minor triad + minor third = minor seventh
-      if (getChordType(intervals.slice(0, 2)) === "minor" && 
-          (thirdInterval === 8 || thirdInterval === 7) && 
-          (totalInterval + thirdInterval >= 26 && totalInterval + thirdInterval <= 27)) {
-        return "minor seventh";
+      // Diminished seventh family
+      if (triadType === "diminished") {
+        if (isMinorSeventhLike(fullInterval)) return "half-diminished seventh";
+        if (fullInterval >= 22 && fullInterval <= 25) return "diminished seventh";
+        if (isMajorSixthLike(fullInterval)) return "diminished add sixth";
       }
       
-      // Half-diminished seventh: diminished triad + major third = minor seventh
-      if (getChordType(intervals.slice(0, 2)) === "diminished" && 
-          (thirdInterval === 10 || thirdInterval === 11) && 
-          (totalInterval + thirdInterval >= 26 && totalInterval + thirdInterval <= 27)) {
-        return "half-diminished seventh";
+      // Augmented seventh family
+      if (triadType === "augmented") {
+        if (isMajorSeventhLike(fullInterval)) return "augmented major seventh";
+        if (isMinorSeventhLike(fullInterval)) return "augmented seventh";
+        if (isMajorSixthLike(fullInterval)) return "augmented sixth";
       }
       
-      // Diminished seventh: diminished triad + minor third = diminished seventh
-      if (getChordType(intervals.slice(0, 2)) === "diminished" && 
-          (thirdInterval === 8 || thirdInterval === 7) && 
-          (totalInterval + thirdInterval >= 23 && totalInterval + thirdInterval <= 25)) {
-        return "diminished seventh";
+      // Suspended seventh chords
+      if (triadType === "sus4" || triadType === "sus2") {
+        if (isMinorSeventhLike(fullInterval)) return `${triadType} seventh`;
+        if (isMajorSeventhLike(fullInterval)) return `${triadType} major seventh`;
       }
       
-      // Minor-major seventh: minor triad + major third = major seventh
-      if (getChordType(intervals.slice(0, 2)) === "minor" && 
-          (thirdInterval === 10 || thirdInterval === 11) && 
-          (totalInterval + thirdInterval >= 28)) {
-        return "minor-major seventh";
+      // Special case for quartal chords extended
+      if (triadType === "quartal" && isPerfectFourthLike(thirdInterval)) {
+        return "extended quartal";
+      }
+      
+      // Microtonal-specific seventh chords
+      if (thirdInterval === 9) {
+        return `${triadType} neutral seventh`;
+      }
+      
+      // If we get here, but the triad type is known, use it as a base
+      if (triadType !== "complex" && triadType !== "unknown") {
+        return `${triadType} with extension`;
       }
     }
     
-    // Extended chords (9th, 11th, 13th)
+    // Extended chords (9th, 11th, 13th) with more specific naming
     if (intervals.length > 3) {
       const baseType = getChordType(intervals.slice(0, 3));
-      return `${baseType} extended`;
+      const forthInterval = intervals[3];
+      
+      // If we have a recognizable seventh chord base
+      if (baseType.includes("seventh") || baseType.includes("sixth")) {
+        if (isMajorSecondLike(forthInterval)) return baseType.replace("seventh", "ninth").replace("sixth", "sixth-ninth");
+        if (isPerfectFourthLike(forthInterval)) return baseType.replace("seventh", "eleventh");
+        if (isMajorSixthLike(forthInterval)) return baseType.replace("seventh", "thirteenth");
+        return `${baseType} extended`;
+      }
+      
+      // Handle other extended chords generically but still descriptively
+      if (baseType !== "complex" && baseType !== "unknown" && !baseType.includes("extension")) {
+        return `${baseType} extended`;
+      }
     }
     
-    // If we can't determine a specific type, return a generic description
-    return "complex";
+    // Analyze the full interval structure for a more descriptive classification
+    const hasThird = intervals.some(i => isMinorThirdLike(i) || isMajorThirdLike(i));
+    const hasFifth = intervals.some(i => isPerfectFifthLike(i)) || 
+                     (firstInterval + secondInterval >= 17 && firstInterval + secondInterval <= 19);
+    const hasSeventh = intervals.some(i => isMinorSeventhLike(i) || isMajorSeventhLike(i)) ||
+                        (totalInterval + intervals[2] >= 25 && totalInterval + intervals[2] <= 30);
+    
+    if (hasThird && hasFifth && hasSeventh) return "tertian seventh";
+    if (hasThird && hasFifth) return "tertian";
+    
+    const hasSecond = intervals.some(i => isMinorSecondLike(i) || isMajorSecondLike(i));
+    const hasFourth = intervals.some(i => isPerfectFourthLike(i));
+    
+    if (hasFourth && intervals.filter(i => isPerfectFourthLike(i)).length >= 2) return "quartal";
+    if (hasFifth && intervals.filter(i => isPerfectFifthLike(i)).length >= 1) return "quintal";
+    if (hasSecond && intervals.filter(i => isMinorSecondLike(i) || isMajorSecondLike(i)).length >= 2) return "cluster";
+    
+    // Last resort for truly complex chords, but with more information
+    const intervalTypes = [];
+    if (hasSecond) intervalTypes.push("seconds");
+    if (hasThird) intervalTypes.push("thirds");
+    if (hasFourth) intervalTypes.push("fourths");
+    if (hasFifth) intervalTypes.push("fifths");
+    if (hasSeventh) intervalTypes.push("sevenths");
+    
+    if (intervalTypes.length > 0) {
+      return `mixed (${intervalTypes.join(", ")})`;
+    }
   }
   
-  return "unknown";
+  return "mixed";
 };
 
 // Function to find the optimal inversion with the lowest bass note
@@ -232,7 +317,7 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
   let result = [...notes];
   
   // Apply the specified inversion if not root position
-  if (inversion > 0) {
+  if (inversion > 0 && inversion < notes.length) {
     for (let i = 0; i < inversion; i++) {
       const firstNote = result.shift();
       if (firstNote !== undefined) {
@@ -247,7 +332,7 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
     if (inversion === 0) {
       // Only find optimal inversion if a manual inversion wasn't already applied
       const optimalInversion = findOptimalInversion(notes);
-      if (optimalInversion > 0) {
+      if (optimalInversion > 0 && optimalInversion < notes.length) {
         result = [...notes]; // Reset to original notes
         for (let i = 0; i < optimalInversion; i++) {
           const firstNote = result.shift();
@@ -259,13 +344,13 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
     }
   }
   
-  // Ensure all notes are within a single octave (31 steps in 31-EDO)
-  // Shift any notes that are more than an octave above the lowest note
+  // Move any notes above the octave (31) down an octave
+  // This ensures all notes are within the 0-31 range
   return result.map(note => {
-    // If the note is more than 31 steps above the lowest note, shift it down by octaves
     if (note > 31) {
-      return note - 31;
+      // Properly handle octave reduction for all notes
+      return ((note - 1) % 31) + 1;
     }
     return note;
   });
-}; 
+};
