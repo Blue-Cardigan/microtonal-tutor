@@ -33,17 +33,6 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
   const chords = useSeventhChords ? sevenths : triads;
   const maxInversion = useSeventhChords ? 3 : 2;
   
-  // Function to handle chord selection and playing
-  const handleChordClick = (chord: Chord) => {
-    // Always play the chord when clicked
-    onPlayChord(chord);
-    
-    // If it's not already selected, also select it
-    if (!selectedChord || selectedChord.degree !== chord.degree || selectedChord.type !== chord.type) {
-      onChordSelect(chord);
-    }
-  };
-  
   // Add mouse events to handle stopping sounds on mouse up
   const handleChordMouseDown = (chord: Chord) => {
     // Play the chord

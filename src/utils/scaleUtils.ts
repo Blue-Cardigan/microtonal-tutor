@@ -82,9 +82,7 @@ const isMajorSecondLike = (interval: number): boolean => interval >= 5 && interv
 const isMinorThirdLike = (interval: number): boolean => interval >= 7 && interval <= 9;
 const isMajorThirdLike = (interval: number): boolean => interval >= 10 && interval <= 11;
 const isPerfectFourthLike = (interval: number): boolean => interval >= 12 && interval <= 14;
-const isTritoneLike = (interval: number): boolean => interval >= 15 && interval <= 17;
 const isPerfectFifthLike = (interval: number): boolean => interval >= 18 && interval <= 19;
-const isMinorSixthLike = (interval: number): boolean => interval >= 20 && interval <= 22;
 const isMajorSixthLike = (interval: number): boolean => interval >= 23 && interval <= 24;
 const isMinorSeventhLike = (interval: number): boolean => interval >= 25 && interval <= 27;
 const isMajorSeventhLike = (interval: number): boolean => interval >= 28 && interval <= 30;
