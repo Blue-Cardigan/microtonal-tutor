@@ -5,6 +5,7 @@ import { AudioProvider } from '../utils/AudioContext';
 import Keyboard from '../components/Keyboard';
 import ScaleBrowser from '../components/ScaleBrowser';
 import ChordVisualizer from '../components/ChordVisualizer';
+import CircleVisualizer from '../components/CircleVisualizer';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function Home() {
@@ -61,7 +62,6 @@ export default function Home() {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="p-4">
-                  <h2 className="text-xl font-bold text-gray-800 mb-3">Scale Browser</h2>
                   <ScaleBrowser 
                     onHighlightNotes={handleHighlightNotes} 
                     onChordSelect={handleChordSelect}
@@ -72,11 +72,22 @@ export default function Home() {
             </div>
             
             {/* Chord Visualizer - Takes up 1/3 of the width on large screens */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 space-y-4">
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="p-4">
                   <h2 className="text-xl font-bold text-gray-800 mb-3">Interval Visualizer</h2>
                   <ChordVisualizer selectedChord={selectedChord} />
+                </div>
+              </div>
+              
+              {/* Circle Visualizer */}
+              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div className="p-4">
+                  <CircleVisualizer 
+                    highlightedNotes={highlightedNotes}
+                    selectedScale={selectedScale}
+                    showScale={showScale}
+                  />
                 </div>
               </div>
             </div>
@@ -102,6 +113,18 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-4">
                 {selectedScale && (
+                  <div className="text-sm text-indigo-700 font-medium">
+                    Current Scale: {selectedScale.name}
+                  </div>
+                )}
+                {selectedChord && (
+                  <div className="text-sm bg-indigo-100 px-3 py-1 rounded-full text-indigo-700 font-medium">
+                    {selectedChord.degreeRoman} {selectedChord.type}
+                  </div>
+                )}
+              </div>
+              <div className="flex items-center gap-4">
+                {selectedScale && isKeyboardExpanded && (
                   <>
                     <div className="flex items-center">
                       <span className="text-sm text-gray-600 mr-2">Show scale</span>
@@ -121,15 +144,7 @@ export default function Home() {
                         />
                       </button>
                     </div>
-                    <div className="text-sm text-indigo-700 font-medium">
-                      Current Scale: {selectedScale.name}
-                    </div>
                   </>
-                )}
-                {selectedChord && (
-                  <div className="text-sm bg-indigo-100 px-3 py-1 rounded-full text-indigo-700 font-medium">
-                    {selectedChord.degreeRoman} {selectedChord.type}
-                  </div>
                 )}
               </div>
             </div>

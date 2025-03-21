@@ -10,8 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold text-indigo-400 mb-4">31-EDO Explorer</h3>
             <p className="text-gray-400 mb-4">
-              An interactive tool for exploring microtonal music in 31-tone equal temperament.
-              Discover new scales, chords, and harmonic possibilities.
+              Learn to make music nobody asked for, but everyone needs.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/Blue-Cardigan/microtonal-tutor.git" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

@@ -9,7 +9,7 @@ export const CENTS_PER_OCTAVE = 1200;
 export const CENTS_PER_STEP = CENTS_PER_OCTAVE / STEPS_PER_OCTAVE;
 
 // 31-EDO note names
-const NOTE_NAMES = [
+export const NOTE_NAMES = [
     "C", "D♭♭", "C♯", "D♭", "C×", "D", "E♭♭", "D♯", "E♭", "D×", "E", 
     "F♭", "E♯", "F", "G♭♭", "F♯", "G♭", "F×", "G", "A♭♭", "G♯", 
     "A♭", "G×", "A", "B♭♭", "A♯", "B♭", "A×", "B", "C♭", "B♯"
@@ -39,9 +39,6 @@ export function centsToStep(cents) {
  * @returns {string} The note name
  */
 export function getStepNoteName(step) {
-    // Calculate the octave
-    const octave = Math.floor(step / STEPS_PER_OCTAVE) + 4; // Start at octave 4 (middle C)
-    
     // Calculate the note within the octave
     const noteIndex = step % STEPS_PER_OCTAVE;
     
@@ -49,7 +46,7 @@ export function getStepNoteName(step) {
     const noteName = NOTE_NAMES[noteIndex];
     
     // Return the note name with the octave
-    return `${noteName}${octave}`;
+    return `${noteName}`;
 }
 
 /**

@@ -10,6 +10,7 @@ export interface Chord {
 export interface Scale {
   name: string;
   degrees: number[];
+  isMajorLike: boolean;
   intervals: number[];
   modifications: string[];
   description?: string;
@@ -21,10 +22,9 @@ export interface Scale {
   };
   chordSystem?: {
     chordsByDegree: {
-      [key: string]: {
-        name: string;
+      [key: string]: Array<{
         chords: Chord[];
-      }[];
+      }>;
     };
     chordsByFunction: {
       [key: string]: {

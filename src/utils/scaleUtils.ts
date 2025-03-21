@@ -319,36 +319,15 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
     for (let i = 0; i < inversion; i++) {
       const firstNote = result.shift();
       if (firstNote !== undefined) {
-        result.push(firstNote + 31); // Add an octave
+        result.push(firstNote + 31); // Move note up an octave
       }
     }
   }
   
-  // Apply auto-inversion if specified
-  if (autoInversionValue !== undefined && autoInversionValue > 0) {
-    // Find the optimal inversion first (the one with the lowest bass note)
-    if (inversion === 0) {
-      // Only find optimal inversion if a manual inversion wasn't already applied
-      const optimalInversion = findOptimalInversion(notes);
-      if (optimalInversion > 0 && optimalInversion < notes.length) {
-        result = [...notes]; // Reset to original notes
-        for (let i = 0; i < optimalInversion; i++) {
-          const firstNote = result.shift();
-          if (firstNote !== undefined) {
-            result.push(firstNote + 31); // Add an octave
-          }
-        }
-      }
-    }
+  // Only wrap notes to their correct octave position if auto-inversion is enabled
+  if (autoInversionValue !== undefined) {
+    return result.map(note => ((note - 1) % 31) + 1);
   }
   
-  // Move any notes above the octave (31) down an octave
-  // This ensures all notes are within the 0-31 range
-  return result.map(note => {
-    if (note > 31) {
-      // Properly handle octave reduction for all notes
-      return ((note - 1) % 31) + 1;
-    }
-    return note;
-  });
+  return result;
 };

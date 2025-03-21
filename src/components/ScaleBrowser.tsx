@@ -19,6 +19,7 @@ import FamilySelector from './FamilySelector';
 import ScaleList from './ScaleList';
 import ScaleInfo from './ScaleInfo';
 import ChordDisplay from './ChordDisplay';
+import AdvancedScaleSearch from './AdvancedScaleSearch';
 
 const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSelect, onScaleSelect }) => {
   const { playNote, stopAllNotes, scheduleNote, isLoaded } = useAudio();
@@ -44,6 +45,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   const [useSeventhChords, setUseSeventhChords] = useState<boolean>(false);
   const [currentInversion, setCurrentInversion] = useState<number>(0);
   const [useAutoInversion, setUseAutoInversion] = useState<boolean>(false);
+  const [useTraditionalChords, setUseTraditionalChords] = useState<boolean>(true);
   
   // Filter state
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -121,7 +123,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   // Memoize generated chords to prevent unnecessary recalculations
   const generatedChords = useMemo(() => {
     if (!selectedScale) {
-      return { triads: [], sevenths: [] };
+      return { triads: [], sevenths: [], traditionalTriads: [], traditionalSevenths: [] };
     }
     return generateChordsForScale(selectedScale);
   }, [selectedScale]);
@@ -328,12 +330,13 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       const chordKeyMatch = key.match(/^[1-7]$/);
       if (chordKeyMatch && generatedChords) {
         const chordIndex = parseInt(key) - 1;
-        const chords = useSeventhChords ? generatedChords.sevenths : generatedChords.triads;
+        const chords = useTraditionalChords
+          ? (useSeventhChords ? generatedChords.traditionalSevenths : generatedChords.traditionalTriads)
+          : (useSeventhChords ? generatedChords.sevenths : generatedChords.triads);
         
         if (chordIndex >= 0 && chordIndex < chords.length) {
           const chord = chords[chordIndex];
           playChord(chord);
-          // Store the key that played this chord for reference in keyup handler
           setLastChordKey(key);
         }
       }
@@ -402,7 +405,8 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     currentInversion,
     useAutoInversion,
     lastChordKey,
-    stopAllNotes
+    stopAllNotes,
+    useTraditionalChords,
   ]);
 
   // Render loading state
@@ -428,8 +432,8 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
         <ViewModeToggle viewMode={viewMode} setViewMode={setViewMode} />
         
         {/* Search and Filter Section */}
-        <div className={`mb-6 ${viewMode === 'basic' ? 'hidden' : ''}`}>
-          <ScaleSearchFilter
+        <div className={`${viewMode === 'basic' ? 'hidden' : ''}`}>
+          <AdvancedScaleSearch
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             selectedCategory={selectedCategory}
@@ -443,6 +447,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
             setSortDirection={setSortDirection}
             filteredScalesCount={filteredScales.length}
             resetFilters={resetFilters}
+            scales={filteredScales}
           />
         </div>
         
@@ -490,106 +495,103 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   }
 
   return (
-    <div>
-      {/* View Mode Toggle */}
-      <ViewModeToggle viewMode={viewMode} setViewMode={setViewMode} />
-      
-      {/* Search and Filter Section */}
-      <div className={`mb-6 ${viewMode === 'basic' ? 'hidden' : ''}`}>
-        <ScaleSearchFilter
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          availableCategories={availableCategories}
-          noteCount={noteCount}
-          setNoteCount={setNoteCount}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          sortDirection={sortDirection}
-          setSortDirection={setSortDirection}
-          filteredScalesCount={filteredScales.length}
-          resetFilters={resetFilters}
-        />
+    <div className="space-y-4">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <h2 className="text-2xl font-bold text-gray-900">Scale Browser</h2>
+        <ViewModeToggle viewMode={viewMode} setViewMode={setViewMode} />
       </div>
-      
-      {/* Scale Selection */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <label htmlFor="family-select" className="block text-sm font-medium text-gray-700">
-            Scale Family
-          </label>
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={handlePrevScale}
-              className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-              disabled={isPlaying}
-              title="Previous Scale"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button
-              onClick={handleNextScale}
-              className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-              disabled={isPlaying}
-              title="Next Scale"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        
-        <div className="flex flex-col md:flex-row gap-4 items-start">
-          <div className="w-full md:w-1/3">
-            <FamilySelector
-              families={families}
-              selectedFamily={selectedFamily}
-              onFamilyChange={handleFamilyChange}
-              scaleData={scaleData}
-            />
-            
-            {/* Scale List - Only shown in advanced mode */}
-            {viewMode === 'advanced' && (
-              <ScaleList
-                scales={filteredScales}
-                selectedIndex={scaleIndex}
-                onSelectScale={handleScaleSelect}
-                familyName={scaleData.families[selectedFamily].name}
+
+      {/* Main Content Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        {/* Left Sidebar - Scale Selection and Info */}
+        <div className="lg:col-span-4 space-y-4">
+          <div className="bg-white rounded-lg shadow-sm">
+            {/* Scale Selection Header */}
+            <div className="p-3 border-b border-gray-200">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-base font-semibold text-gray-800">Scale Selection</h3>
+                <div className="flex items-center space-x-1">
+                  <button
+                    onClick={handlePrevScale}
+                    className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                    disabled={isPlaying}
+                    title="Previous Scale"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={handleNextScale}
+                    className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                    disabled={isPlaying}
+                    title="Next Scale"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <FamilySelector
+                families={families}
+                selectedFamily={selectedFamily}
+                onFamilyChange={handleFamilyChange}
+                scaleData={scaleData}
               />
+            </div>
+
+            {/* Scale List */}
+            {viewMode === 'advanced' && (
+              <div className="p-3 border-b border-gray-200">
+                <ScaleList
+                  scales={filteredScales}
+                  selectedIndex={scaleIndex}
+                  onSelectScale={handleScaleSelect}
+                  familyName={scaleData.families[selectedFamily].name}
+                />
+              </div>
+            )}
+
+            {/* Scale Info */}
+            {selectedScale && (
+              <div className="p-3">
+                <ScaleInfo
+                  scale={selectedScale}
+                  isPlaying={isPlaying}
+                  isLoaded={isLoaded}
+                  playScale={playScale}
+                />
+              </div>
             )}
           </div>
-          
-          <div className="w-full md:w-2/3 flex flex-col">
-            <ScaleInfo
-              scale={selectedScale}
-              isPlaying={isPlaying}
-              isLoaded={isLoaded}
-              playScale={playScale}
+        </div>
+
+        {/* Main Content Area - Chord Display */}
+        <div className="lg:col-span-8">
+          <div className="bg-white rounded-lg shadow-sm">
+            <ChordDisplay
+              triads={generatedChords.triads}
+              sevenths={generatedChords.sevenths}
+              traditionalTriads={generatedChords.traditionalTriads}
+              traditionalSevenths={generatedChords.traditionalSevenths}
+              selectedChord={selectedChord}
+              useSeventhChords={useSeventhChords}
+              setUseSeventhChords={setUseSeventhChords}
+              useTraditionalChords={useTraditionalChords}
+              setUseTraditionalChords={setUseTraditionalChords}
+              currentInversion={currentInversion}
+              setCurrentInversion={setCurrentInversion}
+              useAutoInversion={useAutoInversion}
+              setUseAutoInversion={setUseAutoInversion}
+              onChordSelect={handleChordSelect}
+              onPlayChord={playChord}
+              stopAllNotes={stopAllNotes}
             />
           </div>
         </div>
-      </div>
-      
-      {/* Chord Display */}
-      <div className="mb-6">
-        <ChordDisplay
-          triads={generatedChords.triads}
-          sevenths={generatedChords.sevenths}
-          selectedChord={selectedChord}
-          useSeventhChords={useSeventhChords}
-          setUseSeventhChords={setUseSeventhChords}
-          currentInversion={currentInversion}
-          setCurrentInversion={setCurrentInversion}
-          useAutoInversion={useAutoInversion}
-          setUseAutoInversion={setUseAutoInversion}
-          onChordSelect={handleChordSelect}
-          onPlayChord={playChord}
-          stopAllNotes={stopAllNotes}
-        />
       </div>
     </div>
   );

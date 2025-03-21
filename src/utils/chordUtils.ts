@@ -1,6 +1,13 @@
 import { Scale, Chord, ROMAN_NUMERALS, ROMAN_NUMERALS_MAJOR } from '../types/scale';
 import { getFunctionFromDegree, getChordType } from './scaleUtils';
 
+// Helper function to create extended degrees array
+const createExtendedDegrees = (degrees: number[]): number[] => {
+  // Remove the octave from both the original and the extension
+  const degreesWithoutOctave = degrees.slice(0, -1);
+  return [...degreesWithoutOctave, ...degreesWithoutOctave.map(d => d + 31), 31];
+};
+
 // Generate triads for a scale
 export const generateTriads = (scale: Scale): Chord[] => {
   const degrees = scale.degrees;
@@ -8,19 +15,13 @@ export const generateTriads = (scale: Scale): Chord[] => {
   
   // Determine if the scale is major-like or minor-like based on the third degree
   let isMajorLike = true;
-  
-  // Find the third degree (index 2)
   if (degrees.length > 2) {
     const thirdInterval = degrees[2] - degrees[0];
-    // If the third is minor (8) or smaller, it's minor-like
     isMajorLike = thirdInterval >= 9;
   }
   
-  // Create extended degrees array to make it easier to find notes beyond the octave
-  const extendedDegrees = [...degrees];
-  for (let i = 1; i < 3; i++) {
-    extendedDegrees.push(...degrees.slice(1).map(d => d + (i * 31)));
-  }
+  // Create extended degrees array with one octave above
+  const extendedDegrees = createExtendedDegrees(degrees);
   
   // Generate a triad for each scale degree
   for (let i = 0; i < degrees.length - 1; i++) {
@@ -117,19 +118,13 @@ export const generateSeventhChords = (scale: Scale): Chord[] => {
   
   // Determine if the scale is major-like or minor-like based on the third degree
   let isMajorLike = true;
-  
-  // Find the third degree (index 2)
   if (degrees.length > 2) {
     const thirdInterval = degrees[2] - degrees[0];
-    // If the third is minor (8) or smaller, it's minor-like
     isMajorLike = thirdInterval >= 9;
   }
   
-  // Create extended degrees array to make it easier to find notes beyond the octave
-  const extendedDegrees = [...degrees];
-  for (let i = 1; i < 3; i++) {
-    extendedDegrees.push(...degrees.slice(1).map(d => d + (i * 31)));
-  }
+  // Create extended degrees array with one octave above
+  const extendedDegrees = createExtendedDegrees(degrees);
   
   // Generate a seventh chord for each scale degree
   for (let i = 0; i < degrees.length - 1; i++) {
@@ -251,6 +246,76 @@ export const generateSeventhChords = (scale: Scale): Chord[] => {
   return sevenths;
 };
 
+// Traditional triad generation based on scale degrees
+const generateTraditionalTriads = (scale: Scale): Chord[] => {
+  const triads: Chord[] = [];
+  const degrees = scale.degrees;
+  const isMajorLike = scale.isMajorLike;
+  
+  // Create extended degrees array with one octave above
+  const extendedDegrees = createExtendedDegrees(degrees);
+  
+  for (let i = 0; i < degrees.length - 1; i++) {
+    const root = degrees[i];
+    const third = extendedDegrees[i + 2];
+    const fifth = extendedDegrees[i + 4];
+    
+    const intervals = [
+      third - root,
+      fifth - third
+    ];
+    
+    const chord: Chord = {
+      degree: i,
+      degreeRoman: isMajorLike ? ROMAN_NUMERALS_MAJOR[i] : ROMAN_NUMERALS[i],
+      type: getChordType(intervals),
+      function: getFunctionFromDegree(i, isMajorLike),
+      notes: [root, third, fifth],
+      intervals: intervals
+    };
+    
+    triads.push(chord);
+  }
+  
+  return triads;
+};
+
+// Traditional seventh chord generation based on scale degrees
+const generateTraditionalSevenths = (scale: Scale): Chord[] => {
+  const sevenths: Chord[] = [];
+  const degrees = scale.degrees;
+  const isMajorLike = scale.isMajorLike;
+  
+  // Create extended degrees array with one octave above
+  const extendedDegrees = createExtendedDegrees(degrees);
+  
+  for (let i = 0; i < degrees.length - 1; i++) {
+    const root = degrees[i];
+    const third = extendedDegrees[i + 2];
+    const fifth = extendedDegrees[i + 4];
+    const seventh = extendedDegrees[i + 6];
+    
+    const intervals = [
+      third - root,
+      fifth - third,
+      seventh - fifth
+    ];
+    
+    const chord: Chord = {
+      degree: i,
+      degreeRoman: isMajorLike ? ROMAN_NUMERALS_MAJOR[i] : ROMAN_NUMERALS[i],
+      type: getChordType(intervals),
+      function: getFunctionFromDegree(i, isMajorLike),
+      notes: [root, third, fifth, seventh],
+      intervals: intervals
+    };
+    
+    sevenths.push(chord);
+  }
+  
+  return sevenths;
+};
+
 // Generate chords for a scale
 export const generateChordsForScale = (scale: Scale) => {
   // If the scale has a chord system defined, use it
@@ -273,7 +338,9 @@ export const generateChordsForScale = (scale: Scale) => {
     
     return {
       triads,
-      sevenths
+      sevenths,
+      traditionalTriads: generateTraditionalTriads(scale),
+      traditionalSevenths: generateTraditionalSevenths(scale)
     };
   }
   
@@ -283,6 +350,8 @@ export const generateChordsForScale = (scale: Scale) => {
   
   return {
     triads,
-    sevenths
+    sevenths,
+    traditionalTriads: generateTraditionalTriads(scale),
+    traditionalSevenths: generateTraditionalSevenths(scale)
   };
 }; 
