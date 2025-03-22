@@ -343,10 +343,6 @@ const CircleVisualizer: React.FC<CircleVisualizerProps> = ({
           })}
         </div>
       </div>
-      
-      <div className="flex justify-center mt-3 text-sm text-gray-500">
-        <p>Drag to rotate</p>
-      </div>
     </div>
   );
 };

@@ -42,6 +42,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
   const [sortBy, setSortBy] = useState<'name' | 'noteCount' | 'brightness'>('name');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const filterRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   
   // Load favorites from localStorage on component mount
   useEffect(() => {
@@ -171,12 +172,21 @@ const ScaleList: React.FC<ScaleListProps> = ({
   
   // Scroll to selected scale to keep it in view
   const scrollToSelected = (element: HTMLLIElement | null) => {
-    if (element && scrollToStart) {
-      // Use scrollIntoView with smooth behavior and center alignment
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start'
-      });
+    if (element && scrollToStart && listRef.current) {
+      // Get positions
+      const listRect = listRef.current.getBoundingClientRect();
+      const elementRect = element.getBoundingClientRect();
+      
+      // Calculate if element is outside the visible area of the list
+      const isAbove = elementRect.top < listRect.top;
+      const isBelow = elementRect.bottom > listRect.bottom;
+      
+      if (isAbove || isBelow) {
+        // Only scroll the list element, not the entire page
+        listRef.current.scrollTop = isAbove
+          ? element.offsetTop - listRef.current.offsetTop
+          : element.offsetTop - listRef.current.offsetTop - listRect.height + elementRect.height;
+      }
       
       // Only scroll once after initial render or scale selection
       setScrollToStart(false);
@@ -189,7 +199,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
   }, [selectedIndex]);
 
   // Calculate list height
-  const listHeight = 'max-h-[800px]'; // unified height regardless of mode
+  const listHeight = 'max-h-[600px]'; // unified height regardless of mode
   const listStyle = 'p-3 hover:bg-gray-50';
   
   // Count of favorite scales
@@ -199,7 +209,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
   const isFilterActive = localSearchTerm !== '' || showOnlyFavorites || noteCount !== null || sortBy !== 'name' || sortDirection !== 'asc';
   
   return (
-    <div className="bg-white rounded-md shadow-sm border border-gray-200 mt-2">
+    <div className="bg-white rounded-md shadow-sm border border-gray-200">
       <div className="sticky top-0 bg-indigo-50 p-3 border-b border-gray-200 z-10">
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center">
@@ -477,7 +487,10 @@ const ScaleList: React.FC<ScaleListProps> = ({
           )}
         </div>
       ) : (
-        <ul className={`divide-y divide-gray-200 ${listHeight} overflow-y-auto`}>
+        <ul 
+          ref={listRef}
+          className={`divide-y divide-gray-200 ${listHeight} overflow-y-auto`}
+        >
           {filteredScales.map((scale, index) => {
             const isFavorite = isScaleFavorite(scale);
             const isSelected = index === selectedIndex;

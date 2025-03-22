@@ -597,12 +597,12 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       </div>
 
       {/* Main Content Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12">
         {/* Left Sidebar - Scale Selection and Info */}
-        <div className="lg:col-span-6 space-y-4">
-          <div className="bg-white rounded-lg shadow-sm">
+        <div className="lg:col-span-6">
+          <div className="bg-white rounded-lg">
             {/* Scale List - now with integrated family selector */}
-            <div className="p-3">
+            <div className="gap-2">
               {isLoadingFamily ? (
                 <div className="flex justify-center items-center h-32">
                   <div className="flex items-center space-x-2">
