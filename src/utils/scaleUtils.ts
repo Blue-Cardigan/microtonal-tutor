@@ -312,7 +312,7 @@ export const invertChord = (notes: number[], inversion: number, autoInversionVal
   if (notes.length <= 1) return [...notes];
   
   // Create a copy of the notes array
-  let result = [...notes];
+  const result = [...notes];
   
   // Apply the specified inversion if not root position
   if (inversion > 0 && inversion < notes.length) {

@@ -48,7 +48,7 @@ export interface ScaleData {
 }
 
 export interface ScaleBrowserProps {
-  onHighlightNotes?: (notes: Set<number>) => void;
+  onHighlightNotes?: (notes: Set<number>, source?: 'scale' | 'chord' | 'individual') => void;
   onChordSelect?: (chord: {
     notes: number[];
     type: string;

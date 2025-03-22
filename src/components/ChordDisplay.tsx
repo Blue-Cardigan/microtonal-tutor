@@ -56,11 +56,17 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
   const handleChordMouseUp = () => {
     // Stop all notes with a slight release time for natural decay
     stopAllNotes();
+    
+    // Deselect the chord
+    onChordSelect(null);
   };
   
   const handleChordMouseLeave = () => {
     // Stop notes if mouse leaves the chord button while held down
     stopAllNotes();
+    
+    // Deselect the chord
+    onChordSelect(null);
   };
   
   return (
@@ -185,7 +191,7 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
           onClick={() => setUseTraditionalChords(!useTraditionalChords)}
           className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md border border-gray-200 flex justify-between items-center"
         >
-          <span>Show intervallic analysis alternatives</span>
+          <span>Intervallic Alternatives</span>
           <svg 
             className={`w-4 h-4 transform transition-transform ${!useTraditionalChords ? 'rotate-180' : ''}`}
             viewBox="0 0 20 20"
@@ -238,15 +244,7 @@ const ChordDisplay: React.FC<ChordDisplayProps> = ({
                 Intervals: {selectedChord.intervals.join(', ')}
               </p>
             </div>
-            <button
-              onClick={() => onPlayChord(selectedChord)}
-              className="p-1.5 text-indigo-600 hover:text-indigo-700 transition-colors"
-              title="Replay chord"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-              </svg>
-            </button>
+            
           </div>
         </div>
       )}

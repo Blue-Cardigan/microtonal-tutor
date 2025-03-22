@@ -14,10 +14,8 @@ import { loadScaleData, extractCategories, filterAndSortScales } from '../utils/
 
 // Import components
 import ViewModeToggle from './ViewModeToggle';
-import ScaleSearchFilter from './ScaleSearchFilter';
 import FamilySelector from './FamilySelector';
 import ScaleList from './ScaleList';
-import ScaleInfo from './ScaleInfo';
 import ChordDisplay from './ChordDisplay';
 import AdvancedScaleSearch from './AdvancedScaleSearch';
 
@@ -142,7 +140,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     
     // Update highlighted notes
     if (onHighlightNotes) {
-      onHighlightNotes(new Set(selectedScale.degrees));
+      onHighlightNotes(new Set(selectedScale.degrees), 'scale');
     }
     
     // Clear any selected chord when scale changes
@@ -166,15 +164,58 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     scheduledEvents.forEach(id => Tone.Transport.clear(id));
     setScheduledEvents([]);
     
+    // Ensure all previously playing notes are stopped
+    stopAllNotes(0.1);
+    
+    // Clear any previous highlights before starting
+    if (onHighlightNotes) {
+      console.log("Clearing all highlights before scale playback");
+      onHighlightNotes(new Set(), 'scale');
+    }
+    
     const notes = selectedScale.degrees;
     const now = Tone.now();
     const duration = 0.3;
     const spacing = 0.35;
     
+    console.log("Starting scale playback with notes:", notes);
+    
+    // Track whether the component is still mounted
+    let isMounted = true;
+    
+    // Set initial highlighted note (first note of the scale) with a small delay
+    // to ensure it's visible before the first note plays
+    setTimeout(() => {
+      if (!isMounted) return; // Don't update if unmounted
+      
+      if (onHighlightNotes && notes.length > 0) {
+        console.log("Highlighting first note:", notes[0]);
+        onHighlightNotes(new Set([notes[0]]), 'scale');
+      }
+    }, 50); // Small delay to ensure UI updates before sound plays
+    
     // Schedule notes to play in sequence
     const newEvents: number[] = [];
     notes.forEach((note, index) => {
       const time = now + (index * spacing);
+      
+      // For all notes, schedule highlighting to happen just before the note plays
+      // (including the first note, as a backup in case the setTimeout above fails)
+      const highlightTime = Math.max(now, time - 0.08); // At least 80ms before note plays
+      const highlightEventId = Tone.Transport.schedule(() => {
+        if (!isMounted) return; // Don't update if unmounted
+        
+        if (onHighlightNotes) {
+          console.log(`Highlighting note ${note} at index ${index}`);
+          onHighlightNotes(new Set([note]), 'scale');
+        }
+      }, highlightTime);
+      
+      if (highlightEventId !== undefined) {
+        newEvents.push(highlightEventId);
+      }
+      
+      // Schedule the actual note playback
       const eventId = scheduleNote(note, time, duration);
       if (eventId !== undefined) {
         newEvents.push(eventId);
@@ -186,21 +227,75 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     // Schedule a callback to update the playing state when done
     const totalDuration = (notes.length * spacing) + 0.1;
     const timerId = window.setTimeout(() => {
+      if (!isMounted) return; // Don't update if unmounted
+      
       setIsPlaying(false);
+      
+      console.log("Scale playback complete, stopping all notes");
+      
+      // Ensure all notes are stopped to clear blue highlights
+      stopAllNotes(0.1);
+      
+      // Clear highlighted notes first (prevents flashing of scale notes)
+      if (onHighlightNotes) {
+        console.log("Clearing scale highlights");
+        onHighlightNotes(new Set(), 'scale');
+      }
+      
+      // Small delay to prevent UI flash, then reset to showing the full scale
+      setTimeout(() => {
+        if (!isMounted) return; // Don't update if unmounted
+        
+        // Reset highlighted notes to show all scale degrees when done
+        if (selectedScale && onHighlightNotes) {
+          console.log("Resetting scale highlights to show full scale");
+          onHighlightNotes(new Set(selectedScale.degrees), 'scale');
+        }
+      }, 200);
     }, totalDuration * 1000);
     
     return () => {
+      // Mark as unmounted
+      isMounted = false;
+      
+      // Clear all timeouts and scheduled events
       clearTimeout(timerId);
       newEvents.forEach(id => Tone.Transport.clear(id));
+      
+      // Also ensure we stop all notes 
+      stopAllNotes(0.1);
+      
+      // And clear highlighted notes
+      if (onHighlightNotes) {
+        onHighlightNotes(new Set(), 'scale');
+      }
     };
-  }, [selectedScale, isPlaying, isLoaded, scheduleNote, scheduledEvents]);
+  }, [selectedScale, isPlaying, isLoaded, scheduleNote, scheduledEvents, onHighlightNotes, stopAllNotes]);
+  
+  const enhancedStopAllNotes = useCallback((releaseTime?: number) => {
+    // First, stop all notes using the audio context's stopAllNotes
+    stopAllNotes(releaseTime);
+    
+    // Then, deselect the chord
+    setSelectedChord(null);
+    
+    // Also notify parent about chord deselection
+    if (onChordSelect) {
+      onChordSelect(null);
+    }
+    
+    // If a scale is selected, highlight scale degrees
+    if (selectedScale && onHighlightNotes) {
+      onHighlightNotes(new Set(selectedScale.degrees), 'scale');
+    }
+  }, [stopAllNotes, onChordSelect, onHighlightNotes, selectedScale]);
   
   // Play a chord
   const playChord = useCallback((chord: Chord) => {
     if (!isLoaded) return;
     
     // Stop any currently playing notes
-    stopAllNotes();
+    enhancedStopAllNotes();
     
     // Apply inversion if needed
     let notesToPlay = [...chord.notes];
@@ -221,7 +316,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     
     // Update highlighted notes
     if (onHighlightNotes) {
-      onHighlightNotes(new Set(notesToPlay));
+      onHighlightNotes(new Set(notesToPlay), 'chord');
     }
     
     // Notify parent component about chord selection
@@ -235,7 +330,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     
     // Update selected chord state
     setSelectedChord(chord);
-  }, [isLoaded, stopAllNotes, playNote, onHighlightNotes, onChordSelect, currentInversion, useAutoInversion]);
+  }, [isLoaded, enhancedStopAllNotes, playNote, onHighlightNotes, onChordSelect, currentInversion, useAutoInversion]);
   
   // Handle chord selection
   const handleChordSelect = useCallback((chord: Chord | null) => {
@@ -244,7 +339,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     if (!chord) {
       // If deselecting a chord, highlight the scale notes again
       if (selectedScale && onHighlightNotes) {
-        onHighlightNotes(new Set(selectedScale.degrees));
+        onHighlightNotes(new Set(selectedScale.degrees), 'scale');
       }
       
       // Notify parent component about chord deselection
@@ -253,24 +348,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       }
     }
   }, [selectedScale, onHighlightNotes, onChordSelect]);
-  
-  // Handle previous scale selection
-  const handlePrevScale = useCallback(() => {
-    if (filteredScales.length === 0) return;
-    
-    const newIndex = (scaleIndex - 1 + filteredScales.length) % filteredScales.length;
-    setScaleIndex(newIndex);
-    setSelectedScale(filteredScales[newIndex]);
-  }, [filteredScales, scaleIndex]);
-  
-  // Handle next scale selection
-  const handleNextScale = useCallback(() => {
-    if (filteredScales.length === 0) return;
-    
-    const newIndex = (scaleIndex + 1) % filteredScales.length;
-    setScaleIndex(newIndex);
-    setSelectedScale(filteredScales[newIndex]);
-  }, [filteredScales, scaleIndex]);
   
   // Handle family change
   const handleFamilyChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -308,7 +385,23 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       
       const key = e.key.toLowerCase();
       
-      // Prevent duplicate key events
+      // Only handle keys that are specifically used in ScaleBrowser
+      // Check if this is a key we want to handle in this component
+      const scaleNavigationKeys = ['arrowleft', 'arrowright', ' ', 'p'];
+      const chordKeys = ['1', '2', '3', '4', '5', '6', '7']; 
+      const inversionKeys = ['8', '9', '0', '-', '=']; 
+      
+      const isScaleBrowserKey = 
+        scaleNavigationKeys.includes(key) || 
+        chordKeys.includes(key) || 
+        inversionKeys.includes(key);
+      
+      if (!isScaleBrowserKey) {
+        // Let other key handlers in the app process this key
+        return;
+      }
+      
+      // Prevent duplicate key events only for ScaleBrowser-specific keys
       if (activeKeys.has(key)) return;
       
       const newActiveKeys = new Set(activeKeys);
@@ -316,12 +409,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       setActiveKeys(newActiveKeys);
       
       // Handle navigation keys
-      if (key === 'arrowleft') {
-        handlePrevScale();
-      } else if (key === 'arrowright') {
-        handleNextScale();
-      } else if (key === ' ' || key === 'p') {
-        // Space or P to play the scale
+      if (key === ' ') {
         e.preventDefault();
         playScale();
       }
@@ -374,6 +462,21 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     const handleKeyUp = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
       
+      // Only process keys that ScaleBrowser handles
+      const scaleNavigationKeys = ['arrowleft', 'arrowright', ' ', 'p'];
+      const chordKeys = ['1', '2', '3', '4', '5', '6', '7']; 
+      const inversionKeys = ['8', '9', '0', '-', '=']; 
+      
+      const isScaleBrowserKey = 
+        scaleNavigationKeys.includes(key) || 
+        chordKeys.includes(key) || 
+        inversionKeys.includes(key);
+      
+      if (!isScaleBrowserKey) {
+        // Let other key handlers in the app process this key
+        return;
+      }
+      
       const newActiveKeys = new Set(activeKeys);
       newActiveKeys.delete(key);
       setActiveKeys(newActiveKeys);
@@ -381,7 +484,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       // Stop chord playback when a chord key (1-7) is released
       const chordKeyMatch = key.match(/^[1-7]$/);
       if (chordKeyMatch && key === lastChordKey) {
-        stopAllNotes(0.2); // Stop with a short release time for a natural decay
+        enhancedStopAllNotes(0.2); // Stop with a short release time for a natural decay
         setLastChordKey(null);
       }
     };
@@ -396,8 +499,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   }, [
     activeKeys, 
     playScale, 
-    handlePrevScale, 
-    handleNextScale, 
     generatedChords, 
     useSeventhChords, 
     selectedChord, 
@@ -405,7 +506,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     currentInversion,
     useAutoInversion,
     lastChordKey,
-    stopAllNotes,
+    enhancedStopAllNotes,
     useTraditionalChords,
   ]);
 
@@ -428,9 +529,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   if (!selectedScale) {
     return (
       <div>
-        {/* View Mode Toggle */}
-        <ViewModeToggle viewMode={viewMode} setViewMode={setViewMode} />
-        
         {/* Search and Filter Section */}
         <div className={`${viewMode === 'basic' ? 'hidden' : ''}`}>
           <AdvancedScaleSearch
@@ -499,42 +597,15 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <h2 className="text-2xl font-bold text-gray-900">Scale Browser</h2>
-        <ViewModeToggle viewMode={viewMode} setViewMode={setViewMode} />
       </div>
 
       {/* Main Content Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Sidebar - Scale Selection and Info */}
-        <div className="lg:col-span-4 space-y-4">
+        <div className="lg:col-span-6 space-y-4">
           <div className="bg-white rounded-lg shadow-sm">
             {/* Scale Selection Header */}
             <div className="p-3 border-b border-gray-200">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-base font-semibold text-gray-800">Scale Selection</h3>
-                <div className="flex items-center space-x-1">
-                  <button
-                    onClick={handlePrevScale}
-                    className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-                    disabled={isPlaying}
-                    title="Previous Scale"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={handleNextScale}
-                    className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-                    disabled={isPlaying}
-                    title="Next Scale"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
               <FamilySelector
                 families={families}
                 selectedFamily={selectedFamily}
@@ -543,34 +614,23 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
               />
             </div>
 
-            {/* Scale List */}
-            {viewMode === 'advanced' && (
-              <div className="p-3 border-b border-gray-200">
-                <ScaleList
-                  scales={filteredScales}
-                  selectedIndex={scaleIndex}
-                  onSelectScale={handleScaleSelect}
-                  familyName={scaleData.families[selectedFamily].name}
-                />
-              </div>
-            )}
-
-            {/* Scale Info */}
-            {selectedScale && (
-              <div className="p-3">
-                <ScaleInfo
-                  scale={selectedScale}
-                  isPlaying={isPlaying}
-                  isLoaded={isLoaded}
-                  playScale={playScale}
-                />
-              </div>
-            )}
+            {/* Scale List - now with integrated info */}
+            <div className="p-3">
+              <ScaleList
+                scales={filteredScales}
+                selectedIndex={scaleIndex}
+                onSelectScale={handleScaleSelect}
+                familyName={scaleData.families[selectedFamily].name}
+                isPlaying={isPlaying}
+                isLoaded={isLoaded}
+                playScale={playScale}
+              />
+            </div>
           </div>
         </div>
 
         {/* Main Content Area - Chord Display */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-6">
           <div className="bg-white rounded-lg shadow-sm">
             <ChordDisplay
               triads={generatedChords.triads}
@@ -588,7 +648,7 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
               setUseAutoInversion={setUseAutoInversion}
               onChordSelect={handleChordSelect}
               onPlayChord={playChord}
-              stopAllNotes={stopAllNotes}
+              stopAllNotes={enhancedStopAllNotes}
             />
           </div>
         </div>

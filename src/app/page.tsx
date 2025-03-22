@@ -1,12 +1,122 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
-import { AudioProvider } from '../utils/AudioContext';
+import React, { useState, useCallback, useEffect } from 'react';
+import { AudioProvider, useAudio, SoundSource } from '../utils/AudioContext';
 import Keyboard from '../components/Keyboard';
 import ScaleBrowser from '../components/ScaleBrowser';
 import ChordVisualizer from '../components/ChordVisualizer';
 import CircleVisualizer from '../components/CircleVisualizer';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+
+// Sound Source Toggle Component
+const SoundSourceToggle = () => {
+  const { soundSource, setSoundSource } = useAudio();
+  
+  return (
+    <div className="flex flex-col items-center">
+      <div className="flex items-center gap-0.5 bg-gray-100 p-0.5 rounded-lg shadow-sm" title="Select sound source">
+        <button
+          onClick={() => setSoundSource('rhodes')}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+            soundSource === 'rhodes' 
+              ? 'bg-white text-indigo-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-800 hover:bg-gray-200'
+          }`}
+          title="Rhodes piano sample"
+        >
+          {/* Piano icon */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <line x1="2" y1="10" x2="22" y2="10" />
+            <line x1="8" y1="4" x2="8" y2="20" />
+            <line x1="16" y1="4" x2="16" y2="20" />
+          </svg>
+          <span>Rhodes</span>
+        </button>
+        <button
+          onClick={() => setSoundSource('synth')}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+            soundSource === 'synth' 
+              ? 'bg-white text-indigo-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-800 hover:bg-gray-200'
+          }`}
+          title="Synthesized sound"
+        >
+          {/* Wave icon */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 12c0-3.5 5-3.5 5 0s5-3.5 5 0 5-3.5 5 0" />
+          </svg>
+          <span>Synth</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Add at the top of the file after imports
+const DebugState = () => {
+  const { activeNotes } = useAudio();
+  const [highlightedNotes, setHighlightedNotes] = useState<Set<number>>(new Set());
+  const [highlightSource, setHighlightSource] = useState<string | null>(null);
+  const [refreshCounter, setRefreshCounter] = useState(0);
+  
+  // Get the global highlightedNotes from the parent component
+  useEffect(() => {
+    const updateFromDOM = () => {
+      const homeComponent = document.querySelector('[data-debug-highlighted]');
+      if (homeComponent) {
+        const notesString = homeComponent.getAttribute('data-debug-highlighted');
+        const sourceString = homeComponent.getAttribute('data-debug-source');
+        
+        if (notesString) {
+          try {
+            const notesArray = JSON.parse(notesString);
+            setHighlightedNotes(new Set(notesArray));
+          } catch (e) {
+            console.error('Failed to parse debug data for notes', e);
+          }
+        }
+        
+        if (sourceString) {
+          setHighlightSource(sourceString);
+        }
+      }
+    };
+    
+    // Initial update
+    updateFromDOM();
+    
+    // Set up an interval to refresh the values
+    const intervalId = setInterval(() => {
+      updateFromDOM();
+      setRefreshCounter(prev => prev + 1);
+    }, 500);
+    
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+  
+  if (process.env.NODE_ENV !== 'development') return null;
+  
+  return (
+    <div className="fixed top-0 right-0 bg-white p-2 shadow-md z-50 text-xs max-w-64 overflow-auto">
+      <div className="text-gray-400 text-xs">Refreshed: {refreshCounter}</div>
+      <div>
+        <strong>Active Notes: </strong>
+        {Array.from(activeNotes).join(', ') || 'None'}
+      </div>
+      <div>
+        <strong>Highlighted Notes: </strong>
+        {Array.from(highlightedNotes).join(', ') || 'None'}
+      </div>
+      <div>
+        <strong>Highlight Source: </strong>
+        {highlightSource || 'None'}
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   // Use useCallback for state setters to prevent unnecessary re-renders
@@ -22,10 +132,16 @@ export default function Home() {
   } | null>(null);
   const [showScale, setShowScale] = useState<boolean>(true);
   const [isKeyboardExpanded, setIsKeyboardExpanded] = useState<boolean>(true);
+  // New flag to track the source of highlighted notes
+  const [highlightSource, setHighlightSource] = useState<'scale' | 'chord' | 'individual' | null>(null);
+
+  // Access audio functions for cleanup
+  const { stopAllNotes } = useAudio();
 
   // Memoize these handlers to prevent them from changing on every render
-  const handleHighlightNotes = useCallback((notes: Set<number>) => {
+  const handleHighlightNotes = useCallback((notes: Set<number>, source: 'scale' | 'chord' | 'individual' = 'scale') => {
     setHighlightedNotes(notes);
+    setHighlightSource(source);
   }, []);
 
   const handleChordSelect = useCallback((chord: {
@@ -34,18 +150,57 @@ export default function Home() {
     degreeRoman: string;
   } | null) => {
     setSelectedChord(chord);
+    // If selecting a chord, update the highlight source
+    if (chord) {
+      setHighlightSource('chord');
+    }
   }, []);
 
   const handleScaleSelect = useCallback((scale: {
     name: string;
     degrees: number[];
   } | null) => {
+    // Clear any active blue highlights when changing scales
+    stopAllNotes(0.1);
+    
     setSelectedScale(scale);
-  }, []);
+    // If selecting a new scale, make sure highlight source is 'scale'
+    if (scale) {
+      setHighlightSource('scale');
+    }
+  }, [stopAllNotes]);
+
+  // Cleanup effect when toggling scale visibility
+  useEffect(() => {
+    // When the user toggles the scale visibility, ensure active notes are cleared
+    stopAllNotes(0.1);
+    
+    // Update highlighted notes based on showScale toggle
+    if (selectedScale) {
+      if (showScale) {
+        // Show scale degrees when showScale is true
+        console.log('Home: Enabling scale highlights');
+        setHighlightedNotes(new Set(selectedScale.degrees));
+        setHighlightSource('scale');
+      } else {
+        // Clear highlight notes when showScale is false
+        console.log('Home: Disabling scale highlights');
+        setHighlightedNotes(new Set());
+        // Keep highlightSource as 'scale' so components know the context
+        setHighlightSource('scale');
+      }
+    }
+  }, [showScale, stopAllNotes, selectedScale]);
 
   return (
     <AudioProvider>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-48">
+      <div 
+        className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-48"
+        data-debug-highlighted={JSON.stringify(Array.from(highlightedNotes))}
+        data-debug-source={highlightSource}
+      >
+        {process.env.NODE_ENV === 'development' && <DebugState />}
+        
         <header className="bg-white shadow-sm">
           <div className="container mx-auto px-4 py-4">
             <h1 className="text-3xl font-bold text-indigo-700">31-EDO Explorer</h1>
@@ -73,13 +228,6 @@ export default function Home() {
             
             {/* Chord Visualizer - Takes up 1/3 of the width on large screens */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="p-4">
-                  <h2 className="text-xl font-bold text-gray-800 mb-3">Interval Visualizer</h2>
-                  <ChordVisualizer selectedChord={selectedChord} />
-                </div>
-              </div>
-              
               {/* Circle Visualizer */}
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="p-4">
@@ -87,7 +235,14 @@ export default function Home() {
                     highlightedNotes={highlightedNotes}
                     selectedScale={selectedScale}
                     showScale={showScale}
+                    highlightSource={highlightSource}
                   />
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div className="p-4">
+                  <h2 className="text-xl font-bold text-gray-800 mb-3">Interval Visualizer</h2>
+                  <ChordVisualizer selectedChord={selectedChord} />
                 </div>
               </div>
             </div>
@@ -144,6 +299,11 @@ export default function Home() {
                         />
                       </button>
                     </div>
+                    
+                    {/* Add the Sound Source Toggle */}
+                    <div onClick={(e) => e.stopPropagation()} className="ml-2 pl-2 border-l border-gray-200">
+                      <SoundSourceToggle />
+                    </div>
                   </>
                 )}
               </div>
@@ -156,6 +316,8 @@ export default function Home() {
                 highlightedNotes={highlightedNotes} 
                 selectedScale={selectedScale}
                 showScale={showScale}
+                highlightSource={highlightSource}
+                onHighlightNotes={handleHighlightNotes}
               />
               <div className="flex justify-between items-center mt-1 text-xs text-gray-500">
                 <div>Use computer keyboard (Q-], A-\, Z-/) to play notes, 1-7 to play chords and 8, 9, 0, -, = for inversions. Hold <span className="font-bold">Shift</span> for higher octave. 

@@ -28,31 +28,89 @@ interface KeyboardProps {
     degrees: number[];
   } | null;
   showScale: boolean;
+  highlightSource?: 'scale' | 'chord' | 'individual' | null;
+  onHighlightNotes?: (notes: Set<number>, source: 'scale' | 'chord' | 'individual') => void;
 }
 
-const Keyboard = ({ highlightedNotes, selectedScale, showScale }: KeyboardProps) => {
+const Keyboard = ({ 
+  highlightedNotes, 
+  selectedScale, 
+  showScale, 
+  highlightSource, 
+  onHighlightNotes 
+}: KeyboardProps) => {
   const { playNote, stopNote, activeNotes, isLoaded } = useAudio();
   const [keyboardActive, setKeyboardActive] = useState<{ [key: string]: boolean }>({});
   const [octaveShift, setOctaveShift] = useState<number>(0);
   const [localHighlightedNotes, setLocalHighlightedNotes] = useState<Set<number>>(new Set());
 
+  // Helper for playing individual notes
+  const playIndividualNote = useCallback((noteStep: number) => {
+    playNote(noteStep);
+    
+    // Signal to parent that this is an individual note being played
+    if (onHighlightNotes) {
+      console.log('Keyboard: Signaling individual note play to parent');
+      onHighlightNotes(new Set(), 'individual');
+    }
+    
+    // Clear local highlighted notes
+    setLocalHighlightedNotes(new Set());
+  }, [playNote, onHighlightNotes]);
+
   // Sync our local highlighted notes with the prop and activeNotes
   useEffect(() => {
-    // If we have external highlighted notes (from a scale or chord)
-    if (highlightedNotes && highlightedNotes.size > 0) {
-      // Only use the highlightedNotes if we have active notes playing
-      // This ensures chord tones only show when they're actually sounding
-      if (activeNotes.size > 0) {
-        setLocalHighlightedNotes(highlightedNotes);
+    // This is a key useEffect for managing highlights
+    console.log(`Keyboard: Highlight source changed to: ${highlightSource}, highlightedNotes size: ${highlightedNotes?.size || 0}, activeNotes size: ${activeNotes.size}, showScale: ${showScale}`);
+    
+    // Make sure highlightedNotes is defined
+    const notes = highlightedNotes || new Set<number>();
+    
+    // Case 1: Playing individual notes - we don't want to show scale highlights
+    if (highlightSource === 'individual') {
+      console.log('Keyboard: Playing individual notes - clearing all highlights');
+      setLocalHighlightedNotes(new Set());
+      return;
+    }
+    
+    // Case 2: For scale-related highlights, respect the showScale toggle
+    if (highlightSource === 'scale') {
+      if (showScale) {
+        if (notes.size > 0) {
+          // Sequential highlights during scale playback or full scale display
+          console.log('Keyboard: Setting highlights from scale with showScale true');
+          setLocalHighlightedNotes(new Set(notes));
+        } else if (selectedScale) {
+          // No specific highlights but we have a scale and showScale is true
+          console.log('Keyboard: Showing full scale with no specific highlights');
+          setLocalHighlightedNotes(new Set(selectedScale.degrees));
+        }
       } else {
-        // When notes stop playing, clear our local highlights
+        // showScale is false, don't show any scale highlights
+        console.log('Keyboard: Scale highlights disabled by showScale toggle');
         setLocalHighlightedNotes(new Set());
       }
-    } else {
-      // If no external highlights, clear local ones
-      setLocalHighlightedNotes(new Set());
+      return;
     }
-  }, [highlightedNotes, activeNotes]);
+    
+    // Case 3: Chord selection - always show chord highlights regardless of showScale
+    if (highlightSource === 'chord' && notes.size > 0) {
+      console.log('Keyboard: Setting highlights from chord selection');
+      setLocalHighlightedNotes(new Set(notes));
+      return;
+    }
+    
+    // Case 4: Actively playing notes but no external highlights
+    if (activeNotes.size > 0 && notes.size === 0) {
+      console.log('Keyboard: Playing notes but no external highlights - clearing highlights');
+      setLocalHighlightedNotes(new Set());
+      return;
+    }
+    
+    // Case 5: Default case - clear highlights
+    console.log('Keyboard: No specific case matched - clearing highlights');
+    setLocalHighlightedNotes(new Set());
+  }, [highlightSource, highlightedNotes, activeNotes, selectedScale, showScale]);
 
   // Generate all keys for the keyboard (single octave + top C)
   const generateKeys = useCallback(() => {
@@ -80,17 +138,29 @@ const Keyboard = ({ highlightedNotes, selectedScale, showScale }: KeyboardProps)
   // Handle keyboard input
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Handle octave shift with Shift key
-      if (e.key === 'Shift') {
-        setOctaveShift(1);
+      // Skip if only certain modifier keys are pressed without a normal key
+      if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'Meta') {
+        // Handle octave shift with Shift key
+        if (e.key === 'Shift') {
+          setOctaveShift(1);
+        }
         return;
       }
 
+      // Skip if we're in a text input
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      // Check if this is for regular note input
       const key = e.key.toLowerCase();
-      if (KEYBOARD_MAPPING[key] !== undefined && !keyboardActive[key]) {
+      if (KEYBOARD_MAPPING[key] !== undefined) {
         const noteStep = KEYBOARD_MAPPING[key];
-        playNote(noteStep);
-        setKeyboardActive(prev => ({ ...prev, [key]: true }));
+        if (!keyboardActive[key]) {
+          // Play the individual note using our helper
+          playIndividualNote(noteStep);
+          setKeyboardActive(prev => ({ ...prev, [key]: true }));
+        }
       }
     };
 
@@ -116,7 +186,7 @@ const Keyboard = ({ highlightedNotes, selectedScale, showScale }: KeyboardProps)
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [playNote, stopNote, keyboardActive, KEYBOARD_MAPPING]);
+  }, [playIndividualNote, stopNote, keyboardActive, KEYBOARD_MAPPING]);
 
   if (!isLoaded) {
     return <div className="flex justify-center items-center h-40 bg-gray-100 rounded-lg">Loading keyboard...</div>;
@@ -154,29 +224,57 @@ const Keyboard = ({ highlightedNotes, selectedScale, showScale }: KeyboardProps)
             ? 31 * (keyWidth + keyGap) // Position at the end
             : stepInOctave * (keyWidth + keyGap);
           
+          // Determine background color class with more distinct highlighting for scale playback
+          let bgColorClass = '';
+          if (isWhite) {
+            if (isHighlighted) {
+              // More vibrant green for highlighted notes
+              bgColorClass = 'bg-green-400 border-2 border-green-500';
+            } else if (isActive) {
+              bgColorClass = 'bg-blue-200';
+            } else if (isScaleNote) {
+              bgColorClass = 'bg-indigo-100';
+            } else {
+              bgColorClass = 'bg-white';
+            }
+          } else {
+            if (isHighlighted) {
+              // More vibrant green for highlighted notes
+              bgColorClass = 'bg-green-500 border-2 border-green-400';
+            } else if (isActive) {
+              bgColorClass = 'bg-blue-700';
+            } else if (isScaleNote) {
+              bgColorClass = 'bg-indigo-500';
+            } else {
+              bgColorClass = 'bg-gray-800';
+            }
+          }
+          
           return (
             <div
               key={noteStep}
               className={`
                 absolute rounded-b-md
-                ${isWhite 
-                  ? (isActive ? 'bg-blue-200' : isHighlighted ? 'bg-green-100' : isScaleNote ? 'bg-indigo-100' : 'bg-white') 
-                  : (isActive ? 'bg-blue-700' : isHighlighted ? 'bg-green-600' : isScaleNote ? 'bg-indigo-500' : 'bg-gray-800')}
+                ${bgColorClass}
                 ${isWhite ? 'h-4/5 z-0' : 'h-3/5 z-10'}
                 ${isWhite ? 'text-black' : 'text-white'}
                 flex flex-col justify-end items-center pb-1 cursor-pointer select-none
-                shadow-md hover:shadow-lg transition-shadow
+                shadow-md hover:shadow-lg transition-all duration-75
               `}
               style={{ 
                 left: `${position}%`,
                 width: `${keyWidth}%`,
               }}
-              onMouseDown={() => playNote(noteStep)}
+              onMouseDown={() => {
+                // Use our helper for playing individual notes
+                playIndividualNote(noteStep);
+              }}
               onMouseUp={() => stopNote(noteStep)}
               onMouseLeave={() => activeNotes.has(noteStep) && stopNote(noteStep)}
               onTouchStart={(e) => {
                 e.preventDefault();
-                playNote(noteStep);
+                // Use our helper for playing individual notes
+                playIndividualNote(noteStep);
               }}
               onTouchEnd={(e) => {
                 e.preventDefault();
