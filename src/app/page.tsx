@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { AudioProvider, useAudio, SoundSource } from '../utils/AudioContext';
+import { AudioProvider, useAudio } from '../utils/AudioContext';
 import Keyboard from '../components/Keyboard';
 import ScaleBrowser from '../components/ScaleBrowser';
 import ChordVisualizer from '../components/ChordVisualizer';
@@ -179,12 +179,10 @@ export default function Home() {
     if (selectedScale) {
       if (showScale) {
         // Show scale degrees when showScale is true
-        console.log('Home: Enabling scale highlights');
         setHighlightedNotes(new Set(selectedScale.degrees));
         setHighlightSource('scale');
       } else {
         // Clear highlight notes when showScale is false
-        console.log('Home: Disabling scale highlights');
         setHighlightedNotes(new Set());
         // Keep highlightSource as 'scale' so components know the context
         setHighlightSource('scale');

@@ -1,10 +1,99 @@
 import { ScaleData, Scale } from '../types/scale';
 import { formatName } from './IntervalUtils';
 
+// Cache for family metadata
+let familyMetadataCache: Record<string, { name: string, count: number }> | null = null;
+
+// Cache for loaded scales by family
+const scalesByFamilyCache: Record<string, Scale[]> = {};
+
+// Load just the family metadata (names and counts)
+export const loadScaleFamilies = async (): Promise<Record<string, { name: string, count: number }>> => {
+  // Return from cache if available
+  if (familyMetadataCache) {
+    return familyMetadataCache;
+  }
+  
+  try {
+    console.log("Loading scale family metadata...");
+    
+    // Load just metadata from a new endpoint
+    const response = await fetch('/data/scale-families-metadata.json');
+    
+    // If the metadata endpoint doesn't exist yet, fall back to calculating it
+    if (!response.ok) {
+      const fullData = await loadScaleData();
+      
+      // Create metadata from full data
+      const metadata: Record<string, { name: string, count: number }> = {};
+      Object.entries(fullData.families).forEach(([key, family]) => {
+        metadata[key] = {
+          name: family.name,
+          count: family.scales.length
+        };
+      });
+      
+      familyMetadataCache = metadata;
+      return metadata;
+    }
+    
+    const metadata = await response.json();
+    console.log("Metadata loaded:", metadata);
+    familyMetadataCache = metadata;
+    return metadata;
+    
+  } catch (error) {
+    console.error('Error loading scale family metadata:', error);
+    throw error;
+  }
+};
+
+// Load scales for a specific family
+export const loadScalesForFamily = async (familyName: string): Promise<Scale[]> => {
+  // Return from cache if available
+  if (scalesByFamilyCache[familyName]) {
+    return scalesByFamilyCache[familyName];
+  }
+  
+  try {
+    
+    // Fall back to loading from the appropriate main file
+    if (familyName === "Modes") {
+      const response = await fetch('/data/modes.json');
+      const scales = await response.json();
+      scalesByFamilyCache[familyName] = scales;
+      return scales;
+    }
+    
+    // Check cultural data
+    const culturalResponse = await fetch('/data/CulturalEtc.json');
+    const culturalData = await culturalResponse.json();
+    if (culturalData[familyName]) {
+      scalesByFamilyCache[familyName] = culturalData[familyName];
+      return culturalData[familyName];
+    }
+    
+    // Check extra scales data
+    const extraResponse = await fetch('/data/extraScales.json');
+    const extraData = await extraResponse.json();
+    if (extraData[familyName]) {
+      scalesByFamilyCache[familyName] = extraData[familyName];
+      return extraData[familyName];
+    }
+    
+    // If we got here, we couldn't find the family
+    console.error(`Could not find scales for family: ${familyName}`);
+    return [];
+    
+  } catch (error) {
+    console.error(`Error loading scales for family ${familyName}:`, error);
+    throw error;
+  }
+};
+
 // Load scale data from multiple sources
 export const loadScaleData = async (): Promise<ScaleData> => {
   try {
-    console.log("Starting to load scale data...");
     
     // Load scales from all three files
     const [modesResponse, culturalResponse, extraResponse] = await Promise.all([
@@ -133,9 +222,20 @@ export const filterAndSortScales = (
       if (scale.categories) {
         for (const [category, values] of Object.entries(scale.categories)) {
           if (category.toLowerCase().includes(term)) return true;
-          if (values.some(value => value.toLowerCase().includes(term))) return true;
+          if (values.some(value => value.toString().toLowerCase().includes(term))) return true;
         }
       }
+      
+      // Search in properties
+      if (scale.properties) {
+        for (const [property, value] of Object.entries(scale.properties)) {
+          if (property.toLowerCase().includes(term)) return true;
+          if (value.toString().toLowerCase().includes(term)) return true;
+        }
+      }
+      
+      // Search in intervals
+      if (scale.intervals && scale.intervals.join('-').includes(term)) return true;
       
       return false;
     });
@@ -144,10 +244,14 @@ export const filterAndSortScales = (
   // Filter by category
   if (selectedCategory !== 'all') {
     filtered = filtered.filter(scale => {
-      if (!scale.categories) return false;
+      // Check categories
+      if (scale.categories && Object.keys(scale.categories).includes(selectedCategory)) {
+        return true;
+      }
       
-      for (const category of Object.keys(scale.categories)) {
-        if (category === selectedCategory) return true;
+      // Check properties
+      if (scale.properties && Object.keys(scale.properties).includes(selectedCategory)) {
+        return true;
       }
       
       return false;
@@ -174,10 +278,15 @@ export const filterAndSortScales = (
     }
     
     if (sortBy === 'brightness') {
-      // Calculate brightness based on interval content
-      // Higher values of intervals = brighter scale
-      const brightnessA = a.intervals.reduce((sum, interval) => sum + interval, 0);
-      const brightnessB = b.intervals.reduce((sum, interval) => sum + interval, 0);
+      // Use properties.brightness if available
+      const brightnessA = typeof a.properties?.brightness === 'number' 
+        ? a.properties.brightness 
+        : a.intervals.reduce((sum, interval) => sum + interval, 0) / a.intervals.length;
+      
+      const brightnessB = typeof b.properties?.brightness === 'number'
+        ? b.properties.brightness
+        : b.intervals.reduce((sum, interval) => sum + interval, 0) / b.intervals.length;
+      
       return sortDirection === 'asc' ? brightnessA - brightnessB : brightnessB - brightnessA;
     }
     

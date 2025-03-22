@@ -5,26 +5,32 @@ import { useAudio } from '../utils/AudioContext';
 import * as Tone from 'tone';
 
 // Import types
-import { Scale, Chord, ScaleBrowserProps, ScaleData } from '../types/scale';
+import { Scale, Chord, ScaleBrowserProps } from '../types/scale';
 
 // Import utility functions
 import { invertChord } from '../utils/scaleUtils';
 import { generateChordsForScale } from '../utils/chordUtils';
-import { loadScaleData, extractCategories, filterAndSortScales } from '../utils/dataUtils';
+import { 
+  loadScaleFamilies, 
+  loadScalesForFamily, 
+  extractCategories, 
+  filterAndSortScales 
+} from '../utils/dataUtils';
 
 // Import components
-import ViewModeToggle from './ViewModeToggle';
-import FamilySelector from './FamilySelector';
 import ScaleList from './ScaleList';
 import ChordDisplay from './ChordDisplay';
+// Kept for future use but currently unused
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import AdvancedScaleSearch from './AdvancedScaleSearch';
 
 const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSelect, onScaleSelect }) => {
   const { playNote, stopAllNotes, scheduleNote, isLoaded } = useAudio();
   
   // Core data state
-  const [scaleData, setScaleData] = useState<ScaleData | null>(null);
   const [families, setFamilies] = useState<string[]>([]);
+  // Used for future feature but currently not implemented
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
   
   // Selection state
@@ -37,7 +43,9 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   // UI state
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [activeKeys, setActiveKeys] = useState<Set<string>>(new Set());
-  const [viewMode, setViewMode] = useState<'basic' | 'advanced'>('basic');
+  // Kept for future toggle between basic and advanced modes
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [viewMode] = useState<'basic' | 'advanced'>('basic');
   
   // Chord state
   const [useSeventhChords, setUseSeventhChords] = useState<boolean>(false);
@@ -55,53 +63,97 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
   // Scheduled events tracking
   const [scheduledEvents, setScheduledEvents] = useState<number[]>([]);
   
-  // Load scale data on component mount
+  // Modified state to support lazy loading
+  const [familyMetadata, setFamilyMetadata] = useState<Record<string, { name: string, count: number }>>({});
+  const [currentFamilyScales, setCurrentFamilyScales] = useState<Scale[]>([]);
+  const [isLoadingFamily, setIsLoadingFamily] = useState<boolean>(false);
+  
+  // Change this check to use families instead of scaleData
+  const [isInitialLoading, setIsInitialLoading] = useState<boolean>(true);
+  
+  // Load family metadata on component mount (lightweight operation)
   useEffect(() => {
-    const fetchScaleData = async () => {
+    const loadInitialData = async () => {
       try {
-        const data = await loadScaleData();
-        setScaleData(data);
+        setIsInitialLoading(true);
+        // Only load the family metadata first (lightweight)
+        const familyData = await loadScaleFamilies();
+        setFamilies(Object.keys(familyData));
+        setFamilyMetadata(familyData);
         
-        // Get family names
-        const familyNames = Object.keys(data.families);
-        setFamilies(familyNames);
-        
-        // Extract available categories
-        const categories = extractCategories(data);
-        setAvailableCategories(categories);
-        
-        // Set default selections
-        if (familyNames.length > 0) {
-          setSelectedFamily(familyNames[0]);
-          const firstFamily = data.families[familyNames[0]];
-          if (firstFamily.scales.length > 0) {
-            setSelectedScale(firstFamily.scales[0]);
-          }
+        // Set default selections for family
+        if (Object.keys(familyData).length > 0) {
+          const firstFamily = Object.keys(familyData)[0];
+          setSelectedFamily(firstFamily);
         }
       } catch (error) {
-        console.error('Error loading scale data:', error);
+        console.error('Error loading scale family metadata:', error);
+      } finally {
+        setIsInitialLoading(false);
       }
     };
     
-    fetchScaleData();
+    loadInitialData();
   }, []);
   
-  // Calculate filtered scales using useMemo to prevent unnecessary recalculations
-  const filteredScales = useMemo(() => {
-    if (!scaleData || !selectedFamily || !scaleData.families[selectedFamily]) {
-      return [];
-    }
+  // Load scales for selected family when it changes
+  useEffect(() => {
+    const loadFamilyScales = async () => {
+      if (!selectedFamily) return;
+      
+      try {
+        setIsLoadingFamily(true);
+        // Load scales only for the selected family
+        const scales = await loadScalesForFamily(selectedFamily);
+        setCurrentFamilyScales(scales);
+        
+        // Set default selected scale
+        if (scales.length > 0) {
+          setSelectedScale(scales[0]);
+          setScaleIndex(0);
+        } else {
+          setSelectedScale(null);
+          setScaleIndex(-1);
+        }
+        
+        // Extract categories from current family scales
+        const categories = extractCategories({ 
+          title: "31-EDO Scales", 
+          families: { [selectedFamily]: { name: familyMetadata[selectedFamily]?.name || selectedFamily, scales } } 
+        });
+        setAvailableCategories(categories);
+        
+      } catch (error) {
+        console.error(`Error loading scales for family ${selectedFamily}:`, error);
+      } finally {
+        setIsLoadingFamily(false);
+      }
+    };
     
-    const scales = scaleData.families[selectedFamily].scales;
+    loadFamilyScales();
+    
+    // Reset filters when changing families
+    setSearchTerm('');
+    setSelectedCategory('all');
+    setNoteCount(null);
+  }, [selectedFamily, familyMetadata]);
+  
+  // Calculate filtered scales using useMemo (optimized to use currentFamilyScales)
+  const filteredScales = useMemo(() => {
     return filterAndSortScales(
-      scales,
+      currentFamilyScales,
       searchTerm,
       selectedCategory,
       noteCount,
       sortBy,
       sortDirection
     );
-  }, [scaleData, selectedFamily, searchTerm, selectedCategory, noteCount, sortBy, sortDirection]);
+  }, [currentFamilyScales, searchTerm, selectedCategory, noteCount, sortBy, sortDirection]);
+  
+  // Update handleFamilyChange to be callback-friendly
+  const handleFamilyChange = useCallback((family: string) => {
+    setSelectedFamily(family);
+  }, []);
   
   // Update selected scale index when filtered scales change
   useEffect(() => {
@@ -169,7 +221,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     
     // Clear any previous highlights before starting
     if (onHighlightNotes) {
-      console.log("Clearing all highlights before scale playback");
       onHighlightNotes(new Set(), 'scale');
     }
     
@@ -177,8 +228,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     const now = Tone.now();
     const duration = 0.3;
     const spacing = 0.35;
-    
-    console.log("Starting scale playback with notes:", notes);
     
     // Track whether the component is still mounted
     let isMounted = true;
@@ -189,7 +238,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       if (!isMounted) return; // Don't update if unmounted
       
       if (onHighlightNotes && notes.length > 0) {
-        console.log("Highlighting first note:", notes[0]);
         onHighlightNotes(new Set([notes[0]]), 'scale');
       }
     }, 50); // Small delay to ensure UI updates before sound plays
@@ -206,7 +254,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
         if (!isMounted) return; // Don't update if unmounted
         
         if (onHighlightNotes) {
-          console.log(`Highlighting note ${note} at index ${index}`);
           onHighlightNotes(new Set([note]), 'scale');
         }
       }, highlightTime);
@@ -231,14 +278,11 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       
       setIsPlaying(false);
       
-      console.log("Scale playback complete, stopping all notes");
-      
       // Ensure all notes are stopped to clear blue highlights
       stopAllNotes(0.1);
       
       // Clear highlighted notes first (prevents flashing of scale notes)
       if (onHighlightNotes) {
-        console.log("Clearing scale highlights");
         onHighlightNotes(new Set(), 'scale');
       }
       
@@ -248,7 +292,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
         
         // Reset highlighted notes to show all scale degrees when done
         if (selectedScale && onHighlightNotes) {
-          console.log("Resetting scale highlights to show full scale");
           onHighlightNotes(new Set(selectedScale.degrees), 'scale');
         }
       }, 200);
@@ -303,7 +346,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     if (useAutoInversion) {
       // Auto-inversion to keep notes within an octave
       notesToPlay = invertChord(chord.notes, 0, 1);
-      console.log('Auto-inverted chord:', notesToPlay);
     } else if (currentInversion > 0) {
       // Manual inversion
       notesToPlay = invertChord(chord.notes, currentInversion);
@@ -348,17 +390,6 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
       }
     }
   }, [selectedScale, onHighlightNotes, onChordSelect]);
-  
-  // Handle family change
-  const handleFamilyChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const family = e.target.value;
-    setSelectedFamily(family);
-    
-    // Reset filters when changing families
-    setSearchTerm('');
-    setSelectedCategory('all');
-    setNoteCount(null);
-  }, []);
   
   // Handle scale selection from the list
   const handleScaleSelect = useCallback((scale: Scale, index: number) => {
@@ -510,8 +541,8 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     useTraditionalChords,
   ]);
 
-  // Render loading state
-  if (!scaleData) {
+  // Update the loading state check
+  if (isInitialLoading) {
     return (
       <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg animate-pulse">
         <div className="flex items-center space-x-2">
@@ -525,70 +556,36 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
     );
   }
 
-  // Handle case where we have scaleData but no selectedScale
+  // Handle case where we have no selected scale (but families are loaded)
   if (!selectedScale) {
     return (
       <div>
-        {/* Search and Filter Section */}
-        <div className={`${viewMode === 'basic' ? 'hidden' : ''}`}>
-          <AdvancedScaleSearch
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            availableCategories={availableCategories}
-            noteCount={noteCount}
-            setNoteCount={setNoteCount}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            sortDirection={sortDirection}
-            setSortDirection={setSortDirection}
-            filteredScalesCount={filteredScales.length}
-            resetFilters={resetFilters}
-            scales={filteredScales}
-          />
-        </div>
-        
-        <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg">
-          <div className="text-center p-4">
-            <div className="text-red-500 font-medium mb-2">No scales found matching your criteria</div>
-            <div className="text-gray-600 text-sm mb-4">
-              Try adjusting your search terms or filters.
-              <br />
-              <span className="text-xs mt-2 block">
-                Debug info: {families.length} families available, 
-                {selectedFamily ? ` "${selectedFamily}" selected` : " no family selected"}
-              </span>
-            </div>
-            
-            {/* Family selection dropdown */}
-            <div className="mb-4">
-              <label htmlFor="family-select-empty" className="block text-sm font-medium text-gray-700 mb-1">
-                Select a different scale family:
-              </label>
-              <select
-                id="family-select-empty"
-                className="w-full p-2 border text-gray-800 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                value={selectedFamily}
-                onChange={handleFamilyChange}
-              >
-                {families.map(family => (
-                  <option key={family} value={family}>
-                    {scaleData.families[family].name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <button
-              onClick={resetFilters}
-              className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+          {/* Family selection dropdown */}
+          <div className="mb-4">
+            <label htmlFor="family-select-empty" className="block text-sm font-medium text-gray-700 mb-1">
+              Select a different scale family:
+            </label>
+            <select
+              id="family-select-empty"
+              className="w-full p-2 border text-gray-800 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              value={selectedFamily}
+              onChange={(e) => handleFamilyChange(e.target.value)}
             >
-              Reset Filters
-            </button>
+              {families.map(family => (
+                <option key={family} value={family}>
+                  {familyMetadata[family]?.name || family}
+                </option>
+              ))}
+            </select>
           </div>
+          
+          <button
+            onClick={resetFilters}
+            className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+          >
+            Reset Filters
+          </button>
         </div>
-      </div>
     );
   }
 
@@ -604,27 +601,36 @@ const ScaleBrowser: React.FC<ScaleBrowserProps> = ({ onHighlightNotes, onChordSe
         {/* Left Sidebar - Scale Selection and Info */}
         <div className="lg:col-span-6 space-y-4">
           <div className="bg-white rounded-lg shadow-sm">
-            {/* Scale Selection Header */}
-            <div className="p-3 border-b border-gray-200">
-              <FamilySelector
-                families={families}
-                selectedFamily={selectedFamily}
-                onFamilyChange={handleFamilyChange}
-                scaleData={scaleData}
-              />
-            </div>
-
-            {/* Scale List - now with integrated info */}
+            {/* Scale List - now with integrated family selector */}
             <div className="p-3">
-              <ScaleList
-                scales={filteredScales}
-                selectedIndex={scaleIndex}
-                onSelectScale={handleScaleSelect}
-                familyName={scaleData.families[selectedFamily].name}
-                isPlaying={isPlaying}
-                isLoaded={isLoaded}
-                playScale={playScale}
-              />
+              {isLoadingFamily ? (
+                <div className="flex justify-center items-center h-32">
+                  <div className="flex items-center space-x-2">
+                    <svg className="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span className="text-gray-600">Loading scales...</span>
+                  </div>
+                </div>
+              ) : (
+                <ScaleList
+                  scales={filteredScales}
+                  selectedIndex={scaleIndex}
+                  onSelectScale={handleScaleSelect}
+                  familyName={familyMetadata[selectedFamily]?.name || selectedFamily}
+                  isPlaying={isPlaying}
+                  isLoaded={isLoaded}
+                  playScale={playScale}
+                  families={families}
+                  selectedFamily={selectedFamily}
+                  onFamilyChange={handleFamilyChange}
+                  scaleData={{ 
+                    title: "31-EDO Scales", 
+                    families: familyMetadata as Record<string, { name: string, count: number, scales: Scale[] }>
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>

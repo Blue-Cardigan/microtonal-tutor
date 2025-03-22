@@ -50,7 +50,6 @@ const Keyboard = ({
     
     // Signal to parent that this is an individual note being played
     if (onHighlightNotes) {
-      console.log('Keyboard: Signaling individual note play to parent');
       onHighlightNotes(new Set(), 'individual');
     }
     
@@ -61,14 +60,12 @@ const Keyboard = ({
   // Sync our local highlighted notes with the prop and activeNotes
   useEffect(() => {
     // This is a key useEffect for managing highlights
-    console.log(`Keyboard: Highlight source changed to: ${highlightSource}, highlightedNotes size: ${highlightedNotes?.size || 0}, activeNotes size: ${activeNotes.size}, showScale: ${showScale}`);
     
     // Make sure highlightedNotes is defined
     const notes = highlightedNotes || new Set<number>();
     
     // Case 1: Playing individual notes - we don't want to show scale highlights
     if (highlightSource === 'individual') {
-      console.log('Keyboard: Playing individual notes - clearing all highlights');
       setLocalHighlightedNotes(new Set());
       return;
     }
@@ -78,16 +75,13 @@ const Keyboard = ({
       if (showScale) {
         if (notes.size > 0) {
           // Sequential highlights during scale playback or full scale display
-          console.log('Keyboard: Setting highlights from scale with showScale true');
           setLocalHighlightedNotes(new Set(notes));
         } else if (selectedScale) {
           // No specific highlights but we have a scale and showScale is true
-          console.log('Keyboard: Showing full scale with no specific highlights');
           setLocalHighlightedNotes(new Set(selectedScale.degrees));
         }
       } else {
         // showScale is false, don't show any scale highlights
-        console.log('Keyboard: Scale highlights disabled by showScale toggle');
         setLocalHighlightedNotes(new Set());
       }
       return;
@@ -95,20 +89,17 @@ const Keyboard = ({
     
     // Case 3: Chord selection - always show chord highlights regardless of showScale
     if (highlightSource === 'chord' && notes.size > 0) {
-      console.log('Keyboard: Setting highlights from chord selection');
       setLocalHighlightedNotes(new Set(notes));
       return;
     }
     
     // Case 4: Actively playing notes but no external highlights
     if (activeNotes.size > 0 && notes.size === 0) {
-      console.log('Keyboard: Playing notes but no external highlights - clearing highlights');
       setLocalHighlightedNotes(new Set());
       return;
     }
     
     // Case 5: Default case - clear highlights
-    console.log('Keyboard: No specific case matched - clearing highlights');
     setLocalHighlightedNotes(new Set());
   }, [highlightSource, highlightedNotes, activeNotes, selectedScale, showScale]);
 

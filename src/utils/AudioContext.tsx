@@ -58,7 +58,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     setActiveNotes(prev => {
       const newSet = new Set(prev);
       newSet.delete(note);
-      console.log(`👈 After removing note ${note}, active notes: [${Array.from(newSet).join(', ')}]`);
       return newSet;
     });
     
@@ -80,9 +79,12 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
+      // ESLint doesn't recognize that we're safely capturing the ref value
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const currentTimeoutIds = timeoutIds.current;
       // Clear all timeouts
-      timeoutIds.current.forEach(id => clearTimeout(id));
-      timeoutIds.current.clear();
+      currentTimeoutIds.forEach(id => clearTimeout(id));
+      currentTimeoutIds.clear();
     };
   }, []);
 
@@ -94,7 +96,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       await Tone.start();
       // Make sure the Transport is started for scheduled events
       if (Tone.Transport.state !== "started") {
-        console.log("🎵 Starting Tone.Transport");
         Tone.Transport.start();
       }
     };
@@ -236,7 +237,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     }
   }, [synth, sampler, soundSource, synthLoaded, samplerLoaded, stepToFrequency, playingNotes]);
 
-  const stopNote = useCallback((note: number, releaseTime: number = 0.1) => {
+  const stopNote = useCallback((note: number) => {
     // Determine which sound source to use
     const usingRhodes = soundSource === 'rhodes' && sampler && samplerLoaded;
     const usingSynth = soundSource === 'synth' && synth && synthLoaded;
@@ -273,7 +274,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     }
   }, [synth, sampler, soundSource, synthLoaded, samplerLoaded, playingNotes]);
 
-  const stopAllNotes = useCallback((releaseTime: number = 0.1) => {
+  const stopAllNotes = useCallback(() => {
     // Determine which sound source to use
     const usingRhodes = soundSource === 'rhodes' && sampler && samplerLoaded;
     const usingSynth = soundSource === 'synth' && synth && synthLoaded;
@@ -281,7 +282,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     if (!usingRhodes && !usingSynth) return;
     
     try {
-      console.log("⚠️ Stopping ALL notes and clearing state");
       
       // Release all notes with the appropriate sound source
       if (usingRhodes) {
@@ -311,16 +311,11 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     if (!usingRhodes && !usingSynth) return;
     
     try {
-      const freq = stepToFrequency(note);
-      
-      // Log scheduling information
-      console.log(`🎵 Scheduling note ${note} at time ${time.toFixed(2)} for duration ${duration.toFixed(2)}`);
-      
+      const freq = stepToFrequency(note);      
       // Add to active notes immediately for visual feedback
       setActiveNotes(prev => {
         const newSet = new Set(prev);
         newSet.add(note);
-        console.log(`👉 Adding note ${note} to activeNotes, now active: [${Array.from(newSet).join(', ')}]`);
         return newSet;
       });
       
@@ -333,18 +328,15 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       
       // Schedule removal from active notes using Tone.Transport for precise timing
       const endTime = time + duration;
-      console.log(`🔄 Scheduling cleanup for note ${note} at time ${endTime.toFixed(2)}`);
       
       // We'll use both a Transport event and a setTimeout as a backup
       const eventId = Tone.Transport.schedule(() => {
-        console.log(`🛑 Removing note ${note} from activeNotes at time ${Tone.now().toFixed(2)} via Transport`);
         cleanupNote(note);
       }, endTime);
       
       // Backup cleanup with setTimeout in case Transport events are unreliable
       const msTime = (endTime - Tone.now()) * 1000 + 50; // Add 50ms buffer
       const timerId = window.setTimeout(() => {
-        console.log(`🛑 Backup cleanup for note ${note} at time ${Tone.now().toFixed(2)} via setTimeout`);
         cleanupNote(note);
       }, msTime);
       

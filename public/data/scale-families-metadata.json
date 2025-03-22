@@ -1,0 +1,38 @@
+{
+  "Modes": {
+    "name": "Modes",
+    "count": 91
+  },
+  "nonSequentialHeptatonic": {
+    "name": "Non Sequential Heptatonic",
+    "count": 4858
+  },
+  "variableCardinality": {
+    "name": "Variable Cardinality",
+    "count": 3147
+  },
+  "cultural": {
+    "name": "Cultural",
+    "count": 50
+  },
+  "wellFormed": {
+    "name": "Well Formed",
+    "count": 2
+  },
+  "hybrid": {
+    "name": "Hybrid",
+    "count": 48
+  },
+  "xenharmonic": {
+    "name": "Xenharmonic",
+    "count": 82
+  },
+  "historical": {
+    "name": "Historical",
+    "count": 42
+  },
+  "transformed": {
+    "name": "Transformed",
+    "count": 23
+  }
+}

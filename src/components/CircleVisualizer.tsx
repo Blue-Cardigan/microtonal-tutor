@@ -18,8 +18,8 @@ const CircleVisualizer: React.FC<CircleVisualizerProps> = ({
   showScale,
   highlightSource
 }) => {
-  const { activeNotes, playNote, stopNote } = useAudio();
-  const [useCircleOfFifths, setUseCircleOfFifths] = useState(false);
+  const { playNote } = useAudio();
+  const [, setUseCircleOfFifths] = useState(false);
   const [showConnections, setShowConnections] = useState(true);
   const [localHighlightedNotes, setLocalHighlightedNotes] = useState<Set<number>>(new Set());
   const [rotationAngle, setRotationAngle] = useState(0);
@@ -50,11 +50,9 @@ const CircleVisualizer: React.FC<CircleVisualizerProps> = ({
         if (showScale) {
           const normalizedNotes = new Set(Array.from(highlightedNotes).map(note => note === 31 ? 0 : note % 31));
           setLocalHighlightedNotes(normalizedNotes);
-          console.log('CircleVisualizer: showing scale highlights');
         } else {
           // Scale highlighting is turned off
           setLocalHighlightedNotes(new Set());
-          console.log('CircleVisualizer: scale highlights disabled by showScale toggle');
         }
       } else {
         // Default case: don't highlight anything
@@ -65,19 +63,20 @@ const CircleVisualizer: React.FC<CircleVisualizerProps> = ({
       // Show all scale degrees
       const normalizedScaleNotes = new Set(selectedScale.degrees.map(note => note === 31 ? 0 : note % 31));
       setLocalHighlightedNotes(normalizedScaleNotes);
-      console.log('CircleVisualizer: showing full scale');
     } else {
       // No external highlights or showScale is false, clear local ones
       setLocalHighlightedNotes(new Set());
-      console.log('CircleVisualizer: cleared all highlights');
     }
   }, [highlightedNotes, highlightSource, showScale, selectedScale]);
 
   // Clean up animation on unmount
   useEffect(() => {
     return () => {
-      if (animationRef.current !== null) {
-        cancelAnimationFrame(animationRef.current);
+      // ESLint doesn't recognize that we're safely capturing the ref value
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const currentAnimationRef = animationRef.current;
+      if (currentAnimationRef !== null) {
+        cancelAnimationFrame(currentAnimationRef);
       }
     };
   }, []);

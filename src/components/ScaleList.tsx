@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Scale } from '../types/scale';
 import { formatName } from '../utils/IntervalUtils';
 
@@ -10,6 +10,13 @@ interface ScaleListProps {
   isPlaying: boolean;
   isLoaded: boolean;
   playScale: () => void;
+  families: string[];
+  selectedFamily: string;
+  onFamilyChange: (family: string) => void;
+  scaleData: { 
+    title: string, 
+    families: Record<string, { name: string, count: number, scales?: Scale[] }> 
+  } | null;
 }
 
 const ScaleList: React.FC<ScaleListProps> = ({ 
@@ -19,7 +26,11 @@ const ScaleList: React.FC<ScaleListProps> = ({
   familyName,
   isPlaying,
   isLoaded,
-  playScale
+  playScale,
+  families,
+  selectedFamily,
+  onFamilyChange,
+  scaleData
 }) => {
   const [scrollToStart, setScrollToStart] = useState(true);
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -63,6 +74,11 @@ const ScaleList: React.FC<ScaleListProps> = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Memoize this function to prevent it from changing on every render
+  const isScaleFavorite = useCallback((scale: Scale): boolean => {
+    return favorites.includes(scale.name);
+  }, [favorites]);
   
   // Apply filters when any filter criteria changes
   useEffect(() => {
@@ -105,7 +121,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
     });
     
     setFilteredScales(result);
-  }, [scales, localSearchTerm, showOnlyFavorites, noteCount, sortBy, sortDirection]);
+  }, [scales, localSearchTerm, showOnlyFavorites, noteCount, sortBy, sortDirection, isScaleFavorite]);
   
   // Toggle a scale as favorite
   const toggleFavorite = (scale: Scale, e?: React.MouseEvent) => {
@@ -120,11 +136,6 @@ const ScaleList: React.FC<ScaleListProps> = ({
         return [...prevFavorites, scale.name];
       }
     });
-  };
-  
-  // Check if a scale is a favorite
-  const isScaleFavorite = (scale: Scale): boolean => {
-    return favorites.includes(scale.name);
   };
   
   // Reset filters
@@ -176,25 +187,6 @@ const ScaleList: React.FC<ScaleListProps> = ({
   useEffect(() => {
     setScrollToStart(true);
   }, [selectedIndex]);
-  
-  // Format brightness as a percentage
-  const formatBrightness = (brightness: number | undefined): string => {
-    if (brightness === undefined) return 'N/A';
-    
-    const percentage = Math.round(brightness * 100);
-    return `${percentage}%`;
-  };
-  
-  // Format perfection value safely
-  const formatPerfection = (perfection: string | number | boolean | undefined): string => {
-    if (perfection === undefined) return 'N/A';
-    
-    if (typeof perfection === 'number') {
-      return perfection.toFixed(2);
-    }
-    
-    return String(perfection);
-  };
 
   // Calculate list height
   const listHeight = 'max-h-[800px]'; // unified height regardless of mode
@@ -205,9 +197,6 @@ const ScaleList: React.FC<ScaleListProps> = ({
   
   // Check if any filters are active
   const isFilterActive = localSearchTerm !== '' || showOnlyFavorites || noteCount !== null || sortBy !== 'name' || sortDirection !== 'asc';
-  
-  // Get the currently selected scale
-  const selectedScale = filteredScales[selectedIndex];
   
   return (
     <div className="bg-white rounded-md shadow-sm border border-gray-200 mt-2">
@@ -281,6 +270,25 @@ const ScaleList: React.FC<ScaleListProps> = ({
                           Reset
                         </button>
                       )}
+                    </div>
+                    
+                    {/* Family selection dropdown */}
+                    <div className="mb-3">
+                      <label htmlFor="family-filter" className="block text-xs font-medium text-gray-700 mb-1">
+                        Scale Family
+                      </label>
+                      <select
+                        id="family-filter"
+                        className="w-full pl-3 pr-8 py-1.5 text-sm text-gray-800 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                        value={selectedFamily}
+                        onChange={(e) => onFamilyChange(e.target.value)}
+                      >
+                        {families.map(family => (
+                          <option key={family} value={family}>
+                            {scaleData?.families[family]?.name || family}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     
                     {/* Search box */}
@@ -404,7 +412,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
                     <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-        </span>
+              </span>
             )}
             
             {(sortBy !== 'name' || sortDirection !== 'asc') && (
@@ -422,7 +430,7 @@ const ScaleList: React.FC<ScaleListProps> = ({
                     <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-        </span>
+              </span>
             )}
           </div>
         )}
